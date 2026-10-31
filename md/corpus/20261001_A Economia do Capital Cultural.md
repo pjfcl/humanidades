@@ -1,11 +1,11 @@
 ---
 title: A Economia do Capital Cultural
 source: https://cyan-fly-576061.hostingersite.com/a-economia-do-capital-cultural/
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2026-10-01
 published: 2026-10-01
 created: 2026-10-24
-description: Missiva a um Artífice. Car@ amig@, Escrevo-te estas linhas ao final da jornada, quando o ruído do dia finalmente amaina, a bancada fica limpa e o pensamento encontra espaço para serenar. Fiquei a
+summary: "Carta a um artífice acerca do capital cultural." 
 tags:
   - alienação
   - artífice
@@ -17,8 +17,7 @@ tags:
   - Pierre Bourdieu
   - Raymond Williams
   - Stuart Hall
-categories:
-  - Tintura
+category: Tintura
 word_count: 882
 outline:
   - "## Missiva a um Artífice."
