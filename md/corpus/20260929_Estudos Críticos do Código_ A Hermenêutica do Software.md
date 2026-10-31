@@ -19,9 +19,6 @@ outline:
   - "### ​Hiperligações e Recursos de Investigação"
 ---
 
-# Estudos Críticos do Código: A Hermenêutica do Software
-
-# **(CCS - Critical Code Studies)**
 
 Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico.
 
