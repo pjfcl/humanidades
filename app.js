@@ -6,41 +6,44 @@
 
 function parseMarkdown(text) {
     const cleanText = text.replace(/^\uFEFF/, '');
+    
+    // Tentar extração via jsyaml se houver frontmatter delimitado por ---
+    let meta = {};
+    let content = cleanText;
+
     const regex = /^\s*---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
     const match = cleanText.match(regex);
-    
+
     if (match) {
         try {
             const rawMeta = jsyaml.load(match[1]) || {};
-            const meta = {};
             for (const key of Object.keys(rawMeta)) {
                 meta[key.toLowerCase()] = rawMeta[key];
                 meta[key] = rawMeta[key];
             }
-            
             if (rawMeta.Title) meta.title = rawMeta.Title;
             if (rawMeta.Date) meta.date = rawMeta.Date;
             if (rawMeta.Category) meta.category = rawMeta.Category;
             if (rawMeta.Summary) meta.summary = rawMeta.Summary;
 
-            let content = match[2].trim();
-            if (content.startsWith('---')) {
-                const secondDash = content.indexOf('---', 3);
-                if (secondDash !== -1) {
-                    content = content.substring(secondDash + 3).trim();
-                }
-            }
-
-            return {
-                meta: meta,
-                content: content
-            };
+            content = match[2].trim();
         } catch (e) {
-            console.error("[Scriptorium] Erro a processar YAML:", e);
+            console.warn("[Scriptorium] Aviso ao carregar YAML via jsyaml, a usar fallback de limpeza de string:", e);
         }
     }
-    
-    return { meta: {}, content: cleanText.trim() };
+
+    // Blindagem extra: se o conteúdo ainda começar com blocos de frontmatter residuais, corta cirurgicamente
+    if (content.startsWith('---')) {
+        const parts = content.split('---');
+        if (parts.length >= 3) {
+            content = parts.slice(2).join('---').trim();
+        }
+    }
+
+    return {
+        meta: meta,
+        content: content
+    };
 }
 
 function resolverUrl(path) {
@@ -91,8 +94,8 @@ async function carregarTodosArtigos() {
                         content: parsed.content
                     });
                 }
-            } catch (e) {
-                console.error(`[Scriptorium] Erro ao aceder ao artigo ${item.path}:`, e);
+            } catch (errItem) {
+                console.error(`[Scriptorium] Erro isolado ao processar o artigo ${item.path}:`, errItem);
             }
         }
     } catch (e) {
@@ -265,15 +268,6 @@ async function router() {
         if (artigo) {
             const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
             
-            // Garantir limpeza absoluta de qualquer bloco de frontmatter ou tags que fiquem no content da vista detalhada
-            let conteudoFinal = artigo.content;
-            if (conteudoFinal.includes('---')) {
-                const parts = conteudoFinal.split('---');
-                if (parts.length > 2) {
-                    conteudoFinal = parts.slice(2).join('---').trim();
-                }
-            }
-
             viewContent.innerHTML = `
                 <article>
                     <div class="breadcrumb" style="margin-bottom: 20px;">
@@ -284,7 +278,7 @@ async function router() {
                         ${artigo.meta.title}
                     </h2>
                     <div class="markdown-body" style="margin-top: 25px; font-size: 1.05rem;">
-                        ${marked.parse(conteudoFinal)}
+                        ${marked.parse(artigo.content)}
                     </div>
                     <div style="margin-top: 45px; border-top: 1px solid var(--border-color); padding-top: 15px;">
                         <a href="index.html" class="font-mono" style="font-size: 0.82rem; color: var(--accent-color); text-decoration: none; font-weight: 600;">&larr; Voltar ao Início</a>
