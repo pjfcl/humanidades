@@ -9,7 +9,6 @@ function parseMarkdown(text) {
     let meta = {};
     let content = cleanText;
 
-    // Regex ultra-tolerante para detetar o bloco de frontmatter entre ---
     const regex = /^\s*---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
     const match = cleanText.match(regex);
 
@@ -17,21 +16,18 @@ function parseMarkdown(text) {
         const rawYaml = match[1];
         content = match[2].trim();
 
-        // Extração de metadatos linha a linha por regex para evitar falhas do parser jsyaml
         const lines = rawYaml.split(/\r?\n/);
         for (const line of lines) {
             const colonIndex = line.indexOf(':');
             if (colonIndex !== -1) {
                 const key = line.substring(0, colonIndex).trim().toLowerCase();
                 let val = line.substring(colonIndex + 1).trim();
-                // Remover aspas envolventes se existirem
                 val = val.replace(/^["'](.*)["']$/, '$1');
                 meta[key] = val;
             }
         }
     }
 
-    // Blindagem extra contra blocos de frontmatter residuais duplicados
     if (content.startsWith('---')) {
         const parts = content.split('---');
         if (parts.length >= 3) {
@@ -39,10 +35,7 @@ function parseMarkdown(text) {
         }
     }
 
-    return {
-        meta: meta,
-        content: content
-    };
+    return { meta, content };
 }
 
 function resolverUrl(path) {
@@ -60,7 +53,7 @@ async function carregarTodosArtigos() {
     try {
         const manifestUrl = resolverUrl('manifest.json');
         const manifestRes = await fetch(manifestUrl);
-        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar manifest.json em ${manifestUrl}`);
+        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar manifest.json`);
         
         const manifestData = await manifestRes.json();
         const entradas = manifestData.artigos || [];
@@ -94,7 +87,7 @@ async function carregarTodosArtigos() {
                     });
                 }
             } catch (errItem) {
-                console.error(`[Scriptorium] Erro isolado ao processar o artigo ${item.path}:`, errItem);
+                console.warn(`[Scriptorium] Erro a carregar ${item.path}:`, errItem);
             }
         }
     } catch (e) {
