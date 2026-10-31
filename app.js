@@ -6,33 +6,32 @@
 
 function parseMarkdown(text) {
     const cleanText = text.replace(/^\uFEFF/, '');
-    
-    // Tentar extração via jsyaml se houver frontmatter delimitado por ---
     let meta = {};
     let content = cleanText;
 
+    // Regex ultra-tolerante para detetar o bloco de frontmatter entre ---
     const regex = /^\s*---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
     const match = cleanText.match(regex);
 
     if (match) {
-        try {
-            const rawMeta = jsyaml.load(match[1]) || {};
-            for (const key of Object.keys(rawMeta)) {
-                meta[key.toLowerCase()] = rawMeta[key];
-                meta[key] = rawMeta[key];
-            }
-            if (rawMeta.Title) meta.title = rawMeta.Title;
-            if (rawMeta.Date) meta.date = rawMeta.Date;
-            if (rawMeta.Category) meta.category = rawMeta.Category;
-            if (rawMeta.Summary) meta.summary = rawMeta.Summary;
+        const rawYaml = match[1];
+        content = match[2].trim();
 
-            content = match[2].trim();
-        } catch (e) {
-            console.warn("[Scriptorium] Aviso ao carregar YAML via jsyaml, a usar fallback de limpeza de string:", e);
+        // Extração de metadatos linha a linha por regex para evitar falhas do parser jsyaml
+        const lines = rawYaml.split(/\r?\n/);
+        for (const line of lines) {
+            const colonIndex = line.indexOf(':');
+            if (colonIndex !== -1) {
+                const key = line.substring(0, colonIndex).trim().toLowerCase();
+                let val = line.substring(colonIndex + 1).trim();
+                // Remover aspas envolventes se existirem
+                val = val.replace(/^["'](.*)["']$/, '$1');
+                meta[key] = val;
+            }
         }
     }
 
-    // Blindagem extra: se o conteúdo ainda começar com blocos de frontmatter residuais, corta cirurgicamente
+    // Blindagem extra contra blocos de frontmatter residuais duplicados
     if (content.startsWith('---')) {
         const parts = content.split('---');
         if (parts.length >= 3) {
@@ -78,8 +77,8 @@ async function carregarTodosArtigos() {
                     const tituloRaw = parsed.meta.title || parsed.meta.Title || item.slug.replace(/^[0-9]+_/, '').replace(/[-_]/g, ' ');
                     const tituloFormatado = String(tituloRaw).charAt(0).toUpperCase() + String(tituloRaw).slice(1);
                     
-                    const dataRaw = parsed.meta.date || parsed.meta.Date || '';
-                    const sumarioRaw = parsed.meta.summary || parsed.meta.Summary || parsed.content.replace(/^#+\s+.*/gm, '').trim().substring(0, 140) + '...';
+                    const dataRaw = parsed.meta.date || parsed.meta.published || parsed.meta.created || '';
+                    const sumarioRaw = parsed.meta.summary || parsed.meta.description || parsed.content.replace(/^#+\s+.*/gm, '').trim().substring(0, 140) + '...';
 
                     artigos.push({
                         path: item.path,
@@ -151,8 +150,8 @@ async function renderizarCapa(artigos) {
 
     escolhidos.forEach(artigo => {
         const linkUrl = `index.html?artigo=${artigo.slug}`;
-        const catLabel = (artigo.meta.category || artigo.meta.Category || artigo.section).toUpperCase();
-        const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
+        const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
+        const dataArtigo = artigo.meta.date || '';
         
         htmlOutput += `
             <a href="${linkUrl}" class="entry-card-link">
@@ -266,14 +265,14 @@ async function router() {
 
         const artigo = artigos.find(a => a.slug === artigoParam);
         if (artigo) {
-            const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
+            const dataArtigo = artigo.meta.date || '';
             
             viewContent.innerHTML = `
                 <article>
                     <div class="breadcrumb" style="margin-bottom: 20px;">
                         <a href="index.html">Início</a> / <span>${artigo.section}</span>
                     </div>
-                    <span class="entry-meta font-mono">${(artigo.meta.category || artigo.meta.Category || artigo.section).toUpperCase()} • ${dataArtigo}</span>
+                    <span class="entry-meta font-mono">${(artigo.meta.category || artigo.section).toUpperCase()} • ${dataArtigo}</span>
                     <h2 class="font-sans" style="font-size: 1.8rem; font-weight: 600; color: var(--text-color); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                         ${artigo.meta.title}
                     </h2>
@@ -313,8 +312,8 @@ async function router() {
         if (filtrados.length > 0) {
             filtrados.forEach(artigo => {
                 const linkUrl = `index.html?artigo=${artigo.slug}`;
-                const catLabel = (artigo.meta.category || artigo.meta.Category || artigo.section).toUpperCase();
-                const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
+                const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
+                const dataArtigo = artigo.meta.date || '';
                 htmlOutput += `
                     <a href="${linkUrl}" class="entry-card-link">
                         <div class="entry-card">
