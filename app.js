@@ -99,7 +99,6 @@ async function carregarTodosArtigos() {
         console.error("[Scriptorium] Erro crítico ao carregar manifesto:", e);
     }
 
-    // Ordenação global por data decrescente
     artigos.sort((a, b) => {
         const d1 = a.meta.date ? new Date(a.meta.date) : new Date(0);
         const d2 = b.meta.date ? new Date(b.meta.date) : new Date(0);
@@ -118,15 +117,13 @@ async function renderizarCapa(artigos) {
         return;
     }
 
-    // Filtragem rigorosa e isolada por categoria/secção para evitar duplicados
-    const sementes = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'semente' || (a.meta.category || '').toLowerCase() === 'semente');
-    const colheitas = artigos.filter(a => a.section === 'corpus' && (a.meta.type || '').toLowerCase() !== 'semente' && (a.meta.type || '').toLowerCase() !== 'tintura' && (a.meta.category || '').toLowerCase() !== 'semente' && (a.meta.category || '').toLowerCase() !== 'tintura');
+    const sementes = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'semente' || (a.meta.category || '').toLowerCase() === 'semente' || (a.meta.categories || '').toLowerCase().includes('semente'));
+    const colheitas = artigos.filter(a => a.section === 'corpus' && !sementes.includes(a) && (a.meta.type || '').toLowerCase() !== 'tintura' && (a.meta.category || '').toLowerCase() !== 'tintura');
     const tinturas = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'tintura' || (a.meta.category || '').toLowerCase() === 'tintura');
     const escola = artigos.filter(a => a.section === 'escola');
     const oficina = artigos.filter(a => a.section === 'oficina');
     const sobre = artigos.filter(a => a.section === 'sobre');
 
-    // Recolher de forma estricta o artigo mais recente de cada ramo sem repetições de slug
     const escolhidos = [];
     const slugsUsados = new Set();
 
@@ -267,6 +264,16 @@ async function router() {
         const artigo = artigos.find(a => a.slug === artigoParam);
         if (artigo) {
             const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
+            
+            // Garantir limpeza absoluta de qualquer bloco de frontmatter ou tags que fiquem no content da vista detalhada
+            let conteudoFinal = artigo.content;
+            if (conteudoFinal.includes('---')) {
+                const parts = conteudoFinal.split('---');
+                if (parts.length > 2) {
+                    conteudoFinal = parts.slice(2).join('---').trim();
+                }
+            }
+
             viewContent.innerHTML = `
                 <article>
                     <div class="breadcrumb" style="margin-bottom: 20px;">
@@ -277,7 +284,7 @@ async function router() {
                         ${artigo.meta.title}
                     </h2>
                     <div class="markdown-body" style="margin-top: 25px; font-size: 1.05rem;">
-                        ${marked.parse(artigo.content)}
+                        ${marked.parse(conteudoFinal)}
                     </div>
                     <div style="margin-top: 45px; border-top: 1px solid var(--border-color); padding-top: 15px;">
                         <a href="index.html" class="font-mono" style="font-size: 0.82rem; color: var(--accent-color); text-decoration: none; font-weight: 600;">&larr; Voltar ao Início</a>
