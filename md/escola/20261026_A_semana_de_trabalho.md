@@ -3,7 +3,7 @@
 Title: "A semana de trabalho "
 Date: "2026-10-26"
 Category: "Estudos Culturais"
-Summary: "Crítica cultural à semana de trabalho."
+Summary: "Crítica cultural da semana de trabalho."
 
 ---
 
