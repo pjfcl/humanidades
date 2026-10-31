@@ -1,12 +1,11 @@
 ---
 title: "Estudos Críticos do Código: A Hermenêutica do Software"
 source: https://cyan-fly-576061.hostingersite.com/estudos-criticos-do-codigo-a-hermeneutica-do-software/
-author:
-  - "Paulo"
+author:"Paulo"
 date: 2026-09-29
 published: 2026-09-29
 created: 2026-09-29
-summary: "(CCS - Critical Code Studies) Os Estudos Críticos do Código (Critical Code Studies — CCS) constituem um campo interdisciplinar dedicado à interpretação do código informático" 
+summary: "Os Estudos Críticos do Código (Critical Code Studies — CCS) constituem um campo interdisciplinar dedicado à interpretação do código informático" 
 tags:
   - Critical Code Studies
   - Estudos Culturais
