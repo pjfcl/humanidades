@@ -118,43 +118,40 @@ async function renderizarCapa(artigos) {
         return;
     }
 
-    // Seleção estrita e exclusiva por ramo para evitar duplicações na capa
+    // Filtragem rigorosa e isolada por categoria/secção para evitar duplicados
     const sementes = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'semente' || (a.meta.category || '').toLowerCase() === 'semente');
-    const colheitas = artigos.filter(a => a.section === 'corpus' && (a.meta.type || '').toLowerCase() !== 'semente' && (a.meta.type || '').toLowerCase() !== 'tintura' && (a.meta.category || '').toLowerCase() !== 'colheita');
-    const colheitaReal = artigos.filter(a => (a.meta.category || '').toLowerCase() === 'colheita' || (a.meta.type || '').toLowerCase() === 'ensaio');
-    const colheitaFinal = colheitaReal.length > 0 ? colheitaReal : colheitas;
-
-    const tinturas = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'tintura' || (a.meta.category || '').toLowerCase() === 'tintura' || (a.meta.category || '').toLowerCase() === 'narrativa');
+    const colheitas = artigos.filter(a => a.section === 'corpus' && (a.meta.type || '').toLowerCase() !== 'semente' && (a.meta.type || '').toLowerCase() !== 'tintura' && (a.meta.category || '').toLowerCase() !== 'semente' && (a.meta.category || '').toLowerCase() !== 'tintura');
+    const tinturas = artigos.filter(a => (a.meta.type || '').toLowerCase() === 'tintura' || (a.meta.category || '').toLowerCase() === 'tintura');
     const escola = artigos.filter(a => a.section === 'escola');
     const oficina = artigos.filter(a => a.section === 'oficina');
     const sobre = artigos.filter(a => a.section === 'sobre');
 
-    // Recolher o mais recente de cada categoria sem repetições
+    // Recolher de forma estricta o artigo mais recente de cada ramo sem repetições de slug
     const escolhidos = [];
-    const idsUsados = new Set();
+    const slugsUsados = new Set();
 
-    const adicionarUnico = (lista) => {
+    const adicionarMaisRecente = (lista) => {
         for (const art of lista) {
-            if (art && !idsUsados.has(art.slug)) {
+            if (art && !slugsUsados.has(art.slug)) {
                 escolhidos.push(art);
-                idsUsados.add(art.slug);
+                slugsUsados.add(art.slug);
                 break;
             }
         }
     };
 
-    adicionarUnico(sementes);
-    adicionarUnico(colheitaFinal);
-    adicionarUnico(tinturas);
-    adicionarUnico(escola);
-    adicionarUnico(oficina);
-    adicionarUnico(sobre);
+    adicionarMaisRecente(sementes);
+    adicionarMaisRecente(colheitas);
+    adicionarMaisRecente(tinturas);
+    adicionarMaisRecente(escola);
+    adicionarMaisRecente(oficina);
+    adicionarMaisRecente(sobre);
 
     let htmlOutput = '';
 
     escolhidos.forEach(artigo => {
         const linkUrl = `index.html?artigo=${artigo.slug}`;
-        const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
+        const catLabel = (artigo.meta.category || artigo.meta.Category || artigo.section).toUpperCase();
         const dataArtigo = artigo.meta.date || artigo.meta.Date || '';
         
         htmlOutput += `
