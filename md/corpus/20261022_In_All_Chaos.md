@@ -1,13 +1,13 @@
 ---
-title: ""
+title: "In All Chaos"
 source: "https://cyan-fly-576061.hostingersite.com/?p=1735"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date 2026-10-22
 published: 2026-10-22
-created: 2026-10-24
+created: 2026-10-22
 description: "” In all chaos there is a cosmos, in all disorder a secret order.”— C.G. Jung"
-categories:
-  - "Biblioteca > Sementes"
+categories: "Biblioteca > Sementes"
+summary: "Aforismo de Jung sobre o caos." 
 word_count: 16
 ---
 
