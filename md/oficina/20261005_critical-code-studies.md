@@ -7,8 +7,6 @@ summary: "Reflexões sobre a leitura hermenêutica do código-fonte, arquitetura
 author: "Paulo Lopes"
 ---
 
-# Critical Code Studies: O Código como Texto
-
 O código de computador não é apenas um conjunto de instruções utilitárias destinadas a executar uma tarefa numa máquina; é um artefato cultural densamente carregado de ideologia, estética e intenção humana.
 
 
