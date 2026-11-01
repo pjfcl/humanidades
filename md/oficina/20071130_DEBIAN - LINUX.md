@@ -2,18 +2,16 @@
 title: "DEBIAN - LINUX"
 source: "https://cyan-fly-576061.hostingersite.com/debian-linux/"
 author:
-  - "[[admin]]"
+  - "Paulo"
 published: 2007-11-30
 created: 2026-10-24
-description: "A comunidade que forma o Projeto Debian tem por objectivo criar um S.O. livre.Este sistema operacional chama-se Debian GNU/Linux, ou simplesmente Debian.As ferramentas que formam o S.O. surgem do"
+summary: "A comunidade que forma o Projeto Debian tem por objectivo criar um S.O. livre.Este sistema operacional chama-se Debian GNU/Linux, ou simplesmente Debian."
 tags:
   - "GNU/Linux"
 categories:
   - "Sem categoria"
 word_count: 91
 ---
-
-# DEBIAN - LINUX
 
 A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).
 
