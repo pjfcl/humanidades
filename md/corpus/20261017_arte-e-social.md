@@ -7,9 +7,7 @@ summary: "Reflexão em torno da inevitabilidade social da criação artística, 
 author: "Paulo Lopes"
 ---
 
-# A Arte é Social
-
-A arte, até quando cultivada num castelo de marfim, permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.
+A arte permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.
 
 > "A arte até num castelo de marfim é social. Não se pode, numa sociedade, escrever poesia ou prosa, vendo-se livre da sociedade."
 > 
