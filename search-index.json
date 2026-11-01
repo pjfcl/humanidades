@@ -66,10 +66,10 @@
     "content": "  A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).  Este sistema operacional chama-se [Debian GNU/Linux](http://www.fr.debian.org/intro/about), ou simplesmente [Debian](http://www.fr.debian.org/releases/stable/).  As ferramentas que formam o S.O. surgem do P[rojeto GNU](http://www.gnu.org/home.pt.html"
   },
   {
-    "title": "Configuração de IP para redes privadas",
+    "title": "20150119_Configuração de IP para redes privadas.md",
     "category": "oficina",
     "url": "/oficina/20150119_Configuração de IP para redes privadas.html",
-    "content": "  # Configuração de IP para redes privadas  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host  ## MÁSCARAS DE RED"
+    "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host  ## MÁSCARAS DE REDE:  (em todas as classes)  -  -  -  -  -  "
   },
   {
     "title": "Oficina",
