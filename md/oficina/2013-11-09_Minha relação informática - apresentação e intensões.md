@@ -2,18 +2,16 @@
 title: "Minha relação informática - apresentação e intensões"
 source: "https://cyan-fly-576061.hostingersite.com/minha-relacao-informatica-apresentacao-e-intensoes/"
 author:
-  - "[[admin]]"
+  - "Paulo"
 published: 2013-11-09
 created: 2026-10-24
-description: "Sou um utilizador do sistema operativo GNU/Linux: Comecei por utilizar Linux, na versão (falhada) da COREL, em 1999, pelo que rapidamente passei a usar a distribuição Debian , à qual me mantive fiel"
+summary: "Sou um utilizador do sistema operativo GNU/Linux desde 1999: Comecei por utilizar a versão da COREL, pelo que rapidamente passei a usar a distribuição Debian, à qual me mantive fiel"
 tags:
   - "GNU/Linux"
 categories:
   - "Sem categoria"
 word_count: 300
 ---
-
-# Minha relação informática - apresentação e intensões
 
 Sou um utilizador do sistema operativo GNU/Linux:
 
