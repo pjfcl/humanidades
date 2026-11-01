@@ -5,7 +5,7 @@ author: "Paulo"
 date: 2026-10-01
 published: 2026-10-01
 created: 2026-10-24
-summary: "Carta a um artífice acerca do capital cultural." 
+summary: "Carta fictícia a um artífice explicando em que consiste o capital cultural." 
 tags:
   - alienação
   - artífice
@@ -22,8 +22,6 @@ word_count: 882
 outline:
   - "## Missiva a um Artífice."
 ---
-
-# A Economia do Capital Cultural
 
 ## **Missiva a um Artífice.**
 
