@@ -1,11 +1,11 @@
 ---
 title: "A Viragem de Birmingham"
 source: "https://cyan-fly-576061.hostingersite.com/a-viragem-de-birmingham/"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2026-10-01
 published: 2026-10-01
 created: 2026-10-24
-description: "Recepção da Mensagem na Cultura Ordinária. Fundada na década de 1960 na Universidade de Birmingham por figuras como Richard Hoggart, Raymond Williams e, mais tarde, Stuart Hall, o CCCS  (Centre for"
+summary: "Recepção da Mensagem na Cultura Ordinária. Universidade de Birmingham; Richard Hoggart, Raymond Williams e Stuart Hall; CCCS  - Centre for Contemporary Cultural Studies"
 tags:
   - "agência"
   - "Antonio Gramsci"
@@ -21,11 +21,10 @@ tags:
   - "modo de vida inteiro"
   - "Raymond Williams"
   - "recepção"
-  - "resitência simbólica"
+  - "resistência simbólica"
   - "Richard Hoggart"
   - "Stuart Hall"
-categories:
-  - "Biblioteca > Colheita"
+category: "Colheita"
 word_count: 1659
 outline:
   - "### 1. A Cultura como «Modo de Vida Inteiro» e o Materialismo Cultural (Raymond Williams)"
@@ -34,9 +33,7 @@ outline:
   - "### Eixos Conceptuais Fundamentais"
 ---
 
-# A Viragem de Birmingham
-
-# Recepção da Mensagem na Cultura Ordinária.
+## Recepção da Mensagem na Cultura Ordinária.
 
 Fundada na década de 1960 na Universidade de Birmingham por figuras como Richard Hoggart, Raymond Williams e, mais tarde, Stuart Hall, o **CCCS  (*Centre for Contemporary Cultural Studies*)** promoveu uma verdadeira revolução no modo de pensar a cultura. Frente ao pessimismo determinista da Escola de Frankfurt — que via na cultura de consumo uma máquina que passificava o público —, os Estudos Culturais britânicos devolveram ao sujeito a sua capacidade de agência e significação.
 
