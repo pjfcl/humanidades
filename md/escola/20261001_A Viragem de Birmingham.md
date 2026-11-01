@@ -24,7 +24,7 @@ tags:
   - "resistência simbólica"
   - "Richard Hoggart"
   - "Stuart Hall"
-category: "Colheita"
+category: "Estudos Culturais"
 word_count: 1659
 outline:
   - "### 1. A Cultura como «Modo de Vida Inteiro» e o Materialismo Cultural (Raymond Williams)"
