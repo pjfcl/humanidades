@@ -72,9 +72,9 @@
     "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
   },
   {
-    "title": "Oficina",
+    "title": "20260920_Oficina.md",
     "category": "oficina",
     "url": "/oficina/20260920_Oficina.html",
-    "content": "  # Oficina  *(em desenvolvimento)*  ## **Fundamentos**  **Linguagem natural** é qualquer idioma ou forma de comunicação criado e desenvolvido de forma espontânea pelos seres humanos ao longo da história, como o português ou o inglês.  Uma **linguagem artificial** é um sistema de comunicação cujas regras, vocabulário e gramática são explicitamente criados e definidos por pessoas antes de ser usado"
+    "content": "  ## **Fundamentos**  **Linguagem natural** é qualquer idioma ou forma de comunicação criado e desenvolvido de forma espontânea pelos seres humanos ao longo da história, como o português ou o inglês.  Uma **linguagem artificial** é um sistema de comunicação cujas regras, vocabulário e gramática são explicitamente criados e definidos por pessoas antes de ser usado, e não por evolução espontânea.  U"
   }
 ]
