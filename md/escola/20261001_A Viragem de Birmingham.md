@@ -67,8 +67,6 @@ A cultura popular deixa, assim, de ser vista como mero terreno de alienação pa
 - **As Culturas Juvenis e o Estilo como Resistência:** Estudadas por autores do CCCS como Dick Hebdige, as subculturas urbanas utilizam o estilo, a vestimenta, os rituais e a música como «bricolage» e insubmissão simbólica frente à norma hegemónica. *(Exemplo: a subversão de objectos do quotidiano pelas subculturas juvenis — como o alfinete de ama convertido em adereço punk ou a apropriação de espaços urbanos devolutos para manifestações de arte rupestre contemporânea — que desarticula o uso utilitário e mercantil do objecto para inscrever um rasto de dissidência política e estética)*.
 - **A Relação entre Ideologia e Aparelhos Culturais:** Os discursos mediáticos, pedagógicos e artísticos tendem a naturalizar a ordem vigente, apresentando os interesses das classes dominantes como o «senso comum» e a «vontade geral» da sociedade. *(Exemplo: o modo como certas narrativas jornalísticas ou publicitárias apelidam as exigências de soberania alimentar, soberania digital ou preservação ecológica como «utópicas» ou «economicamente inviáveis», enquanto os movimentos de base e as oficinas culturais disputam esse senso comum demonstrando, na prática da terra e do código aberto, a viabilidade real de modelos alternativos de existência)*.
 
-![](/assets/img/1791168048266.jpg)
-
 <figure style="text-align: center; margin: 30px 0;">
   <img src="/assets/img/1791168048266.jpg" alt="Descrição da imagem" style="max-width: 100%; height: auto; border-radius: 4px;">
   <figcaption style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;">
