@@ -12,12 +12,6 @@
     "content": "teste md tentativa 1 testar manifest.md 13 "
   },
   {
-    "title": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
-    "category": "corpus",
-    "url": "/corpus/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.html",
-    "content": "   Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico.  ### **​Conceitos e Eixos Fundamentais**  - ​**Sentido Extra-funcional:** O foco de análise não se esgota naquilo que o código executa na máquina (a sua"
-  },
-  {
     "title": "A Arte é Social",
     "category": "corpus",
     "url": "/corpus/20261017_arte-e-social.html",
@@ -46,6 +40,12 @@
     "category": "escola",
     "url": "/escola/20261026_A_semana_de_trabalho.html",
     "content": " --- Title: 'A semana de trabalho ' Date: '2026-10-26' Category: 'Estudos Culturais' Summary: 'Crítica cultural da semana de trabalho.'  ---  ## crítica cultural ### 1. Objeto escolhido O objeto cultural selecionado é a semana de trabalho, entendida como a norma institucional de distribuição do tempo que os indivíduos dedicam ao seu labor profissional. Essa norma estabelece a quantidade e a forma "
+  },
+  {
+    "title": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+    "category": "oficina",
+    "url": "/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.html",
+    "content": "   Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico.  ### **​Conceitos e Eixos Fundamentais**  - ​**Sentido Extra-funcional:** O foco de análise não se esgota naquilo que o código executa na máquina (a sua"
   },
   {
     "title": "Minha relação informática - apresentação e intensões",
