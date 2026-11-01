@@ -29,15 +29,3 @@ outline:
 **Legenda:**  
 R - Rede  
 H - Host
-
-## MÁSCARAS DE REDE:
-
-(em todas as classes)
-
-- 
-- 
-- 
-- 
-- 
-- 
--
