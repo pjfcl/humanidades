@@ -11,7 +11,7 @@ tags:
   - Estudos Culturais
   - humanidades digitais
   - software
-category: "Colheita" 
+category: "Oficina" 
 word_count: 302
 outline:
   - "### ​Conceitos e Eixos Fundamentais"
