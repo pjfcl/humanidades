@@ -31,6 +31,7 @@ outline:
   - "### 2. O Modelo de Codificação/Decodificação (Stuart Hall)"
   - "### 3. A Cultura como Campo de Batalha Ideológico"
   - "### Eixos Conceptuais Fundamentais"
+Image: "cccs-240x240.jpg"
 ---
 
 ## Recepção da Mensagem na Cultura Ordinária.
