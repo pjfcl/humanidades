@@ -15,6 +15,6 @@ summary: "anti-racismo: a voz dos negros"
     </iframe>
 </div>
 
-## a vivência da comunidade negra
+## a vivência dos negros
 
 
