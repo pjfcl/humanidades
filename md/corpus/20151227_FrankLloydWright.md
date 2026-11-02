@@ -1,21 +1,19 @@
 ---
 title: "Frank Lloyd Wright - síntese biográfica"
 source: "https://cyan-fly-576061.hostingersite.com/frank-lloyd-wright-sintese-biografica/"
-author:
-  - "[[admin]]"
+author:"Paulo"
+date: 2015-12-27
 published: 2015-12-27
 created: 2026-10-24
 description: "1867- Frank Lloyd Wright nasce a 8 de Janeiro, no Richard Center, Wiscosin. 1885- Matricula-se na Universidade do Wiscosin, onde permanece durante dois anos, trabalhando para Allan D. Conover,"
+summary: "Biografia condensada do arquitecto Frank Lloyd Wright." 
 tags:
   - "arquitectura"
   - "arte"
   - "história"
-categories:
-  - "Biblioteca > Colheita"
+category: "Colheita"
 word_count: 594
 ---
-
-# Frank Lloyd Wright - síntese biográfica
 
 1867- Frank Lloyd Wright nasce a 8 de Janeiro, no Richard Center, Wiscosin.  
 
