@@ -1,24 +1,20 @@
 ---
 title: "O Sangue Negro de Noémia de Sousa"
 source: "https://cyan-fly-576061.hostingersite.com/o-sangue-negro-de-noemia-de-sousa/"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2023-06-14
 published: 2023-06-14
 created: 2026-10-24
-description: "Noémia de Sousa (1926 - 2002) O universo literário de expressão feminina em Moçambique começou com a poesia de Noémia de Sousa a meio do século XX. A sua voz, ao protestar contra as opressões"
+summary: "A importância de Noémia de Sousa (1926 - 2002) no universo literário de expressão feminina em Moçambique."
 tags:
   - "feminismo"
   - "humanidades"
   - "lieratura africana"
   - "poesia"
-categories:
-  - "Biblioteca > Colheita"
+category: "Colheita"
 word_count: 1003
+image: "noemiadesousa.png
 ---
-
-# O Sangue Negro de Noémia de Sousa
-
-![Noémia de Sousa](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/02/f2c78-noemiadesousa.png)
 
 **Noémia de Sousa (1926 - 2002)**
 
