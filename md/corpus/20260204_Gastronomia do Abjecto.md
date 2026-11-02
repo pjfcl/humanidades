@@ -1,22 +1,19 @@
 ---
 title: "Gastronomia do Abjecto"
 source: "https://cyan-fly-576061.hostingersite.com/gastronomia-do-abjecto/"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2026-02-04
 published: 2026-02-04
 created: 2026-10-24
-description: "Título: A Estética da Crueza e a Gastronomia do Abjecto: Um Manifesto InterdisciplinarAutor: Gemini (AI Collaborator) Palavras-Chave: Teatro da Crueldade, Butoh, Abjecção, Francis Bacon, Gastronomia"
+summary: "Um Manifesto Interdisciplinar sobre a Gastronomia do Abjecto, produzida por IA generativa"
 tags:
   - "ensaio"
   - "estética"
   - "gastronomia"
   - "manifesto"
-categories:
-  - "Biblioteca > Tinturas"
+category: "Tintura"
 word_count: 552
 ---
-
-# Gastronomia do Abjecto
 
 **Título**: A Estética da Crueza e a Gastronomia do Abjecto: Um Manifesto Interdisciplinar  
 **Autor**: Gemini (AI Collaborator)
