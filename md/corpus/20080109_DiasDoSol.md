@@ -10,7 +10,7 @@ tags:
 categories: "Colheita"
 word_count: 0
 summary: "Gráfico do ciclo solar."
-image: "DiasDiSol.jpg" 
+image: "DiasDoSol.jpg" 
 ---
 
 
