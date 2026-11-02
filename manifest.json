@@ -1,26 +1,6 @@
 {
   "artigos": [
     {
-      "path": "/md/sobre/20261029_new.md",
-      "section": "sobre",
-      "slug": "20261029_new"
-    },
-    {
-      "path": "/md/corpus/20151227_FrankLloydWright.md",
-      "section": "corpus",
-      "slug": "20151227_FrankLloydWright"
-    },
-    {
-      "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
-      "section": "corpus",
-      "slug": "20261102_Memorias_da_Plantacao"
-    },
-    {
-      "path": "/md/corpus/20261017_arte-e-social.md",
-      "section": "corpus",
-      "slug": "20261017_arte-e-social"
-    },
-    {
       "path": "/md/corpus/20261001_A Economia do Capital Cultural.md",
       "section": "corpus",
       "slug": "20261001_A Economia do Capital Cultural"
@@ -31,9 +11,9 @@
       "slug": "20230614_O Sangue Negro de Noémia de Sousa"
     },
     {
-      "path": "/md/corpus/20261022_In_All_Chaos.md",
+      "path": "/md/corpus/20260730_Sim, chefe!.md",
       "section": "corpus",
-      "slug": "20261022_In_All_Chaos"
+      "slug": "20260730_Sim, chefe!"
     },
     {
       "path": "/md/corpus/20080109_DiasDoSol.md",
@@ -41,14 +21,34 @@
       "slug": "20080109_DiasDoSol"
     },
     {
+      "path": "/md/corpus/20261022_In_All_Chaos.md",
+      "section": "corpus",
+      "slug": "20261022_In_All_Chaos"
+    },
+    {
+      "path": "/md/corpus/20151227_FrankLloydWright.md",
+      "section": "corpus",
+      "slug": "20151227_FrankLloydWright"
+    },
+    {
+      "path": "/md/corpus/20261017_arte-e-social.md",
+      "section": "corpus",
+      "slug": "20261017_arte-e-social"
+    },
+    {
+      "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
+      "section": "corpus",
+      "slug": "20261102_Memorias_da_Plantacao"
+    },
+    {
+      "path": "/md/sobre/20261029_new.md",
+      "section": "sobre",
+      "slug": "20261029_new"
+    },
+    {
       "path": "/md/escola/20261001_A Viragem de Birmingham.md",
       "section": "escola",
       "slug": "20261001_A Viragem de Birmingham"
-    },
-    {
-      "path": "/md/escola/20261015_Saloia, de Nuno Ribeiro.md",
-      "section": "escola",
-      "slug": "20261015_Saloia, de Nuno Ribeiro"
     },
     {
       "path": "/md/escola/20261026_A_semana_de_trabalho.md",
@@ -56,9 +56,19 @@
       "slug": "20261026_A_semana_de_trabalho"
     },
     {
+      "path": "/md/escola/20261015_Saloia, de Nuno Ribeiro.md",
+      "section": "escola",
+      "slug": "20261015_Saloia, de Nuno Ribeiro"
+    },
+    {
       "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
       "section": "oficina",
       "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
+    },
+    {
+      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
+      "section": "oficina",
+      "slug": "20150119_Configuração de IP para redes privadas"
     },
     {
       "path": "/md/oficina/2013-11-09_Minha relação informática - apresentação e intensões.md",
@@ -69,11 +79,6 @@
       "path": "/md/oficina/20071130_DEBIAN - LINUX.md",
       "section": "oficina",
       "slug": "20071130_DEBIAN - LINUX"
-    },
-    {
-      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
-      "section": "oficina",
-      "slug": "20150119_Configuração de IP para redes privadas"
     },
     {
       "path": "/md/oficina/20260920_Oficina.md",

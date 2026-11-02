@@ -1,35 +1,5 @@
 [
   {
-    "title": "20261029_new.md",
-    "category": "sobre",
-    "url": "/sobre/20261029_new.html",
-    "content": " eu estou aqui "
-  },
-  {
-    "title": "teste.md",
-    "category": "geral",
-    "url": "/teste.html",
-    "content": "teste md tentativa 1 testar manifest.md 13 "
-  },
-  {
-    "title": "20151227_FrankLloydWright.md",
-    "category": "corpus",
-    "url": "/corpus/20151227_FrankLloydWright.html",
-    "content": "  1867- Frank Lloyd Wright nasce a 8 de Janeiro, no Richard Center, Wiscosin.    1885- Matricula-se na Universidade do Wiscosin, onde permanece durante dois anos, trabalhando para Allan D. Conover, professor de Engenharia    1887- Muda-se para Chicago, trabalhando primeiro para Joseph Lyman Silsbee, e depois na sociedade de Adler e Sullivan. Afasta-se destes ultímos em 1892.    1889- Contrai matri"
-  },
-  {
-    "title": "20261102_Memorias_da_Plantacao.md",
-    "category": "corpus",
-    "url": "/corpus/20261102_Memorias_da_Plantacao.html",
-    "content": "   <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0;'>     <iframe src='https://www.youtube-nocookie.com/embed/ftRjL7E5Y94'               style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;'              allowfullscreen>     </iframe> </div>  ## a voz dos negros   "
-  },
-  {
-    "title": "20261017_arte-e-social.md",
-    "category": "corpus",
-    "url": "/corpus/20261017_arte-e-social.html",
-    "content": "  A arte permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.  > 'A arte até num castelo de marfim é social. Não se pode, numa sociedade, escrever poesia ou prosa, vendo-se livre da sociedade.' >  > — **Said Gufarov Gafurov**, em *“Trotsky e a inteligência artificial”*. Traduzido por Adriano Zilhão, Jorn"
-  },
-  {
     "title": "20261001_A Economia do Capital Cultural.md",
     "category": "corpus",
     "url": "/corpus/20261001_A Economia do Capital Cultural.html",
@@ -42,10 +12,10 @@
     "content": "  **Noémia de Sousa (1926 - 2002)**  O universo literário de expressão feminina em Moçambique começou com a poesia de Noémia de Sousa a meio do século XX. A sua voz, ao protestar contra as opressões sofridas pelas mulheres moçambicanas, representa a resistência da mulher africana e dos povos de África.  ``` Poema: Sangue Negro  Ó minha África misteriosa e natural, minha virgem violentada, minha Mã"
   },
   {
-    "title": "20261022_In_All_Chaos.md",
+    "title": "Sim, chefe!",
     "category": "corpus",
-    "url": "/corpus/20261022_In_All_Chaos.html",
-    "content": "   ” In all chaos there is a cosmos, in all disorder a secret order.”   — C.G. Jung "
+    "url": "/corpus/20260730_Sim, chefe!.html",
+    "content": "  # Sim, chefe!  'Sim, chefe!' - método prático de sobrevivência. "
   },
   {
     "title": "20080109_DiasDoSol.md",
@@ -54,16 +24,40 @@
     "content": "     "
   },
   {
+    "title": "20261022_In_All_Chaos.md",
+    "category": "corpus",
+    "url": "/corpus/20261022_In_All_Chaos.html",
+    "content": "   ” In all chaos there is a cosmos, in all disorder a secret order.”   — C.G. Jung "
+  },
+  {
+    "title": "20151227_FrankLloydWright.md",
+    "category": "corpus",
+    "url": "/corpus/20151227_FrankLloydWright.html",
+    "content": "  1867- Frank Lloyd Wright nasce a 8 de Janeiro, no Richard Center, Wiscosin.    1885- Matricula-se na Universidade do Wiscosin, onde permanece durante dois anos, trabalhando para Allan D. Conover, professor de Engenharia    1887- Muda-se para Chicago, trabalhando primeiro para Joseph Lyman Silsbee, e depois na sociedade de Adler e Sullivan. Afasta-se destes ultímos em 1892.    1889- Contrai matri"
+  },
+  {
+    "title": "20261017_arte-e-social.md",
+    "category": "corpus",
+    "url": "/corpus/20261017_arte-e-social.html",
+    "content": "  A arte permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.  > 'A arte até num castelo de marfim é social. Não se pode, numa sociedade, escrever poesia ou prosa, vendo-se livre da sociedade.' >  > — **Said Gufarov Gafurov**, em *“Trotsky e a inteligência artificial”*. Traduzido por Adriano Zilhão, Jorn"
+  },
+  {
+    "title": "20261102_Memorias_da_Plantacao.md",
+    "category": "corpus",
+    "url": "/corpus/20261102_Memorias_da_Plantacao.html",
+    "content": "   <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0;'>     <iframe src='https://www.youtube-nocookie.com/embed/ftRjL7E5Y94'               style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;'              allowfullscreen>     </iframe> </div>  ## a voz dos negros   "
+  },
+  {
+    "title": "20261029_new.md",
+    "category": "sobre",
+    "url": "/sobre/20261029_new.html",
+    "content": " eu estou aqui "
+  },
+  {
     "title": "20261001_A Viragem de Birmingham.md",
     "category": "escola",
     "url": "/escola/20261001_A Viragem de Birmingham.html",
     "content": "  ## Recepção da Mensagem na Cultura Ordinária.  Fundada na década de 1960 na Universidade de Birmingham por figuras como Richard Hoggart, Raymond Williams e, mais tarde, Stuart Hall, o **CCCS  (*Centre for Contemporary Cultural Studies*)** promoveu uma verdadeira revolução no modo de pensar a cultura. Frente ao pessimismo determinista da Escola de Frankfurt — que via na cultura de consumo uma máq"
-  },
-  {
-    "title": "20261015_Saloia, de Nuno Ribeiro.md",
-    "category": "escola",
-    "url": "/escola/20261015_Saloia, de Nuno Ribeiro.html",
-    "content": " --- Title: ' A Saloia, de Nuno Ribeiro' Date: '2026-10-15' Category: 'Estudos Culturais' Summary: ' Crítica cultural ao videoclipe musical 'A Saloia', de Nuno Ribeiro.'   ---  ## Crítica cultural ao videoclipe musical 'A Saloia', de Nuno Ribeiro.  <iframe src='https://www.youtube-nocookie.com/embed/0M9RE9AMGAw' style='position: relative; top: 0; left: 0; width: 100%; height: 100%; border: 0;' all"
   },
   {
     "title": "20261026_A_semana_de_trabalho.md",
@@ -72,10 +66,28 @@
     "content": " --- Title: 'A semana de trabalho ' Date: '2026-10-26' Category: 'Estudos Culturais' Summary: 'Crítica cultural da semana de trabalho.'  ---  ## crítica cultural ### 1. Objeto escolhido O objeto cultural selecionado é a semana de trabalho, entendida como a norma institucional de distribuição do tempo que os indivíduos dedicam ao seu labor profissional. Essa norma estabelece a quantidade e a forma "
   },
   {
+    "title": "20261015_Saloia, de Nuno Ribeiro.md",
+    "category": "escola",
+    "url": "/escola/20261015_Saloia, de Nuno Ribeiro.html",
+    "content": " --- Title: ' A Saloia, de Nuno Ribeiro' Date: '2026-10-15' Category: 'Estudos Culturais' Summary: ' Crítica cultural ao videoclipe musical 'A Saloia', de Nuno Ribeiro.'   ---  ## Crítica cultural ao videoclipe musical 'A Saloia', de Nuno Ribeiro.  <iframe src='https://www.youtube-nocookie.com/embed/0M9RE9AMGAw' style='position: relative; top: 0; left: 0; width: 100%; height: 100%; border: 0;' all"
+  },
+  {
+    "title": "teste.md",
+    "category": "geral",
+    "url": "/teste.html",
+    "content": "teste md tentativa 1 testar manifest.md 13 "
+  },
+  {
     "title": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
     "category": "oficina",
     "url": "/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.html",
     "content": "  Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico. O código de computador não é apenas um conjunto de instruções utilitárias destinadas a executar uma tarefa numa máquina; é um artefato cultural densament"
+  },
+  {
+    "title": "20150119_Configuração de IP para redes privadas.md",
+    "category": "oficina",
+    "url": "/oficina/20150119_Configuração de IP para redes privadas.html",
+    "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
   },
   {
     "title": "2013-11-09_Minha relação informática - apresentação e intensões.md",
@@ -88,12 +100,6 @@
     "category": "oficina",
     "url": "/oficina/20071130_DEBIAN - LINUX.html",
     "content": "  A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).  Este sistema operacional chama-se [Debian GNU/Linux](http://www.fr.debian.org/intro/about), ou simplesmente [Debian](http://www.fr.debian.org/releases/stable/).  As ferramentas que formam o S.O. surgem do P[rojeto GNU](http://www.gnu.org/home.pt.html"
-  },
-  {
-    "title": "20150119_Configuração de IP para redes privadas.md",
-    "category": "oficina",
-    "url": "/oficina/20150119_Configuração de IP para redes privadas.html",
-    "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
   },
   {
     "title": "20260920_Oficina.md",
