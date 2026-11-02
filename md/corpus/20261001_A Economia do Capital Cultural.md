@@ -22,6 +22,8 @@ word_count: 882
 outline:
   - "## Missiva a um Artífice."
 ---
+/assets/img/17907895463695159588776731644450.jpg
+
 
 ## **Missiva a um Artífice.**
 
