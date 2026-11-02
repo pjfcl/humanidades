@@ -5,7 +5,7 @@ author: "Paulo"
 date: 2026-02-04
 published: 2026-02-04
 created: 2026-10-24
-summary: "Um Manifesto Interdisciplinar sobre a Gastronomia do Abjecto, produzida por IA generativa"
+summary: "Um Manifesto interdisciplinar sobre a Gastronomia do Abjecto, produzida por IA generativa"
 tags:
   - "ensaio"
   - "estética"
