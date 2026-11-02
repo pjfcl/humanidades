@@ -21,7 +21,7 @@ category: Tintura
 word_count: 882
 outline:
   - "## Missiva a um Artífice."
-Image: "CartaArtifice.png" 
+Image: "CartaArtifice.jpg" 
 ---
 
 ## **Missiva a um Artífice.**
