@@ -13,7 +13,7 @@ tags:
   - "poesia"
 category: "Colheita"
 word_count: 1003
-image: "noemiadesousa.png
+image: "noemiadesousa.png" 
 ---
 
 **Noémia de Sousa (1926 - 2002)**
