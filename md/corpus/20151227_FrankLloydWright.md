@@ -1,5 +1,5 @@
 ---
-title: "Frank Lloyd Wright - síntese biográfica"
+title: "Frank Lloyd Wright"
 source: "https://cyan-fly-576061.hostingersite.com/frank-lloyd-wright-sintese-biografica/"
 author: "Paulo"
 date: 2015-12-27
