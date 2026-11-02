@@ -21,15 +21,8 @@ category: Tintura
 word_count: 882
 outline:
   - "## Missiva a um Artífice."
+Image: "CartaArtifice.png" 
 ---
-
-
-<figure style="text-align: center; margin: 30px 0;">
-  <img src="/assets/img/17907895463695159588776731644450.jpg" alt="Descrição da imagem" style="max-width: 100%; height: auto; border-radius: 4px;">
-  <figcaption style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;">
-    
-  </figcaption>
-</figure>
 
 ## **Missiva a um Artífice.**
 
