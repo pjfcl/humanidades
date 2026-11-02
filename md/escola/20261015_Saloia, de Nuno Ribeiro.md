@@ -9,7 +9,7 @@ Summary: " Crítica cultural ao videoclipe musical 'A Saloia', de Nuno Ribeiro."
 
 ## Crítica cultural ao videoclipe musical "A Saloia", de Nuno Ribeiro.
 
-https://youtu.be/0M9RE9AMGAw?is=UIsgL3HKOW2nfQ0f
+<iframe src="https://www.youtube-nocookie.com/embed/0M9RE9AMGAw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
 ### 1. Descrição
 O objeto selecionado é o videoclipe musical "Saloia", de Nuno Ribeiro (2026), centrado num casal português e ambientado no início do século XX em Paris. A narrativa visual desenvolve-se através da dança social, envolvendo bailarinos, músicos e performers num cruzamento de espaços que alternam entre o interior de um estabelecimento comercial e a rua exterior.
