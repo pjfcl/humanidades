@@ -1,39 +1,39 @@
 [
   {
-    "title": "20261029_new.md",
-    "category": "sobre",
-    "url": "/sobre/20261029_new.html",
-    "content": " eu estou aqui "
+    "title": "20150119_Configuração de IP para redes privadas.md",
+    "category": "oficina",
+    "url": "/oficina/20150119_Configuração de IP para redes privadas.html",
+    "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
   },
   {
-    "title": "teste.md",
-    "category": "geral",
-    "url": "/teste.html",
-    "content": "teste md tentativa 1 testar manifest.md 13 "
+    "title": "20071130_DEBIAN - LINUX.md",
+    "category": "oficina",
+    "url": "/oficina/20071130_DEBIAN - LINUX.html",
+    "content": "  A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).  Este sistema operacional chama-se [Debian GNU/Linux](http://www.fr.debian.org/intro/about), ou simplesmente [Debian](http://www.fr.debian.org/releases/stable/).  As ferramentas que formam o S.O. surgem do P[rojeto GNU](http://www.gnu.org/home.pt.html"
   },
   {
-    "title": "20261102_Memorias_da_Plantacao.md",
-    "category": "corpus",
-    "url": "/corpus/20261102_Memorias_da_Plantacao.html",
-    "content": "   <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0;'>     <iframe src='https://www.youtube-nocookie.com/embed/ftRjL7E5Y94'               style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;'              allowfullscreen>     </iframe> </div>  ## a voz dos negros   "
+    "title": "20261005_critical-code-studies.md",
+    "category": "oficina",
+    "url": "/oficina/20261005_critical-code-studies.html",
+    "content": "  O código de computador não é apenas um conjunto de instruções utilitárias destinadas a executar uma tarefa numa máquina; é um artefato cultural densamente carregado de ideologia, estética e intenção humana.   "
   },
   {
-    "title": "20261017_arte-e-social.md",
-    "category": "corpus",
-    "url": "/corpus/20261017_arte-e-social.html",
-    "content": "  A arte permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.  > 'A arte até num castelo de marfim é social. Não se pode, numa sociedade, escrever poesia ou prosa, vendo-se livre da sociedade.' >  > — **Said Gufarov Gafurov**, em *“Trotsky e a inteligência artificial”*. Traduzido por Adriano Zilhão, Jorn"
+    "title": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+    "category": "oficina",
+    "url": "/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.html",
+    "content": "  <figure style='text-align: center; margin: 30px 0;'>   <img src='/assets/img/CriticalCodeStudies.png' alt='Descrição da imagem' style='max-width: 100%; height: auto; border-radius: 4px;'>   <figcaption style='font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;'>     Critical Code Studies - Estudos Críticos do Código   </figcaption> </figure>  Os **Estud"
   },
   {
-    "title": "20261001_A Economia do Capital Cultural.md",
-    "category": "corpus",
-    "url": "/corpus/20261001_A Economia do Capital Cultural.html",
-    "content": "   <figure style='text-align: center; margin: 30px 0;'>   <img src='/assets/img/17907895463695159588776731644450.jpg' alt='Descrição da imagem' style='max-width: 100%; height: auto; border-radius: 4px;'>   <figcaption style='font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;'>        </figcaption> </figure>  ## **Missiva a um Artífice.**  Car@ amig@,  *E"
+    "title": "2013-11-09_Minha relação informática - apresentação e intensões.md",
+    "category": "oficina",
+    "url": "/oficina/2013-11-09_Minha relação informática - apresentação e intensões.html",
+    "content": "  Sou um utilizador do sistema operativo GNU/Linux:  Comecei por utilizar Linux, na versão (descontinuada) da COREL, em 1999, pelo que rapidamente passei a usar a distribuição [Debian](http://www.debian.org/) , à qual me mantive fiel por mais de 10 anos. Neste processo contactei e comecei a utilizar, quase exclusivamente, o software desenvolvido pelo projecto [GNU](http://www.gnu.org/) ou apoiado "
   },
   {
-    "title": "20261022_In_All_Chaos.md",
-    "category": "corpus",
-    "url": "/corpus/20261022_In_All_Chaos.html",
-    "content": "   ” In all chaos there is a cosmos, in all disorder a secret order.”   — C.G. Jung "
+    "title": "20260920_Oficina.md",
+    "category": "oficina",
+    "url": "/oficina/20260920_Oficina.html",
+    "content": "  ## **Fundamentos**  **Linguagem natural** é qualquer idioma ou forma de comunicação criado e desenvolvido de forma espontânea pelos seres humanos ao longo da história, como o português ou o inglês.  Uma **linguagem artificial** é um sistema de comunicação cujas regras, vocabulário e gramática são explicitamente criados e definidos por pessoas antes de ser usado, e não por evolução espontânea.  U"
   },
   {
     "title": "20261001_A Viragem de Birmingham.md",
@@ -54,39 +54,39 @@
     "content": " --- Title: 'A semana de trabalho ' Date: '2026-10-26' Category: 'Estudos Culturais' Summary: 'Crítica cultural da semana de trabalho.'  ---  ## crítica cultural ### 1. Objeto escolhido O objeto cultural selecionado é a semana de trabalho, entendida como a norma institucional de distribuição do tempo que os indivíduos dedicam ao seu labor profissional. Essa norma estabelece a quantidade e a forma "
   },
   {
-    "title": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
-    "category": "oficina",
-    "url": "/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.html",
-    "content": "  <figure style='text-align: center; margin: 30px 0;'>   <img src='/assets/img/CriticalCodeStudies.pnh' alt='Descrição da imagem' style='max-width: 100%; height: auto; border-radius: 4px;'>   <figcaption style='font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;'>     Critical Code Studies - Estudos Críticos do Código   </figcaption> </figure>  Os **Estud"
+    "title": "teste.md",
+    "category": "geral",
+    "url": "/teste.html",
+    "content": "teste md tentativa 1 testar manifest.md 13 "
   },
   {
-    "title": "2013-11-09_Minha relação informática - apresentação e intensões.md",
-    "category": "oficina",
-    "url": "/oficina/2013-11-09_Minha relação informática - apresentação e intensões.html",
-    "content": "  Sou um utilizador do sistema operativo GNU/Linux:  Comecei por utilizar Linux, na versão (descontinuada) da COREL, em 1999, pelo que rapidamente passei a usar a distribuição [Debian](http://www.debian.org/) , à qual me mantive fiel por mais de 10 anos. Neste processo contactei e comecei a utilizar, quase exclusivamente, o software desenvolvido pelo projecto [GNU](http://www.gnu.org/) ou apoiado "
+    "title": "20261029_new.md",
+    "category": "sobre",
+    "url": "/sobre/20261029_new.html",
+    "content": " eu estou aqui "
   },
   {
-    "title": "20261005_critical-code-studies.md",
-    "category": "oficina",
-    "url": "/oficina/20261005_critical-code-studies.html",
-    "content": "  O código de computador não é apenas um conjunto de instruções utilitárias destinadas a executar uma tarefa numa máquina; é um artefato cultural densamente carregado de ideologia, estética e intenção humana.   "
+    "title": "20261017_arte-e-social.md",
+    "category": "corpus",
+    "url": "/corpus/20261017_arte-e-social.html",
+    "content": "  A arte permanece intrinsecamente social. Não é possível, no seio de uma sociedade, produzir poesia ou prosa desvinculando-se da estrutura que nos envolve.  > 'A arte até num castelo de marfim é social. Não se pode, numa sociedade, escrever poesia ou prosa, vendo-se livre da sociedade.' >  > — **Said Gufarov Gafurov**, em *“Trotsky e a inteligência artificial”*. Traduzido por Adriano Zilhão, Jorn"
   },
   {
-    "title": "20071130_DEBIAN - LINUX.md",
-    "category": "oficina",
-    "url": "/oficina/20071130_DEBIAN - LINUX.html",
-    "content": "  A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).  Este sistema operacional chama-se [Debian GNU/Linux](http://www.fr.debian.org/intro/about), ou simplesmente [Debian](http://www.fr.debian.org/releases/stable/).  As ferramentas que formam o S.O. surgem do P[rojeto GNU](http://www.gnu.org/home.pt.html"
+    "title": "20261102_Memorias_da_Plantacao.md",
+    "category": "corpus",
+    "url": "/corpus/20261102_Memorias_da_Plantacao.html",
+    "content": "   <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0;'>     <iframe src='https://www.youtube-nocookie.com/embed/ftRjL7E5Y94'               style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;'              allowfullscreen>     </iframe> </div>  ## a voz dos negros   "
   },
   {
-    "title": "20150119_Configuração de IP para redes privadas.md",
-    "category": "oficina",
-    "url": "/oficina/20150119_Configuração de IP para redes privadas.html",
-    "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
+    "title": "20261001_A Economia do Capital Cultural.md",
+    "category": "corpus",
+    "url": "/corpus/20261001_A Economia do Capital Cultural.html",
+    "content": "   <figure style='text-align: center; margin: 30px 0;'>   <img src='/assets/img/17907895463695159588776731644450.jpg' alt='Descrição da imagem' style='max-width: 100%; height: auto; border-radius: 4px;'>   <figcaption style='font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;'>        </figcaption> </figure>  ## **Missiva a um Artífice.**  Car@ amig@,  *E"
   },
   {
-    "title": "20260920_Oficina.md",
-    "category": "oficina",
-    "url": "/oficina/20260920_Oficina.html",
-    "content": "  ## **Fundamentos**  **Linguagem natural** é qualquer idioma ou forma de comunicação criado e desenvolvido de forma espontânea pelos seres humanos ao longo da história, como o português ou o inglês.  Uma **linguagem artificial** é um sistema de comunicação cujas regras, vocabulário e gramática são explicitamente criados e definidos por pessoas antes de ser usado, e não por evolução espontânea.  U"
+    "title": "20261022_In_All_Chaos.md",
+    "category": "corpus",
+    "url": "/corpus/20261022_In_All_Chaos.html",
+    "content": "   ” In all chaos there is a cosmos, in all disorder a secret order.”   — C.G. Jung "
   }
 ]

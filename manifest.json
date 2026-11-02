@@ -1,29 +1,34 @@
 {
   "artigos": [
     {
-      "path": "/md/sobre/20261029_new.md",
-      "section": "sobre",
-      "slug": "20261029_new"
+      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
+      "section": "oficina",
+      "slug": "20150119_Configuração de IP para redes privadas"
     },
     {
-      "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
-      "section": "corpus",
-      "slug": "20261102_Memorias_da_Plantacao"
+      "path": "/md/oficina/20071130_DEBIAN - LINUX.md",
+      "section": "oficina",
+      "slug": "20071130_DEBIAN - LINUX"
     },
     {
-      "path": "/md/corpus/20261017_arte-e-social.md",
-      "section": "corpus",
-      "slug": "20261017_arte-e-social"
+      "path": "/md/oficina/20261005_critical-code-studies.md",
+      "section": "oficina",
+      "slug": "20261005_critical-code-studies"
     },
     {
-      "path": "/md/corpus/20261001_A Economia do Capital Cultural.md",
-      "section": "corpus",
-      "slug": "20261001_A Economia do Capital Cultural"
+      "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+      "section": "oficina",
+      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
     },
     {
-      "path": "/md/corpus/20261022_In_All_Chaos.md",
-      "section": "corpus",
-      "slug": "20261022_In_All_Chaos"
+      "path": "/md/oficina/2013-11-09_Minha relação informática - apresentação e intensões.md",
+      "section": "oficina",
+      "slug": "2013-11-09_Minha relação informática - apresentação e intensões"
+    },
+    {
+      "path": "/md/oficina/20260920_Oficina.md",
+      "section": "oficina",
+      "slug": "20260920_Oficina"
     },
     {
       "path": "/md/escola/20261001_A Viragem de Birmingham.md",
@@ -41,34 +46,29 @@
       "slug": "20261026_A_semana_de_trabalho"
     },
     {
-      "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
-      "section": "oficina",
-      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
+      "path": "/md/sobre/20261029_new.md",
+      "section": "sobre",
+      "slug": "20261029_new"
     },
     {
-      "path": "/md/oficina/2013-11-09_Minha relação informática - apresentação e intensões.md",
-      "section": "oficina",
-      "slug": "2013-11-09_Minha relação informática - apresentação e intensões"
+      "path": "/md/corpus/20261017_arte-e-social.md",
+      "section": "corpus",
+      "slug": "20261017_arte-e-social"
     },
     {
-      "path": "/md/oficina/20261005_critical-code-studies.md",
-      "section": "oficina",
-      "slug": "20261005_critical-code-studies"
+      "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
+      "section": "corpus",
+      "slug": "20261102_Memorias_da_Plantacao"
     },
     {
-      "path": "/md/oficina/20071130_DEBIAN - LINUX.md",
-      "section": "oficina",
-      "slug": "20071130_DEBIAN - LINUX"
+      "path": "/md/corpus/20261001_A Economia do Capital Cultural.md",
+      "section": "corpus",
+      "slug": "20261001_A Economia do Capital Cultural"
     },
     {
-      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
-      "section": "oficina",
-      "slug": "20150119_Configuração de IP para redes privadas"
-    },
-    {
-      "path": "/md/oficina/20260920_Oficina.md",
-      "section": "oficina",
-      "slug": "20260920_Oficina"
+      "path": "/md/corpus/20261022_In_All_Chaos.md",
+      "section": "corpus",
+      "slug": "20261022_In_All_Chaos"
     }
   ]
 }
