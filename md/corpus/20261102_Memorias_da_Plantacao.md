@@ -3,7 +3,7 @@ title: "Memórias da Plantação, por Grada Kilomba"
 autor: "Paulo" 
 date: 2026-11-02
 category: "semente" 
-summary: "anti-racismo: a voz dos negros" 
+summary: "anti-racismo: escutar a voz dos negros" 
 
 ---
 
