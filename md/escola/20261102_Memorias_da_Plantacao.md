@@ -6,7 +6,8 @@ category: "Estudos Culturais"
 summary: "anti-racismo: a voz dos negros" 
 
 ---
-## video onde a comunidade negra apresenta a sua vivência
+
+
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px 0;">
     <iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94"  
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
@@ -14,4 +15,4 @@ summary: "anti-racismo: a voz dos negros"
     </iframe>
 </div>
 
-https://youtu.be/ftRjL7E5Y94?is=YHfsHVKLIz6kr0A9
+## a comunidade negra expressa a sua vivência
