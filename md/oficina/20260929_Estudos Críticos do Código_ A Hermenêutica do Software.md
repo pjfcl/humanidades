@@ -19,6 +19,12 @@ outline:
   - "### ​Hiperligações e Recursos de Investigação"
 ---
 
+<figure style="text-align: center; margin: 30px 0;">
+  <img src="/assets/img/CriticalCodeStudies.pnh" alt="Descrição da imagem" style="max-width: 100%; height: auto; border-radius: 4px;">
+  <figcaption style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-color); margin-top: 8px;">
+    Critical Code Studies - Estudos Críticos do Código
+  </figcaption>
+</figure>
 
 Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico.
 
