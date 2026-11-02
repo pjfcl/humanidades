@@ -17,6 +17,7 @@ outline:
   - "### ​Conceitos e Eixos Fundamentais"
   - "### ​Figuras, Marcos e Cronologia"
   - "### ​Hiperligações e Recursos de Investigação"
+Image: "CriticalCodeStudies.png" 
 ---
 
 <figure style="text-align: center; margin: 30px 0;">
