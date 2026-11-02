@@ -20,7 +20,7 @@ outline:
 Image: "CriticalCodeStudies.png" 
 ---
 
-Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico.
+Os **Estudos Críticos do Código** (*Critical Code Studies* — CCS) constituem um campo interdisciplinar no âmbito das Humanidades Digitais dedicado à interpretação do código-fonte computacional enquanto artefacto cultural, político e ideológico. O código de computador não é apenas um conjunto de instruções utilitárias destinadas a executar uma tarefa numa máquina; é um artefato cultural densamente carregado de ideologia, estética e intenção humana.
 
 ### **​Conceitos e Eixos Fundamentais**
 
