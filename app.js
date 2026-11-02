@@ -47,6 +47,15 @@ function resolverUrl(path) {
     return baseDir + clean;
 }
 
+// Função auxiliar para mapear o nome da imagem indicado no frontmatter para o caminho absoluto
+function resolverImagemUrl(imagemMeta) {
+    if (!imagemMeta) return '';
+    if (imagemMeta.startsWith('http') || imagemMeta.startsWith('/')) {
+        return resolverUrl(imagemMeta);
+    }
+    return resolverUrl(`assets/img/${imagemMeta}`);
+}
+
 async function carregarTodosArtigos() {
     let artigos = [];
 
@@ -72,6 +81,10 @@ async function carregarTodosArtigos() {
                     
                     const dataRaw = parsed.meta.date || parsed.meta.published || parsed.meta.created || '';
                     const sumarioRaw = parsed.meta.summary || parsed.meta.description || parsed.content.replace(/^#+\s+.*/gm, '').trim().substring(0, 140) + '...';
+                    
+                    // Tratamento da imagem a partir dos metadados (image, cover ou thumbnail)
+                    const imagemRaw = parsed.meta.image || parsed.meta.cover || parsed.meta.thumbnail || '';
+                    const imagemFormatada = resolverImagemUrl(imagemRaw);
 
                     artigos.push({
                         path: item.path,
@@ -81,7 +94,8 @@ async function carregarTodosArtigos() {
                             ...parsed.meta,
                             title: tituloFormatado,
                             date: dataRaw,
-                            summary: sumarioRaw
+                            summary: sumarioRaw,
+                            image: imagemFormatada
                         },
                         content: parsed.content
                     });
@@ -146,9 +160,16 @@ async function renderizarCapa(artigos) {
         const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
         const dataArtigo = artigo.meta.date || '';
         
+        // Renderização opcional da miniatura no cartão se existir imagem definida
+        const thumbnailHtml = artigo.meta.image ? `
+            <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
+                <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+            </div>` : '';
+        
         htmlOutput += `
             <a href="${linkUrl}" class="entry-card-link">
                 <div class="entry-card">
+                    ${thumbnailHtml}
                     <span class="entry-meta">${catLabel} • ${dataArtigo}</span>
                     <h3>${artigo.meta.title}</h3>
                     <p>${artigo.meta.summary || ''}</p>
@@ -260,6 +281,12 @@ async function router() {
         if (artigo) {
             const dataArtigo = artigo.meta.date || '';
             
+            // Renderização opcional da imagem de destaque no topo do artigo
+            const imagemDestaqueHtml = artigo.meta.image ? `
+                <div style="margin: 25px 0; border-radius: 4px; overflow: hidden;">
+                    <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; max-height: 450px; object-fit: cover; display: block;">
+                </div>` : '';
+            
             viewContent.innerHTML = `
                 <article>
                     <div class="breadcrumb" style="margin-bottom: 20px;">
@@ -269,6 +296,7 @@ async function router() {
                     <h2 class="font-sans" style="font-size: 1.8rem; font-weight: 600; color: var(--text-color); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                         ${artigo.meta.title}
                     </h2>
+                    ${imagemDestaqueHtml}
                     <div class="markdown-body" style="margin-top: 25px; font-size: 1.05rem;">
                         ${marked.parse(artigo.content)}
                     </div>
@@ -307,9 +335,16 @@ async function router() {
                 const linkUrl = `index.html?artigo=${artigo.slug}`;
                 const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
                 const dataArtigo = artigo.meta.date || '';
+                
+                const thumbnailHtml = artigo.meta.image ? `
+                    <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
+                        <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+                    </div>` : '';
+
                 htmlOutput += `
                     <a href="${linkUrl}" class="entry-card-link">
                         <div class="entry-card">
+                            ${thumbnailHtml}
                             <span class="entry-meta">${catLabel} • ${dataArtigo}</span>
                             <h3>${artigo.meta.title}</h3>
                             <p>${artigo.meta.summary || ''}</p>
