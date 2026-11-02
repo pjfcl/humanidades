@@ -7,7 +7,7 @@ published: 2008-01-09
 created: 2026-10-24
 tags:
   - "espiritualidade"
-categories: "Colheita"
+category: "Colheita"
 word_count: 0
 summary: "Gráfico do ciclo solar."
 image: "DiasDoSol.jpg" 
