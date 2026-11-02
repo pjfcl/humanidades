@@ -5,7 +5,7 @@ author: "Paulo"
 date: 2023-06-14
 published: 2023-06-14
 created: 2026-10-24
-summary: "A importância de Noémia de Sousa (1926 - 2002) no universo literário de expressão feminina em Moçambique."
+summary: "A importância de Noémia de Sousa no universo literário de expressão feminina em Moçambique."
 tags:
   - "feminismo"
   - "humanidades"
