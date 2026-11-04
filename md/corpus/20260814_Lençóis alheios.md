@@ -6,7 +6,7 @@ summary: "Memórias de saudade."
 tags:
   - "auto-etnografia"
   - "micro-conto"
-categories: "Tintura"
+category: "Tintura"
 ---
 
 És aquela jovem mulher que dormiu por aí, que descobriu nas drogas e no álcool e no sexo os portais que permitiram fugir para bem longe da própria realidade.
