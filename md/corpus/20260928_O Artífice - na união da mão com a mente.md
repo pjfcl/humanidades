@@ -1,22 +1,15 @@
 ---
 title: "O Artífice - na união da mão com a mente."
-source: "https://cyan-fly-576061.hostingersite.com/o-artifice-na-uniao-da-mao-com-a-mente/"
-author:
-  - "[[admin]]"
-published: 2026-09-28
-created: 2026-10-24
-description: "Na antropologia cultural, a figura do artífice (homo faber) é aquela que domina tanto o conceito intelectual como a execução manual. Não há separação entre o suor do ofício e a soberania do"
+author: "Paulo"
+date: 2026-09-28
+summary: "Definição e caracterização do artífice e sua prática." 
 tags:
   - "artefacto"
   - "artífice"
   - "obra de arte"
   - "pensamento"
-categories:
-  - "Biblioteca > Colheita"
-word_count: 587
+categories: "Colheita"
 ---
-
-# O Artífice - na união da mão com a mente.
 
 Na antropologia cultural, a figura do artífice (*homo faber*) é aquela que domina tanto o conceito intelectual como a execução manual. Não há separação entre o suor do ofício e a soberania do pensamento.
 
