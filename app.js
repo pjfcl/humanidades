@@ -159,8 +159,9 @@ async function renderizarCapa(artigos) {
         const linkUrl = `index.html?artigo=${artigo.slug}`;
         const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
         const dataArtigo = artigo.meta.date || '';
+        const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
         
-        // Renderização opcional da miniatura no cartão se existir imagem definida
+        // Renderização da miniatura no cartão se existir imagem definida
         const thumbnailHtml = artigo.meta.image ? `
             <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
                 <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
@@ -170,7 +171,7 @@ async function renderizarCapa(artigos) {
             <a href="${linkUrl}" class="entry-card-link">
                 <div class="entry-card">
                     ${thumbnailHtml}
-                    <span class="entry-meta">${catLabel} • ${dataArtigo}</span>
+                    <span class="entry-meta">${metaInfo}</span>
                     <h3>${artigo.meta.title}</h3>
                     <p>${artigo.meta.summary || ''}</p>
                 </div>
@@ -196,19 +197,19 @@ async function executarPesquisa(termo) {
             Resultados para: "${termo}"
         </h2>
         <div id="resultados-pesquisa">
-            <p class="font-mono" style="font-size: 0.85rem; color: var(--muted-color);">A consultar o índice do Chez Scheme...</p>
+            <p class="font-mono" style="font-size: 0.85rem; color: var(--muted-color);">A consultar o índice e os registos do Scriptorium...</p>
         </div>
     `;
 
     try {
+        // 1. Carrega o índice estático para filtragem rápida do termo
         const res = await fetch(resolverUrl('search-index.json'));
         if (!res.ok) throw new Error("Não foi possível carregar o índice de pesquisa.");
         
         const indexData = await res.json();
         const termoLower = termo.toLowerCase();
 
-        // Expansão da pesquisa para abranger título, conteúdo, summary e tags
-        const filtrados = indexData.filter(item => {
+        const filtradosIndex = indexData.filter(item => {
             const titulo = (item.title || "").toLowerCase();
             const conteudo = (item.content || "").toLowerCase();
             const summary = (item.summary || "").toLowerCase();
@@ -223,7 +224,7 @@ async function executarPesquisa(termo) {
         const containerResultados = document.getElementById('resultados-pesquisa');
         if (!containerResultados) return;
 
-        if (filtrados.length === 0) {
+        if (filtradosIndex.length === 0) {
             containerResultados.innerHTML = `
                 <p class="font-mono" style="font-size: 0.85rem; color: var(--accent-color);">Nenhum ensaio ou registo encontrado com o termo "<strong>${termo}</strong>".</p>
                 <div style="margin-top: 30px;">
@@ -233,25 +234,57 @@ async function executarPesquisa(termo) {
             return;
         }
 
+        // 2. Carrega todos os artigos completos para obter metadados ricos (imagens, datas corretas, etc.)
+        const todosArtigos = await carregarTodosArtigos();
+
         let htmlOutput = '';
-        filtrados.forEach(item => {
-            const linkUrl = `index.html?artigo=${item.url.split('/').pop().replace('.html', '')}`;
-            const catLabel = (item.category || '').toUpperCase();
+        filtradosIndex.forEach(item => {
+            // Extrai o slug a partir da URL do item indexado (ex: /corpus/20230614_...html -> 20230614_...)
+            const slugItem = item.url.split('/').pop().replace('.html', '');
             
-            const tituloLimpo = item.title.replace(/^[0-9]+_/, '').replace(/\.md$/, '').replace(/[-_]/g, ' ');
-            const tituloFormatado = String(tituloLimpo).charAt(0).toUpperCase() + String(tituloLimpo).slice(1);
-            const sumarioTexto = item.summary || item.content.substring(0, 140) + '...';
-            
-            // Renderização unificada idêntica aos cartões da página inicial (.entry-card)
-            htmlOutput += `
-                <a href="${linkUrl}" class="entry-card-link">
-                    <div class="entry-card">
-                        <span class="entry-meta">${catLabel}</span>
-                        <h3>${tituloFormatado}</h3>
-                        <p>${sumarioTexto}</p>
-                    </div>
-                </a>
-            `;
+            // Procura o artigo correspondente na lista completa de artigos
+            const artigoCompleto = todosArtigos.find(a => a.slug === slugItem);
+
+            if (artigoCompleto) {
+                const linkUrl = `index.html?artigo=${artigoCompleto.slug}`;
+                const catLabel = (artigoCompleto.meta.category || artigoCompleto.section).toUpperCase();
+                const dataArtigo = artigoCompleto.meta.date || '';
+                const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
+
+                // Miniatura idêntica à da página inicial
+                const thumbnailHtml = artigoCompleto.meta.image ? `
+                    <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
+                        <img src="${artigoCompleto.meta.image}" alt="${artigoCompleto.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+                    </div>` : '';
+
+                htmlOutput += `
+                    <a href="${linkUrl}" class="entry-card-link">
+                        <div class="entry-card">
+                            ${thumbnailHtml}
+                            <span class="entry-meta">${metaInfo}</span>
+                            <h3>${artigoCompleto.meta.title}</h3>
+                            <p>${artigoCompleto.meta.summary || ''}</p>
+                        </div>
+                    </a>
+                `;
+            } else {
+                // Fallback robusto caso o artigo não seja encontrado no carregamento completo
+                const linkUrl = `index.html?artigo=${slugItem}`;
+                const catLabel = (item.category || '').toUpperCase();
+                const tituloLimpo = item.title.replace(/^[0-9]+_/, '').replace(/\.md$/, '').replace(/[-_]/g, ' ');
+                const tituloFormatado = String(tituloLimpo).charAt(0).toUpperCase() + String(tituloLimpo).slice(1);
+                const sumarioTexto = item.summary || item.content.substring(0, 140) + '...';
+
+                htmlOutput += `
+                    <a href="${linkUrl}" class="entry-card-link">
+                        <div class="entry-card">
+                            <span class="entry-meta">${catLabel}</span>
+                            <h3>${tituloFormatado}</h3>
+                            <p>${sumarioTexto}</p>
+                        </div>
+                    </a>
+                `;
+            }
         });
 
         htmlOutput += `
@@ -350,6 +383,7 @@ async function router() {
                 const linkUrl = `index.html?artigo=${artigo.slug}`;
                 const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
                 const dataArtigo = artigo.meta.date || '';
+                const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
                 
                 const thumbnailHtml = artigo.meta.image ? `
                     <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
@@ -360,7 +394,7 @@ async function router() {
                     <a href="${linkUrl}" class="entry-card-link">
                         <div class="entry-card">
                             ${thumbnailHtml}
-                            <span class="entry-meta">${catLabel} • ${dataArtigo}</span>
+                            <span class="entry-meta">${metaInfo}</span>
                             <h3>${artigo.meta.title}</h3>
                             <p>${artigo.meta.summary || ''}</p>
                         </div>
