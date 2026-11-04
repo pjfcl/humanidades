@@ -6,15 +6,13 @@ date: 2026-07-30
 published: 2026-07-30
 created: 2026-10-24
 description: "Noites de sexta na garagem ! Programação: 19H00 - \"Vai nos 80!\", inauguração da exposição de fotografia documental sobre Christiane F. 20H00 - \"kaxupa\", imersão gastronómica multicultural pelo Chefe"
-summary: "Programação cultural imaginária." 
+summary: "Programação para evento cultural imaginário." 
 tags:
   - "micro-ficção"
   - "sátira"
 category: "Tintura"
 word_count: 105
 ---
-
-# Sexta na Garagem
 
 *Noites de sexta na garagem !*
 
