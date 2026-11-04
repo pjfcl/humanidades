@@ -21,12 +21,12 @@ Por ocasi√£o do evento musical ocorrido a 11 de Julho de 2026 no Passeio de Alg√
 
 1) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/ZKILv4jMxRE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/ZKILv4jMxRE" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
 2) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/Mdzl9RZUcpI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/Mdzl9RZUcpI" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
 3) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/AFtxHgv4Ut4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AFtxHgv4Ut4" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
