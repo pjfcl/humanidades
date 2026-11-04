@@ -1,15 +1,14 @@
 ---
 title: "O local de trabalho como dojo mental"
 source: "https://cyan-fly-576061.hostingersite.com/o-local-de-trabalho-como-dojo-mental/"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2026-07-30
 published: 2026-07-30
 created: 2026-10-24
-description: "O local de trabalho como dojo mental: 365 exercícios para enfrentar a opressão capitalista no dia-a-dia."
+description: "Reflexão sobre o local de trabalho."
 tags:
   - "aforismos"
-categories:
-  - "Biblioteca > Sementes"
+category: "Semente"
 word_count: 17
 ---
 
