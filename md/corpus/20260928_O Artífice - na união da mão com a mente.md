@@ -8,7 +8,8 @@ tags:
   - "artífice"
   - "obra de arte"
   - "pensamento"
-categories: "Colheita"
+category: "Colheita"
+image: "Artifice.jpg" 
 ---
 
 Na antropologia cultural, a figura do artífice (*homo faber*) é aquela que domina tanto o conceito intelectual como a execução manual. Não há separação entre o suor do ofício e a soberania do pensamento.
