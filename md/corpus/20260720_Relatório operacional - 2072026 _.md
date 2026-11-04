@@ -21,6 +21,12 @@ Por ocasi√£o do evento musical ocorrido a 11 de Julho de 2026 no Passeio de Alg√
 
 1) [Pixies - Caribou](https://youtu.be/ZKILv4jMxRE)
 
+<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+
 2) [Pixies - Gouge Away](https://youtu.be/Mdzl9RZUcpI)
 
+<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+
 3) [Pixies - Cactus](https://youtu.be/AFtxHgv4Ut4)
+
+<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
