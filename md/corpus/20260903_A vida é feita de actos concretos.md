@@ -6,7 +6,7 @@ date: 2026-09-03
 published: 2026-09-03
 created: 2026-10-24
 description: "A vida é feita de actos concretos e não de hipóteses literárias."
-Summary: "Aforismo-
+Summary: "Aforismo" 
 tags:
   - "aforismos"
 category: "semente"
