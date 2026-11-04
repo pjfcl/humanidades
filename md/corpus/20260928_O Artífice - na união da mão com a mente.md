@@ -2,7 +2,7 @@
 title: "O Artífice - na união da mão com a mente."
 author: "Paulo"
 date: 2026-09-28
-summary: "Definição e caracterização do artífice e sua prática." 
+summary: "Definição e caracterização do artífice na sua prática." 
 tags:
   - "artefacto"
   - "artífice"
