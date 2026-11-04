@@ -19,14 +19,14 @@ Porto Santo, 20 de Julho de 2026
 
 Por ocasião do evento musical ocorrido a 11 de Julho de 2026 no Passeio de Algés, e em consequência da comemoração dos quarenta anos da formação da banda de Boston, procedeu-se à actualização do acervo em língua portuguesa referente à mesma. Neste sentido foi produzido novo artefacto digital, no âmbito da curadoria independente que se tem vindo a realizar. Este consiste na tradução lírica para a língua lusitana, análise e selecção de imagens de arquivo, legendagem das mesmas, posterior publicação e promoção das relíquias. Disponibiliza-se em acesso livre o catálogo actualizado, especialmente no que concerne aos seguintes itens:
 
-1) 
+1) Pixies - Caribou (1987)
 
-<iframe src="https://www.youtube-nocookie.com/embed/ZKILv4jMxRE" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/ZKILv4jMxRE" style="position: relative; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
-2) 
+2) Pixies - Gouge Away (1989)
 
-<iframe src="https://www.youtube-nocookie.com/embed/Mdzl9RZUcpI" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/Mdzl9RZUcpI" style="position: relative; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
-3) 
+3) Pixies - Cactus (1988)
 
-<iframe src="https://www.youtube-nocookie.com/embed/AFtxHgv4Ut4" style="position: relative; top: 0; left: 0; width: 50%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AFtxHgv4Ut4" style="position: relative; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
