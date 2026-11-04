@@ -207,10 +207,17 @@ async function executarPesquisa(termo) {
         const indexData = await res.json();
         const termoLower = termo.toLowerCase();
 
+        // Expansão da pesquisa para abranger também 'summary' e 'tags'
         const filtrados = indexData.filter(item => {
             const titulo = (item.title || "").toLowerCase();
             const conteudo = (item.content || "").toLowerCase();
-            return titulo.includes(termoLower) || conteudo.includes(termoLower);
+            const summary = (item.summary || "").toLowerCase();
+            const tags = (item.tags || "").toLowerCase();
+            
+            return titulo.includes(termoLower) || 
+                   conteudo.includes(termoLower) || 
+                   summary.includes(termoLower) || 
+                   tags.includes(termoLower);
         });
 
         const containerResultados = document.getElementById('resultados-pesquisa');
@@ -228,12 +235,13 @@ async function executarPesquisa(termo) {
 
         let htmlOutput = '';
         filtrados.forEach(item => {
+            const snippetText = item.summary || item.content.substring(0, 160);
             htmlOutput += `
                 <a href="index.html?artigo=${item.url.split('/').pop().replace('.html', '')}" class="entry-card-link">
                     <div class="entry-card">
                         <span class="entry-meta">${item.category.toUpperCase()}</span>
                         <h3>${item.title}</h3>
-                        <p style="font-size: 0.9rem; color: var(--muted-color);">${item.content.substring(0, 160)}...</p>
+                        <p style="font-size: 0.9rem; color: var(--muted-color);">${snippetText.substring(0, 160)}...</p>
                     </div>
                 </a>
             `;
