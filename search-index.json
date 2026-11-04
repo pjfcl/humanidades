@@ -126,10 +126,16 @@
     "content": "  ``` Gosto da noite, o prato agora é o palco, sou aquilo que comi. ``` "
   },
   {
-    "title": "Homo faber",
+    "title": "A máscara",
+    "category": "corpus",
+    "url": "/corpus/20260223_A máscara.html",
+    "content": "  # A máscara  A máscara não é tecido mas uma liga de dever e silêncio moldada no rosto. Quando o estojo de facas se abre, a angústia e a devoção respiram no mesmo fôlego: o aperto no peito que se entrega ao fogo, prece seca que sustenta.   Exausta, a face sob a máscara subsiste. Tateia entre o estrépito e o vazio, buscando um sentido que escape à repetição. Mas o perigo é mudo: de tanto uso, torn"
+  },
+  {
+    "title": "20260903_Homo faber.md",
     "category": "corpus",
     "url": "/corpus/20260903_Homo faber.html",
-    "content": "  # Homo faber  Na antropologia cultural, a figura do **artífice** (do *homo faber*) é aquela que domina tanto o conceito intelectual como a execução manual. "
+    "content": "  Na antropologia cultural, a figura do **artífice** (do *homo faber*) é aquela que domina tanto o conceito intelectual como a execução manual. "
   },
   {
     "title": "20151227_FrankLloydWright.md",
