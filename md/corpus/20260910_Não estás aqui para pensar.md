@@ -11,7 +11,7 @@ tags:
   - "hierarquias"
   - "pensamento"
   - "trabalho"
-categories: "Tintura"
+category: "Tintura"
 word_count: 33
 ---
 
