@@ -19,14 +19,14 @@ Porto Santo, 20 de Julho de 2026
 
 Por ocasião do evento musical ocorrido a 11 de Julho de 2026 no Passeio de Algés, e em consequência da comemoração dos quarenta anos da formação da banda de Boston, procedeu-se à actualização do acervo em língua portuguesa referente à mesma. Neste sentido foi produzido novo artefacto digital, no âmbito da curadoria independente que se tem vindo a realizar. Este consiste na tradução lírica para a língua lusitana, análise e selecção de imagens de arquivo, legendagem das mesmas, posterior publicação e promoção das relíquias. Disponibiliza-se em acesso livre o catálogo actualizado, especialmente no que concerne aos seguintes itens:
 
-1) [Pixies - Caribou](https://youtu.be/ZKILv4jMxRE)
+1) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/ZKILv4jMxRE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
-2) [Pixies - Gouge Away](https://youtu.be/Mdzl9RZUcpI)
+2) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/Mdzl9RZUcpI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
 
-3) [Pixies - Cactus](https://youtu.be/AFtxHgv4Ut4)
+3) 
 
-<iframe src="https://www.youtube-nocookie.com/embed/ftRjL7E5Y94" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AFtxHgv4Ut4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen> </iframe>
