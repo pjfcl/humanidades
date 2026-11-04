@@ -5,7 +5,7 @@ author: "Paulo"
 date: 2026-07-20
 created: 2026-10-24
 description: "Porto Santo, 20 de Julho de 2026 Por ocasião do evento musical ocorrido a 11 de Julho de 2026 no Passeio de Algés, e em consequência da comemoração dos quarenta anos da formação da banda de Boston,"
-summary: "Trilogia Videográfica - curadoria, tradução e legendagem." 
+summary: "Trilogia Videográfica - curadoria, tradução e legendagem de alguns videoclipes da banda musical Pixies." 
 image: "Logo_Pixies.jpg" 
 tags:
   - "curadoria"
