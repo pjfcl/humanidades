@@ -11,6 +11,4 @@ category: "Semente"
 word_count: 23
 ---
 
-# Homo faber
-
 Na antropologia cultural, a figura do **artífice** (do *homo faber*) é aquela que domina tanto o conceito intelectual como a execução manual.
