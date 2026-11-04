@@ -5,7 +5,7 @@ author: "Paulo"
 date: 2024-06-11
 created: 2026-10-24
 description: "Os animais são seres vivos que respiram, movem-se de forma autónoma e possuem um sistema nervoso que os permite interagir com o meio ambiente. Os seres humanos distinguem-se, em especial, pela sua"
-summary: "Pequeno ensaio sobre os maus tratos a animais." 
+summary: "Pequeno ensaio sobre a relação pouco pacífica entre os animais e os humanos." 
 tags:
   - "animais"
   - "natureza"
