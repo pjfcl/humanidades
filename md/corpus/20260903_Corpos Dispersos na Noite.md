@@ -1,16 +1,13 @@
 ---
 title: "Corpos Dispersos na Noite"
-source: "https://cyan-fly-576061.hostingersite.com/corpos-dispersos-na-noite/"
 author: "Paulo"
 date: 2026-09-03
-created: 2026-10-24
-description: "AKERMAN, Chantal — Toute une nuit. Bruxelas: Paradise Films / Avoriaz Frères, 1982 (89 min.). No asfalto, sob a luz difusa da noite, dezenas de corpos vagueiam pela penumbra urbana em colisão"
 summary: "Manifestação sobre o filme Toute une nuit, de Chantal Akerman (1982)."  
 tags:
   - "Chantal Akerman"
   - "cinema"
 category: "Tintura"
-word_count: 108
+image: "TouteUneNuit.jpg" 
 ---
 
 #### **AKERMAN, Chantal —*****[Toute une nuit](https://www.imdb.com/fr/title/tt0084808/)*****. Bruxelas: Paradise Films / Avoriaz Frères, 1982 (89 min.).**
