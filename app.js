@@ -207,7 +207,7 @@ async function executarPesquisa(termo) {
         const indexData = await res.json();
         const termoLower = termo.toLowerCase();
 
-        // Expansão da pesquisa para abranger também 'summary' e 'tags'
+        // Expansão da pesquisa para abranger título, conteúdo, summary e tags
         const filtrados = indexData.filter(item => {
             const titulo = (item.title || "").toLowerCase();
             const conteudo = (item.content || "").toLowerCase();
@@ -235,13 +235,17 @@ async function executarPesquisa(termo) {
 
         let htmlOutput = '';
         filtrados.forEach(item => {
-            const snippetText = item.summary || item.content.substring(0, 160);
+            const linkUrl = `index.html?artigo=${item.url.split('/').pop().replace('.html', '')}`;
+            const catLabel = (item.category || '').toUpperCase();
+            const sumarioTexto = item.summary || item.content.substring(0, 140) + '...';
+            
+            // Renderização exata do cartão estético padrão do Scriptorium (.entry-card)
             htmlOutput += `
-                <a href="index.html?artigo=${item.url.split('/').pop().replace('.html', '')}" class="entry-card-link">
+                <a href="${linkUrl}" class="entry-card-link">
                     <div class="entry-card">
-                        <span class="entry-meta">${item.category.toUpperCase()}</span>
+                        <span class="entry-meta">${catLabel}</span>
                         <h3>${item.title}</h3>
-                        <p style="font-size: 0.9rem; color: var(--muted-color);">${snippetText.substring(0, 160)}...</p>
+                        <p>${sumarioTexto}</p>
                     </div>
                 </a>
             `;
