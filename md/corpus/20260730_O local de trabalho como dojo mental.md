@@ -5,10 +5,9 @@ author: "Paulo"
 date: 2026-07-30
 published: 2026-07-30
 created: 2026-10-24
-description: "Reflexão sobre o local de trabalho."
-tags:
-  - "aforismos"
-category: "Semente"
+summary: "Reflexão sobre o local de trabalho."
+tags: "aforismos"
+category: "semente"
 word_count: 17
 ---
 
