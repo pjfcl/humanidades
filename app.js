@@ -237,14 +237,17 @@ async function executarPesquisa(termo) {
         filtrados.forEach(item => {
             const linkUrl = `index.html?artigo=${item.url.split('/').pop().replace('.html', '')}`;
             const catLabel = (item.category || '').toUpperCase();
+            
+            const tituloLimpo = item.title.replace(/^[0-9]+_/, '').replace(/\.md$/, '').replace(/[-_]/g, ' ');
+            const tituloFormatado = String(tituloLimpo).charAt(0).toUpperCase() + String(tituloLimpo).slice(1);
             const sumarioTexto = item.summary || item.content.substring(0, 140) + '...';
             
-            // Renderização exata do cartão estético padrão do Scriptorium (.entry-card)
+            // Renderização unificada idêntica aos cartões da página inicial (.entry-card)
             htmlOutput += `
                 <a href="${linkUrl}" class="entry-card-link">
                     <div class="entry-card">
                         <span class="entry-meta">${catLabel}</span>
-                        <h3>${item.title}</h3>
+                        <h3>${tituloFormatado}</h3>
                         <p>${sumarioTexto}</p>
                     </div>
                 </a>
