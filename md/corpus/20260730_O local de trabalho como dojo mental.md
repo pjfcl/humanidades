@@ -12,6 +12,4 @@ category: "Semente"
 word_count: 17
 ---
 
-# O local de trabalho como dojo mental
-
 O local de trabalho como dojo mental: *365 exercícios para enfrentar a opressão capitalista no dia-a-dia.*
