@@ -1,20 +1,13 @@
 ---
 title: "Lençóis alheios"
-source: "https://cyan-fly-576061.hostingersite.com/lencois-alheios/"
-author:
-  - "[[admin]]"
-published: 2026-08-14
-created: 2026-10-24
-description: "És aquela jovem mulher que dormiu por aí, que descobriu nas drogas e no álcool e no sexo os portais que permitiram fugir para bem longe da própria realidade. As tuas acções tiveram uma lógica, embora"
+author: "Paulo"
+date: 2026-08-14
+summary: "Memórias de saudade." 
 tags:
   - "auto-etnografia"
   - "micro-conto"
-categories:
-  - "Biblioteca > Tinturas"
-word_count: 170
+categories: "Tintura"
 ---
-
-# Lençóis alheios
 
 És aquela jovem mulher que dormiu por aí, que descobriu nas drogas e no álcool e no sexo os portais que permitiram fugir para bem longe da própria realidade.
 
