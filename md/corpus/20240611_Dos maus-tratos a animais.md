@@ -1,20 +1,17 @@
 ---
 title: "Dos maus-tratos a animais"
 source: "https://cyan-fly-576061.hostingersite.com/acerca-dos-maus-tratos-a-animais/"
-author:
-  - "[[admin]]"
-published: 2024-06-11
+author: "Paulo"
+date: 2024-06-11
 created: 2026-10-24
 description: "Os animais são seres vivos que respiram, movem-se de forma autónoma e possuem um sistema nervoso que os permite interagir com o meio ambiente. Os seres humanos distinguem-se, em especial, pela sua"
+summary: "Pequeno ensaio sobre os maus tratos a animais." 
 tags:
   - "animais"
   - "natureza"
-categories:
-  - "Biblioteca > Colheita"
+category: "Colheita"
 word_count: 458
 ---
-
-# Dos maus-tratos a animais
 
 Os animais são seres vivos que respiram, movem-se de forma autónoma e possuem um sistema nervoso que os permite interagir com o meio ambiente. Os seres humanos distinguem-se, em especial, pela sua capacidade de comunicar, por possuírem uma linguagem. Para além disso são capazes de manipular objetos, fazendo uso dos seus polegares, e conseguem raciocinar, tendo desenvolvido processos cognitivos complexos. Todos os seres vivos, humanos e não-humanos, coabitam no seu meio próprio, seja mais ou menos natural, em relações de maior ou menor proximidade, garantindo-lhes diferentes graus de segurança.
 
