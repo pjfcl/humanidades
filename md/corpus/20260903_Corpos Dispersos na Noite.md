@@ -16,4 +16,4 @@ No asfalto, sob a luz difusa da noite, dezenas de corpos vagueiam pela penumbra 
 
 É a Europa a respirar as cinzas de 68, quando a utopia embateu contra a muralha do real. Nesta noite, os corpos dançam a sua própria ruína.
 
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/09/images252ftoute-une-nuit-19821557269911564420262.jpeg?w=1000)
+![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/09/images252ftoute-une-nuit-19821557269911564420262.jpeg)
