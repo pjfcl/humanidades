@@ -1,4 +1,4 @@
-;; Script Chez Scheme Completo para o Scriptorium (Incluindo teste.md)
+;; Script Chez Scheme Completo para o Scriptorium (Com suporte a Tags e Summary)
 (import (chezscheme))
 
 (define (read-file-string filepath)
@@ -24,6 +24,50 @@
             (string=? (substring (car lst) 0 2) "# "))
        (substring (car lst) 2 (string-length (car lst))))
       (else (loop (cdr lst))))))
+
+;; Função para extrair metadatos específicos do Frontmatter (YAML)
+(define (extract-frontmatter-field lines field-name)
+  (let loop ((lst lines) (in-front? #f))
+    (cond
+      ((null? lst) "")
+      ((string=? (car lst) "---")
+       (if in-front? "" (loop (cdr lst) #t)))
+      (in-front?
+       (let* ((line (car lst))
+              (colon-idx (string-index line #\:)))
+         (if colon-idx
+             (let ((key (string-trim (substring line 0 colon-idx)))
+                   (val (string-trim (substring line (+ colon-idx 1) (string-length line)))))
+               (if (string-ci=? key field-name)
+                   ;; Remove plicas ou aspas envolventes se existirem
+                   (let ((vlen (string-length val)))
+                     (if (and (>= vlen 2)
+                              (or (and (char=? (string-ref val 0) #\") (char=? (string-ref val (- vlen 1)) #\"))
+                                  (and (char=? (string-ref val 0) #\') (char=? (string-ref val (- vlen 1)) #\'))))
+                         (substring val 1 (- vlen 1))
+                         val))
+                   (loop (cdr lst) #t)))
+             (loop (cdr lst) #t))))
+      (else (loop (cdr lst) in-front?)))))
+
+;; Funções auxiliares de manipulação de strings
+(define (string-index str char)
+  (let loop ((i 0))
+    (cond ((= i (string-length str)) #f)
+          ((char=? (string-ref str i) char) i)
+          (else (loop (+ i 1))))))
+
+(define (string-trim str)
+  (let* ((len (string-length str))
+         (start (let skip ((i 0))
+                  (cond ((= i len) i)
+                        ((char-whitespace? (string-ref str i)) (skip (+ i 1)))
+                        (else i))))
+         (end (let skip ((i len))
+                (cond ((<= i start) start)
+                      ((char-whitespace? (string-ref str (- i 1))) (skip (- i 1)))
+                      (else i)))))
+    (substring str start end)))
 
 (define (clean-and-sanitize raw-str)
   (let* ((len (string-length raw-str))
@@ -51,7 +95,7 @@
     out))
 
 (define (generate-index)
-  (printf "A gerar índice de pesquisa completo (incluindo ficheiros teste.md)...~n")
+  (printf "A gerar índice de pesquisa completo (com suporte a tags e summary)...~n")
   (let ((md-dir "md")
         (entries '()))
     (when (file-directory? md-dir)
@@ -66,11 +110,15 @@
                  (let* ((lines (read-lines item-path))
                         (raw-content (read-file-string item-path))
                         (title (extract-title lines item-str))
+                        (summary (or (let ((s (extract-frontmatter-field lines "summary"))) (if (string=? s "") (extract-frontmatter-field lines "description") s)) ""))
+                        (tags (or (let ((t (extract-frontmatter-field lines "tags"))) (if (string=? t "") (extract-frontmatter-field lines "category") t)) ""))
                         (url (string-append "/" (string-replace-ext item-str ".md" ".html")))
                         (clean-snippet (clean-and-sanitize raw-content)))
                    (set! entries
                      (cons `((title . ,title)
                              (category . "geral")
+                             (summary . ,summary)
+                             (tags . ,tags)
                              (url . ,url)
                              (content . ,clean-snippet))
                            entries))
@@ -86,11 +134,15 @@
                            (let* ((lines (read-lines filepath))
                                   (raw-content (read-file-string filepath))
                                   (title (extract-title lines sub-file-str))
+                                  (summary (or (let ((s (extract-frontmatter-field lines "summary"))) (if (string=? s "") (extract-frontmatter-field lines "description") s)) ""))
+                                  (tags (or (let ((t (extract-frontmatter-field lines "tags"))) (if (string=? t "") (extract-frontmatter-field lines "category") t)) ""))
                                   (url (string-append "/" item-str "/" (string-replace-ext sub-file-str ".md" ".html")))
                                   (clean-snippet (clean-and-sanitize raw-content)))
                              (set! entries
                                (cons `((title . ,title)
                                        (category . ,item-str)
+                                       (summary . ,summary)
+                                       (tags . ,tags)
                                        (url . ,url)
                                        (content . ,clean-snippet))
                                      entries))
@@ -100,7 +152,7 @@
 
     (printf "Total de ensaios e ficheiros indexados: ~a~n" (length entries))
 
-    ;; Escrever search-index.json
+    ;; Escrever search-index.json com os novos campos
     (call-with-output-file "search-index.json"
       (lambda (p)
         (fprintf p "[\n")
@@ -108,15 +160,17 @@
           (unless (null? lst)
             (let ((entry (car lst)))
               (unless first? (fprintf p ",\n"))
-              (fprintf p "  {\n    \"title\": ~s,\n    \"category\": ~s,\n    \"url\": ~s,\n    \"content\": ~s\n  }"
+              (fprintf p "  {\n    \"title\": ~s,\n    \"category\": ~s,\n    \"summary\": ~s,\n    \"tags\": ~s,\n    \"url\": ~s,\n    \"content\": ~s\n  }"
                        (cdr (assoc 'title entry))
                        (cdr (assoc 'category entry))
+                       (cdr (assoc 'summary entry))
+                       (cdr (assoc 'tags entry))
                        (cdr (assoc 'url entry))
                        (cdr (assoc 'content entry))))
             (loop (cdr lst) #f)))
         (fprintf p "\n]\n"))
       'replace)
-    (printf "search-index.json atualizado com todos os ficheiros Markdown (incluindo testes).~n")))
+    (printf "search-index.json atualizado com title, category, summary, tags, url e content.~n")))
 
 (define (string-suffix? suffix str)
   (let ((slen (string-length suffix))
