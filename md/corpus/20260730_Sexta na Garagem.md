@@ -1,16 +1,16 @@
 ---
 title: "Sexta na Garagem"
 source: "https://cyan-fly-576061.hostingersite.com/sexta-na-garagem/"
-author:
-  - "[[admin]]"
+author: "Paulo"
+date: 2026-07-30
 published: 2026-07-30
 created: 2026-10-24
 description: "Noites de sexta na garagem ! Programação: 19H00 - \"Vai nos 80!\", inauguração da exposição de fotografia documental sobre Christiane F. 20H00 - \"kaxupa\", imersão gastronómica multicultural pelo Chefe"
+summary: "Programação cultural imaginária." 
 tags:
   - "micro-ficção"
   - "sátira"
-categories:
-  - "Biblioteca > Tinturas"
+category: "Tintura"
 word_count: 105
 ---
 
