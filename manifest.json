@@ -1,49 +1,29 @@
 {
   "artigos": [
     {
-      "path": "/md/escola/20261001_A Viragem de Birmingham.md",
-      "section": "escola",
-      "slug": "20261001_A Viragem de Birmingham"
-    },
-    {
-      "path": "/md/escola/20261026_A_semana_de_trabalho.md",
-      "section": "escola",
-      "slug": "20261026_A_semana_de_trabalho"
-    },
-    {
-      "path": "/md/escola/20261015_Saloia, de Nuno Ribeiro.md",
-      "section": "escola",
-      "slug": "20261015_Saloia, de Nuno Ribeiro"
-    },
-    {
-      "path": "/md/oficina/20260920_Oficina.md",
-      "section": "oficina",
-      "slug": "20260920_Oficina"
-    },
-    {
-      "path": "/md/oficina/20071130_DEBIAN - LINUX.md",
-      "section": "oficina",
-      "slug": "20071130_DEBIAN - LINUX"
-    },
-    {
-      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
-      "section": "oficina",
-      "slug": "20150119_Configuração de IP para redes privadas"
-    },
-    {
-      "path": "/md/oficina/2013-11-09_Minha relação informática - apresentação e intensões.md",
-      "section": "oficina",
-      "slug": "2013-11-09_Minha relação informática - apresentação e intensões"
-    },
-    {
-      "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
-      "section": "oficina",
-      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
-    },
-    {
       "path": "/md/sobre/20261029_new.md",
       "section": "sobre",
       "slug": "20261029_new"
+    },
+    {
+      "path": "/md/corpus/20230614_O Sangue Negro de Noémia de Sousa.md",
+      "section": "corpus",
+      "slug": "20230614_O Sangue Negro de Noémia de Sousa"
+    },
+    {
+      "path": "/md/corpus/20151227_FrankLloydWright.md",
+      "section": "corpus",
+      "slug": "20151227_FrankLloydWright"
+    },
+    {
+      "path": "/md/corpus/20260730_Sim, chefe!.md",
+      "section": "corpus",
+      "slug": "20260730_Sim, chefe!"
+    },
+    {
+      "path": "/md/corpus/20240611_Dos maus-tratos a animais.md",
+      "section": "corpus",
+      "slug": "20240611_Dos maus-tratos a animais"
     },
     {
       "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
@@ -51,9 +31,24 @@
       "slug": "20261102_Memorias_da_Plantacao"
     },
     {
+      "path": "/md/corpus/20261001_A Economia do Capital Cultural.md",
+      "section": "corpus",
+      "slug": "20261001_A Economia do Capital Cultural"
+    },
+    {
       "path": "/md/corpus/20260903_Corpos Dispersos na Noite.md",
       "section": "corpus",
       "slug": "20260903_Corpos Dispersos na Noite"
+    },
+    {
+      "path": "/md/corpus/20260903_Homo faber.md",
+      "section": "corpus",
+      "slug": "20260903_Homo faber"
+    },
+    {
+      "path": "/md/corpus/20260720_Relatório operacional - 2072026 _.md",
+      "section": "corpus",
+      "slug": "20260720_Relatório operacional - 2072026 _"
     },
     {
       "path": "/md/corpus/20080109_DiasDoSol.md",
@@ -61,9 +56,34 @@
       "slug": "20080109_DiasDoSol"
     },
     {
-      "path": "/md/corpus/20261017_arte-e-social.md",
+      "path": "/md/corpus/20260730_O local de trabalho como dojo mental.md",
       "section": "corpus",
-      "slug": "20261017_arte-e-social"
+      "slug": "20260730_O local de trabalho como dojo mental"
+    },
+    {
+      "path": "/md/corpus/20260910_Não estás aqui para pensar.md",
+      "section": "corpus",
+      "slug": "20260910_Não estás aqui para pensar"
+    },
+    {
+      "path": "/md/corpus/20260223_A máscara.md",
+      "section": "corpus",
+      "slug": "20260223_A máscara"
+    },
+    {
+      "path": "/md/corpus/20260211_O dia não foi uma construção.md",
+      "section": "corpus",
+      "slug": "20260211_O dia não foi uma construção"
+    },
+    {
+      "path": "/md/corpus/20260209_A Ceia do Shokunin.md",
+      "section": "corpus",
+      "slug": "20260209_A Ceia do Shokunin"
+    },
+    {
+      "path": "/md/corpus/20260909_Catecismo do carrasco.md",
+      "section": "corpus",
+      "slug": "20260909_Catecismo do carrasco"
     },
     {
       "path": "/md/corpus/20260903_Esquecimento absoluto.md",
@@ -76,24 +96,9 @@
       "slug": "20261022_In_All_Chaos"
     },
     {
-      "path": "/md/corpus/20230614_O Sangue Negro de Noémia de Sousa.md",
+      "path": "/md/corpus/20260212_A resistência é compasso.md",
       "section": "corpus",
-      "slug": "20230614_O Sangue Negro de Noémia de Sousa"
-    },
-    {
-      "path": "/md/corpus/20260909_Catecismo do carrasco.md",
-      "section": "corpus",
-      "slug": "20260909_Catecismo do carrasco"
-    },
-    {
-      "path": "/md/corpus/20260720_Relatório operacional - 2072026 _.md",
-      "section": "corpus",
-      "slug": "20260720_Relatório operacional - 2072026 _"
-    },
-    {
-      "path": "/md/corpus/20260211_O dia não foi uma construção.md",
-      "section": "corpus",
-      "slug": "20260211_O dia não foi uma construção"
+      "slug": "20260212_A resistência é compasso"
     },
     {
       "path": "/md/corpus/20260730_Sexta na Garagem.md",
@@ -106,34 +111,9 @@
       "slug": "20260903_O som do tambor"
     },
     {
-      "path": "/md/corpus/20260212_A resistência é compasso.md",
+      "path": "/md/corpus/20260903_A vida é feita de actos concretos.md",
       "section": "corpus",
-      "slug": "20260212_A resistência é compasso"
-    },
-    {
-      "path": "/md/corpus/20260910_Não estás aqui para pensar.md",
-      "section": "corpus",
-      "slug": "20260910_Não estás aqui para pensar"
-    },
-    {
-      "path": "/md/corpus/20260209_A Ceia do Shokunin.md",
-      "section": "corpus",
-      "slug": "20260209_A Ceia do Shokunin"
-    },
-    {
-      "path": "/md/corpus/20260223_A máscara.md",
-      "section": "corpus",
-      "slug": "20260223_A máscara"
-    },
-    {
-      "path": "/md/corpus/20260903_Homo faber.md",
-      "section": "corpus",
-      "slug": "20260903_Homo faber"
-    },
-    {
-      "path": "/md/corpus/20151227_FrankLloydWright.md",
-      "section": "corpus",
-      "slug": "20151227_FrankLloydWright"
+      "slug": "20260903_A vida é feita de actos concretos"
     },
     {
       "path": "/md/corpus/20260911_Nomear a realidade.md",
@@ -141,14 +121,9 @@
       "slug": "20260911_Nomear a realidade"
     },
     {
-      "path": "/md/corpus/20240611_Dos maus-tratos a animais.md",
+      "path": "/md/corpus/20261017_arte-e-social.md",
       "section": "corpus",
-      "slug": "20240611_Dos maus-tratos a animais"
-    },
-    {
-      "path": "/md/corpus/20260730_O local de trabalho como dojo mental.md",
-      "section": "corpus",
-      "slug": "20260730_O local de trabalho como dojo mental"
+      "slug": "20261017_arte-e-social"
     },
     {
       "path": "/md/corpus/20260730_Angélica.md",
@@ -156,24 +131,49 @@
       "slug": "20260730_Angélica"
     },
     {
-      "path": "/md/corpus/20260730_Sim, chefe!.md",
-      "section": "corpus",
-      "slug": "20260730_Sim, chefe!"
-    },
-    {
-      "path": "/md/corpus/20260903_A vida é feita de actos concretos.md",
-      "section": "corpus",
-      "slug": "20260903_A vida é feita de actos concretos"
-    },
-    {
       "path": "/md/corpus/20260204_Gastronomia do Abjecto.md",
       "section": "corpus",
       "slug": "20260204_Gastronomia do Abjecto"
     },
     {
-      "path": "/md/corpus/20261001_A Economia do Capital Cultural.md",
-      "section": "corpus",
-      "slug": "20261001_A Economia do Capital Cultural"
+      "path": "/md/oficina/20260920_Oficina.md",
+      "section": "oficina",
+      "slug": "20260920_Oficina"
+    },
+    {
+      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
+      "section": "oficina",
+      "slug": "20150119_Configuração de IP para redes privadas"
+    },
+    {
+      "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+      "section": "oficina",
+      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
+    },
+    {
+      "path": "/md/oficina/2013-11-09_Minha relação informática - apresentação e intensões.md",
+      "section": "oficina",
+      "slug": "2013-11-09_Minha relação informática - apresentação e intensões"
+    },
+    {
+      "path": "/md/oficina/20071130_DEBIAN - LINUX.md",
+      "section": "oficina",
+      "slug": "20071130_DEBIAN - LINUX"
+    },
+    {
+      "path": "/md/escola/20261026_A_semana_de_trabalho.md",
+      "section": "escola",
+      "slug": "20261026_A_semana_de_trabalho"
+    },
+    {
+      "path": "/md/escola/20261015_Saloia, de Nuno Ribeiro.md",
+      "section": "escola",
+      "slug": "20261015_Saloia, de Nuno Ribeiro"
+    },
+    {
+      "path": "/md/escola/20261001_A Viragem de Birmingham.md",
+      "section": "escola",
+      "slug": "20261001_A Viragem de Birmingham"
     }
   ]
 }
