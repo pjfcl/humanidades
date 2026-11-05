@@ -2,7 +2,7 @@
 title: "Abraço o momento"
 date: 2026-07-30
 author: "Paulo"
-sumnary: "Retrato rústico"
+summary: "Retrato rústico"
 category: "Tintura"
 image: "janela.jpg"
 tags:
