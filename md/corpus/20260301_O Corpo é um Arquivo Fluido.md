@@ -1,30 +1,19 @@
 ---
 title: "O Corpo é um Arquivo Fluido"
-source: "https://cyan-fly-576061.hostingersite.com/o-arquivo-fluido/"
-author:
-  - "[[admin]]"
-published: 2026-03-01
-created: 2026-10-24
-description: "Trauma, Corpo e a Estética do Fracasso em A Cronologia da Água I. A Recusa da Linearidade: A Memória Hidrodinâmica O filme The Chronology of Water (2025), realizado por Kristen Stewart e baseado nas"
+author: "Paulo"
+date: 2026-03-01
+summary: "Apreciação do filme A Cronologia da  Água (2025)." 
 tags:
   - "cinema"
   - "escrita corpórea"
   - "feminismo"
   - "Kristen Stewart"
   - "trauma"
-categories:
-  - "Biblioteca > Colheita"
-word_count: 643
-outline:
-  - "### Trauma, Corpo e a Estética do Fracasso em A Cronologia da Água"
-  - "## Bibliografia Relacionada:"
+category: Colheita"
+image: "cronologiadaagua.jpg)"
 ---
 
-# O Corpo é um Arquivo Fluido
-
-### **Trauma, Corpo e a Estética do Fracasso em*****A Cronologia da Água***
-
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/03/mv5bytdiyte2zwmtyjiync00mjdllweymdaty2q0ngvkmmflzwzjxkeyxkfqcgc401298036071720416949.jpg)
+### **Trauma, Corpo e a Estética do Fracasso em*****A Cronologia da Água*** 
 
 **I. A Recusa da Linearidade: A Memória Hidrodinâmica**
 
