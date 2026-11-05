@@ -15,5 +15,13 @@ image: "grito.jpg"
 
 
 ```
-Um grito que corta– sangue, raiva e escuridão.Por dentro da almaRevolta-se uma tempestade:Esquecer é impossível,O passado devora o presenteE a dor trespassa.Resta sobreviver.
+Um grito que corta
+– sangue, raiva e escuridão.
+Por dentro da alma
+Revolta-se uma tempestade:
+Esquecer é impossível,
+O passado devora o presente
+E a dor trespassa.
+Resta sobreviver.
+
 ```
