@@ -7,7 +7,7 @@ tags:
   - "elegia"
   - "micro-prosa"
 category: "Tintura"
-image: "LMinster
+image: "LMinster.jpg" 
 ---
 
 
