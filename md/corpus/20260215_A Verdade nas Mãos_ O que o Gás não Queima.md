@@ -1,11 +1,8 @@
 ---
 title: "A Verdade nas Mãos: O que o Gás não Queima"
-source: "https://cyan-fly-576061.hostingersite.com/a-verdade-nas-maos-o-que-o-gas-nao-queima/"
-author:
-  - "[[admin]]"
-published: 2026-02-15
-created: 2026-10-24
-description: "No palco do show cooking, perante o burburinho do hotel, a sardinha chega-me às mãos como por sorteio. Algumas ainda brilham, guardando a memória do mar, mas outras aparecem baças, olhos opacos e de"
+author: "Paulo"
+date: 2026-02-15
+summary: "Relato no show cooking." 
 tags:
   - "auto-etnografia"
   - "Culinária"
@@ -14,14 +11,9 @@ tags:
   - "micro-ficção"
   - "Sardinha"
   - "ShowCooking"
-categories:
-  - "Biblioteca > Tinturas"
-word_count: 280
+category: "Tintura"
+image: "sardinha-na-grelha.jpg"
 ---
-
-# A Verdade nas Mãos: O que o Gás não Queima
-
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/02/bb7aa-17711841875837032881291199534196.jpg?w=1024)
 
 No palco do *show cooking*, perante o burburinho do hotel, a sardinha chega-me às mãos como por sorteio. Algumas ainda brilham, guardando a memória do mar, mas outras aparecem baças, olhos opacos e de pele despida pelo gelo industrial. Ali, enfrentando o mundo, a minha mente foge por instinto para as traineiras de cerco e para o carvão dos assadores de rua. Hoje o fogo é a gás, mas o respeito pelo peixe é o mesmo de quando eu era apenas mais um naquela rua.
 
