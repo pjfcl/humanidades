@@ -10,7 +10,7 @@ tags:
   - "Kristen Stewart"
   - "trauma"
 category: Colheita"
-image: "cronologiadaagua.jpg)"
+image: "cronologiadaagua.jpg"
 ---
 
 ### **Trauma, Corpo e a Estética do Fracasso em*****A Cronologia da Água*** 
