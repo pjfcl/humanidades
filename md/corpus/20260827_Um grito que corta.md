@@ -9,7 +9,7 @@ tags:
   - "memória"
   - "poema"
   - "poesia"
-categories: "Tintura"
+category: "Tintura"
 image: "grito.jpg" 
 ---
 
