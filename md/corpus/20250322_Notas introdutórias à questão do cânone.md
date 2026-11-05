@@ -1,24 +1,16 @@
 ---
 title: "Notas introdutórias à questão do cânone"
-source: "https://cyan-fly-576061.hostingersite.com/notas-introdutorias-a-questao-do-canone/"
-author:
-  - "[[admin]]"
-published: 2025-03-22
-created: 2026-10-24
-description: "O cânone literário consiste no conjunto de obras literárias consideradas mais importantes e influentes da tradição. O cânone é uma seleção de textos adotados por uma comunidade, que produzem e"
+author: "Paulo"
+date: 2025-03-22
+summary: "Considerações acerca do cânone literário ocidental." 
 tags:
   - "cânone literário"
   - "estudos literários"
   - "humanidades"
   - "literatura"
-categories:
-  - "Biblioteca > Colheita"
-word_count: 596
+category: "Colheita"
+image: "canone.jpg" 
 ---
-
-# Notas introdutórias à questão do cânone
-
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/02/a20bc-10000038187610933676351631243.jpg?w=1024&h=1024)
 
 O cânone literário consiste no conjunto de obras literárias consideradas mais importantes e influentes da tradição. O cânone é uma seleção de textos adotados por uma comunidade, que produzem e reproduzem valores, que definem aquilo que é legítimo ou proibido. As obras canônicas são aquelas que exerceram maior influência sobre as obras posteriores e que apresentaram maior originalidade na sua época.
 
