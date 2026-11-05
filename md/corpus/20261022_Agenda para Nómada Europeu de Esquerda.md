@@ -1,14 +1,13 @@
 ---
 title: "Agenda para Nómada Europeu de Esquerda"
-
-author: "[[admin]]"
+author: "Paulo"
 date: 2026-10-22
-created: 2026-10-24
-summary: 
+summary: "Mapeamento de resistências na Europa." 
+category: "Semente"
 tags:
   - "europa"
   - "greves"
-category: "Semente"
+
 ---
 
 ## = Novembro 2026 =
