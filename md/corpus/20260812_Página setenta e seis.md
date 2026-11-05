@@ -1,19 +1,13 @@
 ---
 title: "Página setenta e seis"
-source: "https://cyan-fly-576061.hostingersite.com/pagina-76/"
-author:
-  - "[[admin]]"
-published: 2026-08-12
-created: 2026-10-24
-description: "Foca-te no chão que pisas. Tens 120 euros e o teu cérebro. É mais do que muitos têm ao começar a página 76."
+author: "Paulo"
+date: 2026-08-12
+sumnary:
 tags:
   - "aforismos"
-categories:
-  - "Biblioteca > Sementes"
-word_count: 25
+category: "Semente"
+image: "pagina76.png" 
 ---
-
-# Página setenta e seis
 
 Foca-te no chão que pisas. Tens 120 euros e o teu cérebro. É mais do que muitos têm ao começar a página 76.
 
