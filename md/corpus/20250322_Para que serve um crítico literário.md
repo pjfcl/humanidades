@@ -1,23 +1,16 @@
 ---
 title: "Para que serve um crítico literário?"
-source: "https://cyan-fly-576061.hostingersite.com/para-que-serve-um-critico-literario/"
-author:
-  - "[[admin]]"
-published: 2025-03-22
-created: 2026-10-24
-description: "A arte está intimamente relacionada com o público que a consome. Neste, existe um grupo ideal constituído pelos críticos de arte. São um público privilegiado: profundos conhecedores, os críticos são,"
+
+author:"Paulo"
+date: 2025-03-22
+summary: "Considerações sobre o papel e função do crítico literário." 
 tags:
   - "crítica literária"
   - "estudos literários"
   - "humanidades"
-categories:
-  - "Biblioteca > Colheita"
-word_count: 924
+categories: "Colheita"
+image: "critico.jpg" 
 ---
-
-# Para que serve um crítico literário?
-
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/02/00195-17426756560137e25712944486172606431.jpg?w=1024&h=1024)
 
 A arte está intimamente relacionada com o público que a consome. Neste, existe um grupo ideal constituído pelos críticos de arte. São um público privilegiado: profundos conhecedores, os críticos são, por um lado, consumidores de arte informados e, por outro, produtores de textos que nos pretendem influenciar. Eles formulam argumentos e emitem juízos acerca da obra de arte. Ajudam-nos a interpretar, a contextualizar e a situar uma obra em relação a outra. Permitem-nos reflectir e ampliar o entendimento que fazemos das obras que observamos.
 
