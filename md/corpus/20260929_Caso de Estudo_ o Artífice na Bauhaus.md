@@ -1,28 +1,17 @@
 ---
 title: "Caso de Estudo: o Artífice na Bauhaus"
-source: "https://cyan-fly-576061.hostingersite.com/caso-de-estudo-o-artifice-na-bauhaus/"
-author:
-  - "[[admin]]"
-published: 2026-09-29
-created: 2026-10-24
-description: "1) Re-unificação da Mão e da Mente. Antes da fundação da Bauhaus em Weimar (1919), o ensino ocidental consagrava uma fractura de classe e epistemológica entre a Academia de Belas-Artes (dedicada à"
+author: "Paulo"
+date: 2026-09-29
+summary: "O papel central do Artifice na escola de artes Bauhaus e a sua formação." 
 tags:
   - "arte"
   - "artífice"
   - "Bauhaus"
   - "Design"
   - "Walter Gropius"
-categories:
-  - "Biblioteca > Colheita"
-word_count: 494
-outline:
-  - "### 1) Re-unificação da Mão e da Mente."
-  - "### 2)  O Manifesto da Bauhaus"
-  - "### 3) Os três Pilares da Oficina"
-  - "### 4) Fontes para Aprofundamento"
+category: "Colheita"
+image: "Bauhaus.jpg" 
 ---
-
-# Caso de Estudo: o Artífice na Bauhaus
 
 ### **1) Re-unificação da Mão e da Mente.**
 
