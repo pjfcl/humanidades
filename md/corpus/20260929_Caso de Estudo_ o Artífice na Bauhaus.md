@@ -10,7 +10,7 @@ tags:
   - "Design"
   - "Walter Gropius"
 category: "Colheita"
-image: "Bauhaus.jpg" 
+image: "bauhaus.jpg" 
 ---
 
 ### **1) Re-unificação da Mão e da Mente.**
