@@ -1,6 +1,6 @@
 ---
 title: "Escarafunchar o passado"
-author:"Paulo"
+author: "Paulo"
 date: 2026-08-15
 created: 2026-10-24
 summary: "Procura existencial e ontológica." 
