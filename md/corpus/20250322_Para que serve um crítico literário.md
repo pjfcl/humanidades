@@ -7,7 +7,7 @@ tags:
   - "crítica literária"
   - "estudos literários"
   - "humanidades"
-categories: "Colheita"
+category: "Colheita"
 image: "critico.jpg" 
 ---
 
