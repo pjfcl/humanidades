@@ -10,8 +10,6 @@ image: "pagina76.png"
 ---
 
 ...
-
-Foca-te no chão que pisas. Tens 120 euros e o teu cérebro. É mais do que muitos têm ao começar a página 76.
-
+Foca-te no chão que pisas. Tens 120 euros e o teu cérebro. É mais do que muitos têm ao começar a página 76.,
 ...
 
