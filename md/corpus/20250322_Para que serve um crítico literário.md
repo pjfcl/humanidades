@@ -1,6 +1,5 @@
 ---
 title: "Para que serve um crítico literário?"
-
 author:"Paulo"
 date: 2025-03-22
 summary: "Considerações sobre o papel e função do crítico literário." 
