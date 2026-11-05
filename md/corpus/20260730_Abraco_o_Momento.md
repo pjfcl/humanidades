@@ -1,4 +1,3 @@
-
 ---
 title: "Abraço o momento"
 date: 2026-07-30
@@ -8,7 +7,6 @@ category: "Tintura"
 image: "janela.jpg"
 tags:
   - "micro-ficção" 
-
 ---
 
 
