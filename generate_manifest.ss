@@ -1,4 +1,4 @@
-;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Suporte a Tags (Inline e Listas Multilinhas)
+;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Tags
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
@@ -37,7 +37,7 @@
           (let ((line (string-trim-both (car lst))))
             (if (and (>= (string-length line) (string-length key-prefix))
                      (string=? (substring line 0 (string-length key-prefix)) key-prefix))
-                (let* ((val (string-trim-both (substring line (string-length key-prefix) (string-length key-prefix))))
+                (let* ((val (string-trim-both (substring line (string-length key-prefix) (string-length line))))
                        (len (string-length val)))
                   (cond
                     ((and (> len 1)
@@ -47,7 +47,6 @@
                     (else val)))
                 (find-val (cdr lst))))))))
 
-;; Extractor robusto de tags que suporta tanto formato inline (tag: valor) como listas multilinhas (tags:\n - valor)
 (define (extract-tags content)
   (let* ((clean-content (strip-cr content))
          (lines (let loop ((str clean-content) (line '()) (acc '()))
@@ -60,11 +59,10 @@
                             (loop rest (cons c line) acc)))))))
     (let parse-lines ((lst lines) (in-tags? #f) (collected '()))
       (if (null? lst)
-          (string-join collected ", ")
+          (string-join (reverse collected) ", ")
           (let* ((raw-line (car lst))
                  (line (string-trim-both raw-line)))
             (cond
-              ;; Detetar "tags:" ou "tag:"
               ((or (and (>= (string-length line) 5) (string=? (substring line 0 5) "tags:"))
                    (and (>= (string-length line) 4) (string=? (substring line 0 4) "tag:")))
                (let* ((prefix-len (if (string=? (substring line 0 5) "tags:") 5 4))
@@ -73,7 +71,6 @@
                  (if has-inline?
                      (parse-lines (cdr lst) #f (cons after-colon collected))
                      (parse-lines (cdr lst) #t collected))))
-              ;; Detetar itens de lista com "-" dentro do bloco de tags
               ((and in-tags? (> (string-length line) 0) (char=? (string-ref line 0) #\-))
                (let* ((tag-val (string-trim-both (substring line 1 (string-length line))))
                       (clean-tag (let ((len (string-length tag-val)))
@@ -84,7 +81,6 @@
                                       (substring tag-val 1 (- len 1)))
                                      (else tag-val)))))
                  (parse-lines (cdr lst) #t (cons clean-tag collected))))
-              ;; Sair do bloco tags se encontrar nova chave sem indentação
               ((and in-tags? (not (string=? line "")) (not (char-whitespace? (string-ref raw-line 0))))
                (parse-lines (cdr lst) #f collected))
               (else
@@ -110,7 +106,6 @@
                     (+ i 1)))))
     (substring s start end)))
 
-;; Função recursiva para varrer pastas e subpastas
 (define (scan-directory dir base-section subfolder-name acc)
   (if (file-directory? dir)
       (let ((items (directory-list dir)))
@@ -169,7 +164,7 @@
               (loop (cdr lst) (cons cat acc)))))))
 
 (define (generate-manifest)
-  (printf "A iniciar varredura recursiva completa do Scriptorium em Chez Scheme com suporte a tags robustas...\n")
+  (printf "A iniciar varredura recursiva completa do Scriptorium em Chez Scheme...\n")
   (let ((entries '()))
     (let ((target-sections '("corpus" "oficina" "escola" "sobre")))
       (for-each
@@ -183,7 +178,6 @@
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
                  entries)))
 
-      ;; 1. Escrever manifest-all.json com tags extraídas corretamente
       (call-with-output-file "manifest-all.json"
         (lambda (p)
           (fprintf p "{\n  \"artigos\": [\n")
@@ -202,9 +196,8 @@
                   (loop (cdr lst) #f))))
           (fprintf p "\n  ]\n}\n"))
         'replace)
-      (printf "manifest-all.json gerado com sucesso com extração robusta de tags!\n")
+      (printf "manifest-all.json gerado com sucesso!\n")
 
-      ;; 2. Criar manifest.json leve (O artigo mais recente de CADA CATEGORIA para a Home)
       (let* ((categories (get-unique-categories sorted-entries))
              (light-entries
               (apply append
@@ -233,7 +226,7 @@
                     (loop (cdr lst) #f))))
             (fprintf p "\n  ]\n}\n"))
           'replace)
-        (printf "manifest.json leve gerado com sucesso (~a entradas)!\n" (length light-entries))))))
+        (printf "manifest.json leve gerado com sucesso!\n")))))
 
 (define (try-read-file filepath)
   (guard (con [else #f])
