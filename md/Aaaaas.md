@@ -1,5 +1,7 @@
 ---
-tag: "poesia", "literatura" 
+tag: 
+ - "poesia"
+ - "literatura" 
 ---
 
 aaa
