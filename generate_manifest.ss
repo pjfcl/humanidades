@@ -1,4 +1,4 @@
-;; Script Chez Scheme Definitivo para Geração de Manifesto Duplo com Suporte a Categorias e Normalização de Fim de Linha
+;; Script Chez Scheme Definitivo para Varredura Recursiva por Subpasta e Geração de Manifesto Duplo
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
@@ -59,69 +59,79 @@
                     (+ i 1)))))
     (substring s start end)))
 
-(define (get-unique-categories entries)
+;; Função recursiva para varrer pastas e subpastas, registando a subpasta exata como origem/categoria
+(define (scan-directory dir base-section subfolder-name acc)
+  (if (file-directory? dir)
+      (let ((items (directory-list dir)))
+        (let loop ((lst items) (current-acc acc))
+          (if (null? lst)
+              current-acc
+              (let* ((item (car lst))
+                     (item-str (if (symbol? item) (symbol->string item) item))
+                     (path (string-append dir "/" item-str)))
+                (cond
+                  ((file-directory? path)
+                   ;; Subpasta encontrada: usamos o nome da subpasta como subfolder-name
+                   (loop (cdr lst) (scan-directory path base-section item-str current-acc)))
+                  ((file-regular? path)
+                   (let ((len (string-length item-str)))
+                     (if (and (> len 3)
+                              (string=? (substring item-str (- len 3) len) ".md"))
+                         (let* ((slug (substring item-str 0 (- len 3)))
+                                (web-path (string-append "/" path)))
+                           (if (string=? slug "teste")
+                               (loop (cdr lst) current-acc)
+                               (let* ((file-content (try-read-file path))
+                                      (yaml-cat (and file-content (extract-yaml-key file-content "category")))
+                                      (yaml-type (and file-content (extract-yaml-key file-content "type")))
+                                      (effective-cat 
+                                       (cond
+                                         (yaml-cat (string-downcase yaml-cat))
+                                         (yaml-type (string-downcase yaml-type))
+                                         ((string=? subfolder-name "") base-section)
+                                         (else (string-downcase subfolder-name)))))
+                                 (begin
+                                   (printf "Ficheiro detetado: ~a [sec: ~a, sub: ~a, cat: ~a]\n" path base-section subfolder-name effective-cat)
+                                   (loop (cdr lst)
+                                         (cons (list
+                                                 (cons 'path web-path)
+                                                 (cons 'section base-section)
+                                                 (cons 'subfolder subfolder-name)
+                                                 (cons 'category effective-cat)
+                                                 (cons 'slug slug))
+                                               current-acc))))))
+                         (loop (cdr lst) current-acc))))
+                  (else (loop (cdr lst) current-acc)))))))
+      acc))
+
+(define (get-unique-subfolders entries)
   (let loop ((lst entries) (acc '()))
     (if (null? lst)
         (reverse acc)
         (let* ((entry (car lst))
-               (cat (cdr (assoc 'category entry))))
-          (if (member cat acc)
+               (sub (cdr (assoc 'subfolder entry))))
+          (if (member sub acc)
               (loop (cdr lst) acc)
-              (loop (cdr lst) (cons cat acc)))))))
+              (loop (cdr lst) (cons sub acc)))))))
 
 (define (generate-manifest)
-  (printf "A gerar manifest.json e manifest-all.json com deteção robusta de categorias em Chez Scheme...\n")
+  (printf "A iniciar varredura recursiva por subpastas em Chez Scheme...\n")
   (let ((entries '()))
-    (if (file-directory? "md")
-        (let ((cats (directory-list "md")))
-          (for-each
-            (lambda (cat)
-              (let ((cat-str (if (symbol? cat) (symbol->string cat) cat)))
-                (let ((cat-path (string-append "md/" cat-str)))
-                  (if (file-directory? cat-path)
-                      (let ((files (directory-list cat-path)))
-                        (for-each
-                          (lambda (file)
-                            (let ((file-str (if (symbol? file) (symbol->string file) file)))
-                              (let ((filepath (string-append cat-path "/" file-str)))
-                                (if (file-regular? filepath)
-                                    (let ((len (string-length file-str)))
-                                      (if (and (> len 3)
-                                               (string=? (substring file-str (- len 3) len) ".md"))
-                                          (let ((slug (substring file-str 0 (- len 3)))
-                                                (path (string-append "/" cat-path "/" file-str)))
-                                            (if (not (string=? slug "teste"))
-                                                (let* ((file-content (try-read-file filepath))
-                                                       (yaml-cat (and file-content (extract-yaml-key file-content "category")))
-                                                       (yaml-type (and file-content (extract-yaml-key file-content "type")))
-                                                       (effective-cat 
-                                                        (cond
-                                                          (yaml-cat (string-downcase yaml-cat))
-                                                          (yaml-type (string-downcase yaml-type))
-                                                          ((string=? cat-str "corpus") "colheita")
-                                                          (else cat-str))))
-                                                  (begin
-                                                    (set! entries
-                                                      (cons (list
-                                                              (cons 'path path)
-                                                              (cons 'section cat-str)
-                                                              (cons 'category effective-cat)
-                                                              (cons 'slug slug))
-                                                            entries))
-                                                    (printf "Artigo detetado: ~a [cat: ~a] / ~a\n" cat-str effective-cat slug)))
-                                                #f))
-                                          #f))
-                                    #f))))
-                          files))
-                      #f))))
-            cats))
-        #f)
+    ;; Varrimento focado nas secções solicitadas: corpus, oficina, sobre, escola
+    (let ((target-sections '("corpus" "oficina" "escola" "sobre")))
+      (for-each
+        (lambda (sec)
+          (let ((dir-path (string-append "md/" sec)))
+            (set! entries (scan-directory dir-path sec "" entries))))
+        target-sections))
 
+    ;; Ordenar as entradas por slug de forma descendente (recente primeiro)
     (let ((sorted-entries
            (sort (lambda (a b)
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
                  entries)))
 
+      ;; 1. Escrever manifest-all.json (Mapeamento total)
       (call-with-output-file "manifest-all.json"
         (lambda (p)
           (fprintf p "{\n  \"artigos\": [\n")
@@ -130,9 +140,10 @@
                 #f
                 (let ((entry (car lst)))
                   (if (not first?) (fprintf p ",\n") #f)
-                  (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
+                  (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"subfolder\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
                            (cdr (assoc 'path entry))
                            (cdr (assoc 'section entry))
+                           (cdr (assoc 'subfolder entry))
                            (cdr (assoc 'category entry))
                            (cdr (assoc 'slug entry)))
                   (loop (cdr lst) #f))))
@@ -140,16 +151,18 @@
         'replace)
       (printf "manifest-all.json gerado com sucesso!\n")
 
-      (let* ((categories (get-unique-categories sorted-entries))
+      ;; 2. Criar manifest.json leve (O ficheiro mais recente de CADA subpasta para a Home)
+      (let* ((subfolders (get-unique-subfolders sorted-entries))
              (light-entries
               (apply append
-                     (map (lambda (cat)
-                            (let ((cat-entries (filter (lambda (e) (string=? (cdr (assoc 'category e)) cat)) sorted-entries)))
-                              (let take-n ((lst cat-entries) (n 3))
+                     (map (lambda (sub)
+                            (let ((sub-entries (filter (lambda (e) (string=? (cdr (assoc 'subfolder e)) sub)) sorted-entries)))
+                              ;; Recolher estritamente o MAIS RECENTE de cada subpasta
+                              (let take-first ((lst sub-entries) (n 1))
                                 (if (or (null? lst) (= n 0))
                                     '()
-                                    (cons (car lst) (take-n (cdr lst) (- n 1)))))))
-                          categories))))
+                                    (cons (car lst) (take-first (cdr lst) (- n 1)))))))
+                          subfolders))))
 
         (call-with-output-file "manifest.json"
           (lambda (p)
@@ -159,22 +172,23 @@
                   #f
                   (let ((entry (car lst)))
                     (if (not first?) (fprintf p ",\n") #f)
-                    (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
+                    (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"subfolder\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
                              (cdr (assoc 'path entry))
                              (cdr (assoc 'section entry))
+                             (cdr (assoc 'subfolder entry))
                              (cdr (assoc 'category entry))
                              (cdr (assoc 'slug entry)))
                     (loop (cdr lst) #f))))
             (fprintf p "\n  ]\n}\n"))
           'replace)
-        (printf "manifest.json leve gerado com sucesso (~a entradas por categoria)!\n" (length light-entries))))))
+        (printf "manifest.json leve gerado com sucesso com o ficheiro mais recente de cada subpasta (~a entradas)!\n" (length light-entries))))))
 
 (define (try-read-file filepath)
   (guard (con [else #f])
     (read-file-string filepath)))
 
 (define (safe-run)
-  (guard (con [else (begin (display "Erro fatal no manifesto.\n") (exit 255))])
+  (guard (con [else (begin (display "Erro fatal na geração dos manifestos.\n") (exit 255))])
     (generate-manifest)))
 
 (safe-run)
