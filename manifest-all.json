@@ -1,6 +1,11 @@
 {
   "artigos": [
     {
+      "path": "/md/sobre/Ttt.md",
+      "section": "sobre",
+      "slug": "Ttt"
+    },
+    {
       "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
       "section": "corpus",
       "slug": "20261102_Memorias_da_Plantacao"
