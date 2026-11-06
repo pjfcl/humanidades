@@ -8,22 +8,6 @@
     "content": "  ## **Sobre o Scriptorium** O Scriptorium Digital (scriptorium.paulolopes.org) é um jardim de pensamento e arquivo de notas interligadas, cultivado à margem do fluxo acelerado das redes sociais. Estruturado entre Sementes, Colheitas e Tinturas, este espaço destila a intersecção entre a prática culinária, a teoria crítica das humanidades e a soberania tecnológica, reunindo ensaios, narrativas e ar"
   },
   {
-    "title": "Aaaaas.md",
-    "category": "geral",
-    "summary": "",
-    "tags": "",
-    "url": "/Aaaaas.html",
-    "content": "  aaa "
-  },
-  {
-    "title": "New.md",
-    "category": "geral",
-    "summary": "",
-    "tags": "",
-    "url": "/New.html",
-    "content": " "
-  },
-  {
     "title": "20150119_Configuração de IP para redes privadas.md",
     "category": "oficina",
     "summary": "RESUMO DOS ENDEREÇOS; CLASSES e Mascaras de rede por defefeito",
@@ -46,6 +30,22 @@
     "tags": "",
     "url": "/oficina/20071130_DEBIAN - LINUX.html",
     "content": "  A comunidade que forma o [Projeto Debian](http://www.fr.debian.org/) tem por objectivo criar um [S.O. livre](http://www.fr.debian.org/intro/free).  Este sistema operacional chama-se [Debian GNU/Linux](http://www.fr.debian.org/intro/about), ou simplesmente [Debian](http://www.fr.debian.org/releases/stable/).  As ferramentas que formam o S.O. surgem do P[rojeto GNU](http://www.gnu.org/home.pt.html"
+  },
+  {
+    "title": "A.md",
+    "category": "geral",
+    "summary": "",
+    "tags": "",
+    "url": "/A.html",
+    "content": " "
+  },
+  {
+    "title": "20261106_Aaaaas.md",
+    "category": "geral",
+    "summary": "",
+    "tags": "",
+    "url": "/20261106_Aaaaas.html",
+    "content": "  aaa "
   },
   {
     "title": "20261026_A_semana_de_trabalho.md",
