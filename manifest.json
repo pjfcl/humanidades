@@ -1,18 +1,6 @@
 {
   "artigos": [
     {
-      "path": "/md/sobre/Ttt.md",
-      "section": "sobre",
-      "category": "sobre",
-      "slug": "Ttt"
-    },
-    {
-      "path": "/md/sobre/20261029_new.md",
-      "section": "sobre",
-      "category": "sobre",
-      "slug": "20261029_new"
-    },
-    {
       "path": "/md/corpus/Teste.md",
       "section": "corpus",
       "category": "colheita",
@@ -47,6 +35,12 @@
       "section": "corpus",
       "category": "semente",
       "slug": "20261022_Agenda para Nómada Europeu de Esquerda"
+    },
+    {
+      "path": "/md/sobre/20261029_new.md",
+      "section": "sobre",
+      "category": "sobre",
+      "slug": "20261029_new"
     },
     {
       "path": "/md/escola/20261026_A_semana_de_trabalho.md",

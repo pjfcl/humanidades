@@ -1,12 +1,6 @@
 {
   "artigos": [
     {
-      "path": "/md/sobre/Ttt.md",
-      "section": "sobre",
-      "category": "sobre",
-      "slug": "Ttt"
-    },
-    {
       "path": "/md/corpus/Teste.md",
       "section": "corpus",
       "category": "colheita",
