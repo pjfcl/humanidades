@@ -1,4 +1,4 @@
-;; Script Chez Scheme Definitivo para Varredura Recursiva por Subpasta e Geração de Manifesto Duplo
+;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo por Categoria
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
@@ -59,7 +59,7 @@
                     (+ i 1)))))
     (substring s start end)))
 
-;; Função recursiva para varrer pastas e subpastas, registando a subpasta exata como origem/categoria
+;; Função recursiva para varrer pastas e subpastas
 (define (scan-directory dir base-section subfolder-name acc)
   (if (file-directory? dir)
       (let ((items (directory-list dir)))
@@ -71,7 +71,6 @@
                      (path (string-append dir "/" item-str)))
                 (cond
                   ((file-directory? path)
-                   ;; Subpasta encontrada: usamos o nome da subpasta como subfolder-name
                    (loop (cdr lst) (scan-directory path base-section item-str current-acc)))
                   ((file-regular? path)
                    (let ((len (string-length item-str)))
@@ -88,8 +87,9 @@
                                        (cond
                                          (yaml-cat (string-downcase yaml-cat))
                                          (yaml-type (string-downcase yaml-type))
-                                         ((string=? subfolder-name "") base-section)
-                                         (else (string-downcase subfolder-name)))))
+                                         ((not (string=? subfolder-name "")) (string-downcase subfolder-name))
+                                         ((string=? base-section "corpus") "colheita")
+                                         (else base-section))))
                                  (begin
                                    (printf "Ficheiro detetado: ~a [sec: ~a, sub: ~a, cat: ~a]\n" path base-section subfolder-name effective-cat)
                                    (loop (cdr lst)
@@ -104,20 +104,19 @@
                   (else (loop (cdr lst) current-acc)))))))
       acc))
 
-(define (get-unique-subfolders entries)
+(define (get-unique-categories entries)
   (let loop ((lst entries) (acc '()))
     (if (null? lst)
         (reverse acc)
         (let* ((entry (car lst))
-               (sub (cdr (assoc 'subfolder entry))))
-          (if (member sub acc)
+               (cat (cdr (assoc 'category entry))))
+          (if (member cat acc)
               (loop (cdr lst) acc)
-              (loop (cdr lst) (cons sub acc)))))))
+              (loop (cdr lst) (cons cat acc)))))))
 
 (define (generate-manifest)
-  (printf "A iniciar varredura recursiva por subpastas em Chez Scheme...\n")
+  (printf "A iniciar varredura recursiva completa do Scriptorium em Chez Scheme...\n")
   (let ((entries '()))
-    ;; Varrimento focado nas secções solicitadas: corpus, oficina, sobre, escola
     (let ((target-sections '("corpus" "oficina" "escola" "sobre")))
       (for-each
         (lambda (sec)
@@ -125,13 +124,12 @@
             (set! entries (scan-directory dir-path sec "" entries))))
         target-sections))
 
-    ;; Ordenar as entradas por slug de forma descendente (recente primeiro)
     (let ((sorted-entries
            (sort (lambda (a b)
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
                  entries)))
 
-      ;; 1. Escrever manifest-all.json (Mapeamento total)
+      ;; 1. Escrever manifest-all.json
       (call-with-output-file "manifest-all.json"
         (lambda (p)
           (fprintf p "{\n  \"artigos\": [\n")
@@ -151,18 +149,17 @@
         'replace)
       (printf "manifest-all.json gerado com sucesso!\n")
 
-      ;; 2. Criar manifest.json leve (O ficheiro mais recente de CADA subpasta para a Home)
-      (let* ((subfolders (get-unique-subfolders sorted-entries))
+      ;; 2. Criar manifest.json leve (O artigo mais recente de CADA CATEGORIA para a Home)
+      (let* ((categories (get-unique-categories sorted-entries))
              (light-entries
               (apply append
-                     (map (lambda (sub)
-                            (let ((sub-entries (filter (lambda (e) (string=? (cdr (assoc 'subfolder e)) sub)) sorted-entries)))
-                              ;; Recolher estritamente o MAIS RECENTE de cada subpasta
-                              (let take-first ((lst sub-entries) (n 1))
+                     (map (lambda (cat)
+                            (let ((cat-entries (filter (lambda (e) (string=? (cdr (assoc 'category e)) cat)) sorted-entries)))
+                              (let take-first ((lst cat-entries) (n 1))
                                 (if (or (null? lst) (= n 0))
                                     '()
                                     (cons (car lst) (take-first (cdr lst) (- n 1)))))))
-                          subfolders))))
+                          categories))))
 
         (call-with-output-file "manifest.json"
           (lambda (p)
@@ -180,8 +177,8 @@
                              (cdr (assoc 'slug entry)))
                     (loop (cdr lst) #f))))
             (fprintf p "\n  ]\n}\n"))
-          'replace)
-        (printf "manifest.json leve gerado com sucesso com o ficheiro mais recente de cada subpasta (~a entradas)!\n" (length light-entries))))))
+        'replace)
+        (printf "manifest.json leve gerado com sucesso com o ficheiro mais recente de cada categoria (~a entradas)!\n" (length light-entries))))))
 
 (define (try-read-file filepath)
   (guard (con [else #f])
