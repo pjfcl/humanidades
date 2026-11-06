@@ -19,7 +19,9 @@ As redes sociais são reflexo da sociedade actual. Hoje, o meio de produção cu
 
 As grandes corporações tecnológicas (*big tech* - Google, Apple, Microsoft, Amazon, Meta, etc.) mantêm o controlo dos meios de produção tanto através da implementação do modelo de organização laboral como pela logística com que difundem essas mensagens. Ou seja, elas seleccionam quais mensagens são transmitidas bem como, quando e para quem elas se destinam. Isto através do chamado algoritmo. Assim, se a produção se espalhou pelas ruas, o controlo dos meios de distribuição continua concentrado nas mãos da burguesia tecnológica — os donos dos servidores, das redes e das infraestruturas. Acima de tudo, dos algoritmos. As elites serializam, processam e cronometram o fluxo das mensagens. É o capital quem decide o que é transmitido, quando, como e para quem.
 
-![](/assets/img/redes2.jpg)
+<div style="text-align: center; margin: 20px 0;">
+    <img src="/assets/img/redes2.jpg" alt="" style="max-width: 100%; height: auto; border-radius: 4px;">
+</div>
 
 Devido à dinâmica actual, a recepção dessas mensagens é feita sem muito tempo disponível para reflectir, o que resulta numa mensagem consumida sem processamento crítico. Um catálogo de estímulos é-nos apresentado de forma vertiginosa, usualmente durante o nosso período de ócio. Isso não dá tempo, por um lado, de n)os afastarmos do período laboral nem, por outro lado, espaço para contemplar e reflectir. O sistema coloniza o momento em que deveríamos estar a recuperar as forças, a contemplar o mundo ou a silenciar a mente. A exaustão do trabalho produtivo estende-se, sem interrupção, ao tempo de descanso.
 
