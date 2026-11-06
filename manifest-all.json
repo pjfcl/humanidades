@@ -1,6 +1,13 @@
 {
   "artigos": [
     {
+      "path": "/md/oficina/Teste.md",
+      "section": "oficina",
+      "subfolder": "",
+      "category": "oficina",
+      "slug": "Teste"
+    },
+    {
       "path": "/md/corpus/semente/20261102_Memorias_da_Plantacao.md",
       "section": "corpus",
       "subfolder": "semente",

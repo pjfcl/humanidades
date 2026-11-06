@@ -24,6 +24,14 @@
     "content": "  ## RESUMO DOS ENDEREÇOS:  | CLASSES | de ... | a ... | Mascaras de rede por defeito | | --- | --- | --- | --- | | ## A | 10.0.0.0 | 10.255.255.255 | 255.0.0.0 (R.H.H.H) | | ## B | 172.16.0.0 | 172.31.255.255 | 255.255.0.0 (R.R.H.H) | | ## C | 192.168.0.0 | 192.168.255.255 | 255.255.255.0 (R.R.R.H) |  **Legenda:**   R - Rede   H - Host "
   },
   {
+    "title": "Teste.md",
+    "category": "oficina",
+    "summary": "",
+    "tags": "",
+    "url": "/oficina/Teste.html",
+    "content": " "
+  },
+  {
     "title": "2013-11-09_Minha relação informática - apresentação e intensões.md",
     "category": "oficina",
     "summary": "Sou um utilizador do sistema operativo GNU/Linux desde 1999: Comecei por utilizar a versão da COREL, pelo que rapidamente passei a usar a distribuição Debian, à qual me mantive fiel",
