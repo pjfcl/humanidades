@@ -1,12 +1,6 @@
 {
   "artigos": [
     {
-      "path": "/md/corpus/Teste.md",
-      "section": "corpus",
-      "category": "colheita",
-      "slug": "Teste"
-    },
-    {
       "path": "/md/sobre/20261029_new.md",
       "section": "sobre",
       "category": "sobre",
