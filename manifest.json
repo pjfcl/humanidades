@@ -46,7 +46,7 @@
       "path": "/md/oficina/CCS/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
       "section": "oficina",
       "subfolder": "CCS",
-      "category": "oficina",
+      "category": "cccs",
       "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
     },
     {
@@ -55,6 +55,13 @@
       "subfolder": "HD",
       "category": "humanidades digitais",
       "slug": "20260920_Oficina"
+    },
+    {
+      "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",
+      "section": "oficina",
+      "subfolder": "",
+      "category": "oficina",
+      "slug": "20150119_Configuração de IP para redes privadas"
     }
   ]
 }
