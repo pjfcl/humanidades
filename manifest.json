@@ -1,11 +1,11 @@
 {
   "artigos": [
     {
-      "path": "/md/oficina/Teste.md",
+      "path": "/md/oficina/CCS/Rrrr.md",
       "section": "oficina",
-      "subfolder": "",
-      "category": "oficina",
-      "slug": "Teste"
+      "subfolder": "CCS",
+      "category": "rrr",
+      "slug": "Rrrr"
     },
     {
       "path": "/md/oficina/CCS/20261105_aaaaa.md",
@@ -55,6 +55,13 @@
       "subfolder": "tintura",
       "category": "tintura",
       "slug": "20261001_A Economia do Capital Cultural"
+    },
+    {
+      "path": "/md/oficina/CCS/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+      "section": "oficina",
+      "subfolder": "CCS",
+      "category": "oficina",
+      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
     },
     {
       "path": "/md/oficina/HD/20260920_Oficina.md",

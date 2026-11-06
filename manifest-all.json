@@ -1,11 +1,11 @@
 {
   "artigos": [
     {
-      "path": "/md/oficina/Teste.md",
+      "path": "/md/oficina/CCS/Rrrr.md",
       "section": "oficina",
-      "subfolder": "",
-      "category": "oficina",
-      "slug": "Teste"
+      "subfolder": "CCS",
+      "category": "rrr",
+      "slug": "Rrrr"
     },
     {
       "path": "/md/oficina/CCS/20261105_aaaaa.md",
