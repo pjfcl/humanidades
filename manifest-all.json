@@ -8,6 +8,13 @@
       "slug": "Teste"
     },
     {
+      "path": "/md/oficina/CCS/20261105_teste.md",
+      "section": "oficina",
+      "subfolder": "CCS",
+      "category": "teste",
+      "slug": "20261105_teste"
+    },
+    {
       "path": "/md/corpus/semente/20261102_Memorias_da_Plantacao.md",
       "section": "corpus",
       "subfolder": "semente",
