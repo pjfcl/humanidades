@@ -1,8 +1,7 @@
-;; Script Chez Scheme Definitivo para Geração de Manifesto Duplo com Suporte a Categorias
+;; Script Chez Scheme Definitivo para Geração de Manifesto Duplo com Suporte a Categorias e Normalização de Fim de Linha
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
-;; Função simples para ler um ficheiro para string
 (define (read-file-string filepath)
   (let ((p (open-input-file filepath)))
     (let loop ((chars '()) (c (read-char p)))
@@ -10,17 +9,28 @@
           (begin (close-input-port p) (list->string (reverse chars)))
           (loop (cons c chars) (read-char p))))))
 
-;; Extrair valor de uma chave no frontmatter YAML básico (ex: category: semente)
+(define (strip-cr s)
+  (let* ((len (string-length s))
+         (out (open-output-string)))
+    (let loop ((i 0))
+      (if (= i len)
+          (get-output-string out)
+          (let ((c (string-ref s i)))
+            (if (not (char=? c #\return))
+                (write-char c out))
+            (loop (+ i 1)))))))
+
 (define (extract-yaml-key content key)
-  (let ((lines (let loop ((str content) (line '()) (acc '()))
-                 (if (string=? str "")
-                     (reverse (cons (list->string (reverse line)) acc))
-                     (let ((c (string-ref str 0))
-                           (rest (substring str 1 (string-length str))))
-                       (if (char=? c #\newline)
-                           (loop rest '() (cons (list->string (reverse line)) acc))
-                           (loop rest (cons c line) acc))))))
-        (key-prefix (string-append key ":")))
+  (let* ((clean-content (strip-cr content))
+         (lines (let loop ((str clean-content) (line '()) (acc '()))
+                  (if (string=? str "")
+                      (reverse (cons (list->string (reverse line)) acc))
+                      (let ((c (string-ref str 0))
+                            (rest (substring str 1 (string-length str))))
+                        (if (char=? c #\newline)
+                            (loop rest '() (cons (list->string (reverse line)) acc))
+                            (loop rest (cons c line) acc))))))
+         (key-prefix (string-append key ":")))
     (let find-val ((lst lines))
       (if (null? lst)
           #f
@@ -49,7 +59,6 @@
                     (+ i 1)))))
     (substring s start end)))
 
-;; Extrair secções/categorias únicas das entradas
 (define (get-unique-categories entries)
   (let loop ((lst entries) (acc '()))
     (if (null? lst)
@@ -61,7 +70,7 @@
               (loop (cdr lst) (cons cat acc)))))))
 
 (define (generate-manifest)
-  (printf "A gerar manifest.json e manifest-all.json com deteção de categorias em Chez Scheme...\n")
+  (printf "A gerar manifest.json e manifest-all.json com deteção robusta de categorias em Chez Scheme...\n")
   (let ((entries '()))
     (if (file-directory? "md")
         (let ((cats (directory-list "md")))
@@ -108,13 +117,11 @@
             cats))
         #f)
 
-    ;; Ordenar as entradas por slug/nome de forma descendente (recente primeiro)
     (let ((sorted-entries
            (sort (lambda (a b)
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
                  entries)))
 
-      ;; 1. Escrever manifest-all.json (Mapeamento total)
       (call-with-output-file "manifest-all.json"
         (lambda (p)
           (fprintf p "{\n  \"artigos\": [\n")
@@ -133,7 +140,6 @@
         'replace)
       (printf "manifest-all.json gerado com sucesso!\n")
 
-      ;; 2. Criar manifest.json leve (Top 3 mais recentes por CATEGORIA para a Home)
       (let* ((categories (get-unique-categories sorted-entries))
              (light-entries
               (apply append
