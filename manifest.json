@@ -1,13 +1,6 @@
 {
   "artigos": [
     {
-      "path": "/md/oficina/CCS/Rrrr.md",
-      "section": "oficina",
-      "subfolder": "CCS",
-      "category": "rrr",
-      "slug": "Rrrr"
-    },
-    {
       "path": "/md/oficina/CCS/20261105_aaaaa.md",
       "section": "oficina",
       "subfolder": "CCS",
