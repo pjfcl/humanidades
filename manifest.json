@@ -48,6 +48,13 @@
       "subfolder": "CCS",
       "category": "oficina",
       "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
+    },
+    {
+      "path": "/md/oficina/HD/20260920_Oficina.md",
+      "section": "oficina",
+      "subfolder": "HD",
+      "category": "hd",
+      "slug": "20260920_Oficina"
     }
   ]
 }
