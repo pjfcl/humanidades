@@ -9,7 +9,7 @@ tags:
   - "indústria cultural"
   - "resistência"
   - "trabalho digital"
-category: "Semente"
+category: "colheita"
 image: "redes1.jpg" 
 ---
 
