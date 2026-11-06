@@ -16,6 +16,14 @@
     "content": "  aaa "
   },
   {
+    "title": "New.md",
+    "category": "geral",
+    "summary": "",
+    "tags": "",
+    "url": "/New.html",
+    "content": " "
+  },
+  {
     "title": "20150119_Configuração de IP para redes privadas.md",
     "category": "oficina",
     "summary": "RESUMO DOS ENDEREÇOS; CLASSES e Mascaras de rede por defefeito",
