@@ -6,6 +6,11 @@
       "slug": "Ttt"
     },
     {
+      "path": "/md/corpus/Teste.md",
+      "section": "corpus",
+      "slug": "Teste"
+    },
+    {
       "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
       "section": "corpus",
       "slug": "20261102_Memorias_da_Plantacao"
@@ -154,11 +159,6 @@
       "path": "/md/corpus/20260730_Abraco_o_Momento.md",
       "section": "corpus",
       "slug": "20260730_Abraco_o_Momento"
-    },
-    {
-      "path": "/md/corpus/20260720_Relatório operacional - 2072026 _.md",
-      "section": "corpus",
-      "slug": "20260720_Relatório operacional - 2072026 _"
     },
     {
       "path": "/md/oficina/20150119_Configuração de IP para redes privadas.md",

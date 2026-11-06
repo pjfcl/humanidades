@@ -11,6 +11,11 @@
       "slug": "20261029_new"
     },
     {
+      "path": "/md/corpus/Teste.md",
+      "section": "corpus",
+      "slug": "Teste"
+    },
+    {
       "path": "/md/corpus/20261102_Memorias_da_Plantacao.md",
       "section": "corpus",
       "slug": "20261102_Memorias_da_Plantacao"
@@ -19,11 +24,6 @@
       "path": "/md/corpus/20261022_In_All_Chaos.md",
       "section": "corpus",
       "slug": "20261022_In_All_Chaos"
-    },
-    {
-      "path": "/md/corpus/20261022_Agenda para Nómada Europeu de Esquerda.md",
-      "section": "corpus",
-      "slug": "20261022_Agenda para Nómada Europeu de Esquerda"
     },
     {
       "path": "/md/escola/20261026_A_semana_de_trabalho.md",
