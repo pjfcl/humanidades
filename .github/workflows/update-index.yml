@@ -28,7 +28,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add manifest.json search-index.json
+          git add manifest.json manifest-all.json search-index.json
           git status
-          git diff --staged --quiet || git commit -m "Auto-atualização do manifest.json e search-index.json via Chez Scheme [skip ci]"
+          git diff --staged --quiet || git commit -m "Auto-atualização de manifestos e search-index.json via Chez Scheme [skip ci]"
           git push
