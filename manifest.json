@@ -15,6 +15,13 @@
       "slug": "20261029_new"
     },
     {
+      "path": "/md/escola/20261026_A_semana_de_trabalho.md",
+      "section": "escola",
+      "subfolder": "",
+      "category": "escola",
+      "slug": "20261026_A_semana_de_trabalho"
+    },
+    {
       "path": "/md/corpus/colheita/20261016_Alguns problemas das redes sociais.md",
       "section": "corpus",
       "subfolder": "colheita",
@@ -22,11 +29,25 @@
       "slug": "20261016_Alguns problemas das redes sociais"
     },
     {
+      "path": "/md/escola/20261001_A Viragem de Birmingham.md",
+      "section": "escola",
+      "subfolder": "",
+      "category": "estudos culturais",
+      "slug": "20261001_A Viragem de Birmingham"
+    },
+    {
       "path": "/md/corpus/tintura/20261001_A Economia do Capital Cultural.md",
       "section": "corpus",
       "subfolder": "tintura",
       "category": "tintura",
       "slug": "20261001_A Economia do Capital Cultural"
+    },
+    {
+      "path": "/md/oficina/20260929_Estudos Críticos do Código_ A Hermenêutica do Software.md",
+      "section": "oficina",
+      "subfolder": "",
+      "category": "oficina",
+      "slug": "20260929_Estudos Críticos do Código_ A Hermenêutica do Software"
     }
   ]
 }
