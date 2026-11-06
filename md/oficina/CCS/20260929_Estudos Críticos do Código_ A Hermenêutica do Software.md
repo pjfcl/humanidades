@@ -11,7 +11,7 @@ tags:
   - Estudos Culturais
   - humanidades digitais
   - software
-category: "Oficina" 
+category: "CCCS" 
 word_count: 302
 outline:
   - "### ​Conceitos e Eixos Fundamentais"
