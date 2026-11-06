@@ -1,23 +1,19 @@
 ---
 title: "Alguns problemas das redes sociais"
-source: "https://cyan-fly-576061.hostingersite.com/alguns-problemas-das-redes-sociais/"
-author:
-  - "[[admin]]"
-published: 2026-10-16
-created: 2026-10-24
-description: "As redes sociais são reflexo da sociedade actual. Hoje, o meio de produção cultural não se confina aos limites físicos da fábrica mas está diluído geograficamente. Os \"operários\" fabricam as"
+author: "Paulo"
+date: 2026-10-16
+summary: "Considerações acerca das redes sociais e da sua problemática." 
 tags:
   - "alienação"
   - "Estudos Culturais"
   - "indústria cultural"
   - "resistência"
   - "trabalho digital"
-categories:
-  - "Biblioteca > Sementes"
-word_count: 896
+categories: "Semente"
+image: "redes1.jpg" 
 ---
 
-# Alguns problemas das redes sociais
+
 
 As redes sociais são reflexo da sociedade actual. Hoje, o meio de produção cultural não se confina aos limites físicos da fábrica mas está diluído geograficamente. Os "operários" fabricam as mensagens, grosso modo, numa ilusão de participação livre e consciente. Contudo esta sua iniciativa está fortemente condicionada. O operário digital contemporâneo paga do seu próprio bolso o meio de produção (telemóvel, computador, etc.) para desenvolver conteúdos de forma voluntária e gratuita na ilusão de independência. Produz enquanto julga que está a exercer a sua liberdade de expressão. No entanto, ele não é um criador soberano, mas um trabalhador não remunerado que alimenta a base de dados das grandes corporações.
 
