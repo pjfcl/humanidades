@@ -1,20 +1,67 @@
-;; Script Chez Scheme Definitivo, Blindado e Perfeito para Geração de Manifesto Duplo
+;; Script Chez Scheme Definitivo para Geração de Manifesto Duplo com Suporte a Categorias
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
-;; Função auxiliar para extrair secções únicas sem dependências externas de SRFI
-(define (get-unique-sections entries)
+;; Função simples para ler um ficheiro para string
+(define (read-file-string filepath)
+  (let ((p (open-input-file filepath)))
+    (let loop ((chars '()) (c (read-char p)))
+      (if (eof-object? c)
+          (begin (close-input-port p) (list->string (reverse chars)))
+          (loop (cons c chars) (read-char p))))))
+
+;; Extrair valor de uma chave no frontmatter YAML básico (ex: category: semente)
+(define (extract-yaml-key content key)
+  (let ((lines (let loop ((str content) (line '()) (acc '()))
+                 (if (string=? str "")
+                     (reverse (cons (list->string (reverse line)) acc))
+                     (let ((c (string-ref str 0))
+                           (rest (substring str 1 (string-length str))))
+                       (if (char=? c #\newline)
+                           (loop rest '() (cons (list->string (reverse line)) acc))
+                           (loop rest (cons c line) acc))))))
+        (key-prefix (string-append key ":")))
+    (let find-val ((lst lines))
+      (if (null? lst)
+          #f
+          (let ((line (string-trim-both (car lst))))
+            (if (and (>= (string-length line) (string-length key-prefix))
+                     (string=? (substring line 0 (string-length key-prefix)) key-prefix))
+                (let* ((val (string-trim-both (substring line (string-length key-prefix) (string-length line))))
+                       (len (string-length val)))
+                  (cond
+                    ((and (> len 1)
+                          (or (and (char=? (string-ref val 0) #\") (char=? (string-ref val (- len 1)) #\"))
+                              (and (char=? (string-ref val 0) #\') (char=? (string-ref val (- len 1)) #\'))))
+                     (substring val 1 (- len 1)))
+                    (else val)))
+                (find-val (cdr lst))))))))
+
+(define (string-trim-both s)
+  (let* ((len (string-length s))
+         (start (let loop ((i 0))
+                  (if (and (< i len) (char-whitespace? (string-ref s i)))
+                      (loop (+ i 1))
+                      i)))
+         (end (let loop ((i (- len 1)))
+                (if (and (>= i start) (char-whitespace? (string-ref s i)))
+                    (loop (- i 1))
+                    (+ i 1)))))
+    (substring s start end)))
+
+;; Extrair secções/categorias únicas das entradas
+(define (get-unique-categories entries)
   (let loop ((lst entries) (acc '()))
     (if (null? lst)
         (reverse acc)
         (let* ((entry (car lst))
-               (sec (cdr (assoc 'section entry))))
-          (if (member sec acc)
+               (cat (cdr (assoc 'category entry))))
+          (if (member cat acc)
               (loop (cdr lst) acc)
-              (loop (cdr lst) (cons sec acc)))))))
+              (loop (cdr lst) (cons cat acc)))))))
 
 (define (generate-manifest)
-  (printf "A gerar manifest.json e manifest-all.json em Chez Scheme...\n")
+  (printf "A gerar manifest.json e manifest-all.json com deteção de categorias em Chez Scheme...\n")
   (let ((entries '()))
     (if (file-directory? "md")
         (let ((cats (directory-list "md")))
@@ -35,14 +82,24 @@
                                           (let ((slug (substring file-str 0 (- len 3)))
                                                 (path (string-append "/" cat-path "/" file-str)))
                                             (if (not (string=? slug "teste"))
-                                                (begin
-                                                  (set! entries
-                                                    (cons (list
-                                                            (cons 'path path)
-                                                            (cons 'section cat-str)
-                                                            (cons 'slug slug))
-                                                          entries))
-                                                  (printf "Artigo detetado: ~a / ~a\n" cat-str slug))
+                                                (let* ((file-content (try-read-file filepath))
+                                                       (yaml-cat (and file-content (extract-yaml-key file-content "category")))
+                                                       (yaml-type (and file-content (extract-yaml-key file-content "type")))
+                                                       (effective-cat 
+                                                        (cond
+                                                          (yaml-cat (string-downcase yaml-cat))
+                                                          (yaml-type (string-downcase yaml-type))
+                                                          ((string=? cat-str "corpus") "colheita")
+                                                          (else cat-str))))
+                                                  (begin
+                                                    (set! entries
+                                                      (cons (list
+                                                              (cons 'path path)
+                                                              (cons 'section cat-str)
+                                                              (cons 'category effective-cat)
+                                                              (cons 'slug slug))
+                                                            entries))
+                                                    (printf "Artigo detetado: ~a [cat: ~a] / ~a\n" cat-str effective-cat slug)))
                                                 #f))
                                           #f))
                                     #f))))
@@ -66,26 +123,27 @@
                 #f
                 (let ((entry (car lst)))
                   (if (not first?) (fprintf p ",\n") #f)
-                  (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"slug\": ~s\n    }"
+                  (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
                            (cdr (assoc 'path entry))
                            (cdr (assoc 'section entry))
+                           (cdr (assoc 'category entry))
                            (cdr (assoc 'slug entry)))
                   (loop (cdr lst) #f))))
           (fprintf p "\n  ]\n}\n"))
         'replace)
       (printf "manifest-all.json gerado com sucesso!\n")
 
-      ;; 2. Criar manifest.json leve (Top 3 mais recentes por secção para a Home)
-      (let* ((sections (get-unique-sections sorted-entries))
+      ;; 2. Criar manifest.json leve (Top 3 mais recentes por CATEGORIA para a Home)
+      (let* ((categories (get-unique-categories sorted-entries))
              (light-entries
               (apply append
-                     (map (lambda (sec)
-                            (let ((sec-entries (filter (lambda (e) (string=? (cdr (assoc 'section e)) sec)) sorted-entries)))
-                              (let take-n ((lst sec-entries) (n 3))
+                     (map (lambda (cat)
+                            (let ((cat-entries (filter (lambda (e) (string=? (cdr (assoc 'category e)) cat)) sorted-entries)))
+                              (let take-n ((lst cat-entries) (n 3))
                                 (if (or (null? lst) (= n 0))
                                     '()
                                     (cons (car lst) (take-n (cdr lst) (- n 1)))))))
-                          sections))))
+                          categories))))
 
         (call-with-output-file "manifest.json"
           (lambda (p)
@@ -95,14 +153,19 @@
                   #f
                   (let ((entry (car lst)))
                     (if (not first?) (fprintf p ",\n") #f)
-                    (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"slug\": ~s\n    }"
+                    (fprintf p "    {\n      \"path\": ~s,\n      \"section\": ~s,\n      \"category\": ~s,\n      \"slug\": ~s\n    }"
                              (cdr (assoc 'path entry))
                              (cdr (assoc 'section entry))
+                             (cdr (assoc 'category entry))
                              (cdr (assoc 'slug entry)))
                     (loop (cdr lst) #f))))
             (fprintf p "\n  ]\n}\n"))
           'replace)
-        (printf "manifest.json leve gerado com sucesso (~a entradas principais)!\n" (length light-entries))))))
+        (printf "manifest.json leve gerado com sucesso (~a entradas por categoria)!\n" (length light-entries))))))
+
+(define (try-read-file filepath)
+  (guard (con [else #f])
+    (read-file-string filepath)))
 
 (define (safe-run)
   (guard (con [else (begin (display "Erro fatal no manifesto.\n") (exit 255))])
