@@ -45,54 +45,16 @@
                               (and (char=? (string-ref val 0) #\') (char=? (string-ref val (- len 1)) #\'))))
                      (substring val 1 (- len 1)))
                     (else val)))
-                (find-val (cdr lst)))))))))
+                (find-val (cdr lst))))))))
 
+;; Extractor simplificado e seguro de tags (suporta tags inline e primeiras linhas de listas)
 (define (extract-tags content)
-  (let* ((clean-content (strip-cr content))
-         (lines (let loop ((str clean-content) (line '()) (acc '()))
-                  (if (string=? str "")
-                      (reverse (cons (list->string (reverse line)) acc))
-                      (let ((c (string-ref str 0))
-                            (rest (substring str 1 (string-length str))))
-                        (if (char=? c #\newline)
-                            (loop rest '() (cons (list->string (reverse line)) acc))
-                            (loop rest (cons c line) acc)))))))
-    (let parse-lines ((lst lines) (in-tags? #f) (collected '()))
-      (if (null? lst)
-          (string-join (reverse collected) ", ")
-          (let* ((raw-line (car lst))
-                 (line (string-trim-both raw-line)))
-            (cond
-              ((or (and (>= (string-length line) 5) (string=? (substring line 0 5) "tags:"))
-                   (and (>= (string-length line) 4) (string=? (substring line 0 4) "tag:")))
-               (let* ((prefix-len (if (string=? (substring line 0 5) "tags:") 5 4))
-                      (after-colon (string-trim-both (substring line prefix-len (string-length line))))
-                      (has-inline? (and (> (string-length after-colon) 0) (not (string=? after-colon "")))))
-                 (if has-inline?
-                     (parse-lines (cdr lst) #f (cons after-colon collected))
-                     (parse-lines (cdr lst) #t collected))))
-              ((and in-tags? (> (string-length line) 0) (char=? (string-ref line 0) #\-))
-               (let* ((tag-val (string-trim-both (substring line 1 (string-length line))))
-                      (clean-tag (let ((len (string-length tag-val)))
-                                   (cond
-                                     ((and (> len 1)
-                                           (or (and (char=? (string-ref tag-val 0) #\") (char=? (string-ref tag-val (- len 1)) #\"))
-                                               (and (char=? (string-ref tag-val 0) #\') (char=? (string-ref tag-val (- len 1)) #\'))))
-                                      (substring tag-val 1 (- len 1)))
-                                     (else tag-val)))))
-                 (parse-lines (cdr lst) #t (cons clean-tag collected))))
-              ((and in-tags? (not (string=? line "")) (not (char-whitespace? (string-ref raw-line 0))))
-               (parse-lines (cdr lst) #f collected))
-              (else
-               (parse-lines (cdr lst) in-tags? collected)))))))
-
-(define (string-join lst delimiter)
-  (if (null? lst)
-      ""
-      (let loop ((rest (cdr lst)) (acc (car lst)))
-        (if (null? rest)
-            acc
-            (loop (cdr rest) (string-append acc delimiter (car rest)))))))
+  (let* ((clean (strip-cr content))
+         (tag-val (extract-yaml-key clean "tags")))
+    (if tag-val
+        tag-val
+        (let ((single-tag (extract-yaml-key clean "tag")))
+          (if single-tag single-tag "")))))
 
 (define (string-trim-both s)
   (let* ((len (string-length s))
