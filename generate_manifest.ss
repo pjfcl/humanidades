@@ -1,4 +1,4 @@
-;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Suporte a Tags
+;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Suporte a Tag/Tags
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
@@ -83,7 +83,9 @@
                                (let* ((file-content (try-read-file path))
                                       (yaml-cat (and file-content (extract-yaml-key file-content "category")))
                                       (yaml-type (and file-content (extract-yaml-key file-content "type")))
-                                      (yaml-tags (and file-content (extract-yaml-key file-content "tags")))
+                                      ;; Verifica tanto "tags" como "tag" no YAML
+                                      (yaml-tags (and file-content (or (extract-yaml-key file-content "tags")
+                                                                       (extract-yaml-key file-content "tag"))))
                                       (effective-cat 
                                        (cond
                                          (yaml-cat (string-downcase yaml-cat))
@@ -118,7 +120,7 @@
               (loop (cdr lst) (cons cat acc)))))))
 
 (define (generate-manifest)
-  (printf "A iniciar varredura recursiva completa do Scriptorium em Chez Scheme com suporte a tags...\n")
+  (printf "A iniciar varredura recursiva completa do Scriptorium em Chez Scheme com suporte a tag/tags...\n")
   (let ((entries '()))
     (let ((target-sections '("corpus" "oficina" "escola" "sobre")))
       (for-each
@@ -132,7 +134,7 @@
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
                  entries)))
 
-      ;; 1. Escrever manifest-all.json com tags incluídas
+      ;; 1. Escrever manifest-all.json com tags consolidadas
       (call-with-output-file "manifest-all.json"
         (lambda (p)
           (fprintf p "{\n  \"artigos\": [\n")
@@ -151,7 +153,7 @@
                   (loop (cdr lst) #f))))
           (fprintf p "\n  ]\n}\n"))
         'replace)
-      (printf "manifest-all.json gerado com sucesso com as tags incluídas!\n")
+      (printf "manifest-all.json gerado com sucesso com as tags unificadas!\n")
 
       ;; 2. Criar manifest.json leve (O artigo mais recente de CADA CATEGORIA para a Home)
       (let* ((categories (get-unique-categories sorted-entries))
@@ -181,7 +183,7 @@
                              (cdr (assoc 'slug entry)))
                     (loop (cdr lst) #f))))
             (fprintf p "\n  ]\n}\n"))
-          'replace)
+        'replace)
         (printf "manifest.json leve gerado com sucesso (~a entradas)!\n" (length light-entries))))))
 
 (define (try-read-file filepath)
@@ -193,4 +195,3 @@
     (generate-manifest)))
 
 (safe-run)
- 
