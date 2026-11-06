@@ -1,6 +1,17 @@
-;; Script Chez Scheme Definitivo e Corrigido para Geração de Manifesto Duplo
+;; Script Chez Scheme Definitivo, Blindado e Perfeito para Geração de Manifesto Duplo
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
+
+;; Função auxiliar para extrair secções únicas sem dependências externas de SRFI
+(define (get-unique-sections entries)
+  (let loop ((lst entries) (acc '()))
+    (if (null? lst)
+        (reverse acc)
+        (let* ((entry (car lst))
+               (sec (cdr (assoc 'section entry))))
+          (if (member sec acc)
+              (loop (cdr lst) acc)
+              (loop (cdr lst) (cons sec acc)))))))
 
 (define (generate-manifest)
   (printf "A gerar manifest.json e manifest-all.json em Chez Scheme...\n")
@@ -40,7 +51,7 @@
             cats))
         #f)
 
-    ;; Correção: Uso de 'let' para vincular 'sorted-entries' sem violar o contexto de definição
+    ;; Ordenar as entradas por slug/nome de forma descendente (recente primeiro)
     (let ((sorted-entries
            (sort (lambda (a b)
                    (string>? (cdr (assoc 'slug a)) (cdr (assoc 'slug b))))
@@ -65,7 +76,7 @@
       (printf "manifest-all.json gerado com sucesso!\n")
 
       ;; 2. Criar manifest.json leve (Top 3 mais recentes por secção para a Home)
-      (let* ((sections (delete-duplicates (map (lambda (e) (cdr (assoc 'section e))) sorted-entries)))
+      (let* ((sections (get-unique-sections sorted-entries))
              (light-entries
               (apply append
                      (map (lambda (sec)
