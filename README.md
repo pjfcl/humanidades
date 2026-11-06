@@ -41,12 +41,12 @@ O ficheiro **`app.js`** atua como o **núcleo de processamento e renderização*
    Garante a portabilidade absoluta do código, calculando caminhos relativos e absolutos para recursos gráficos e ligações internas independentemente do subdiretório onde a SPA esteja a ser executada.
 3. **Carregamento Otimizado com Manifesto Duplo (`carregarArtigos`):** 
    Implementa uma estratégia de carregamento em duas vias:
-   * Na **página inicial (Home)**, consome o `manifest.json` (manifesto leve restrito aos artigos recentes por secção) para garantir uma abertura instantânea da página (*Initial Load Performance*)[span_2](start_span)[span_2](end_span).
-   * Nas **secções temáticas, leitura de artigos ou pesquisa**, recorre assincronamente ao `manifest-all.json` (arquivo global) para mapear todo o espólio histórico sob demanda[span_3](start_span)[span_3](end_span).
+   * Na **página inicial (Home)**, consome o `manifest.json` (manifesto leve restrito aos artigos recentes por secção) para garantir uma abertura instantânea da página (*Initial Load Performance*).
+   * Nas **secções temáticas, leitura de artigos ou pesquisa**, recorre assincronamente ao `manifest-all.json` (arquivo global) para mapear todo o espólio histórico sob demanda.
 4. **Sistema de Roteamento SPA (`router`):** 
    Interceta os parâmetros da barra de endereços (`?artigo=...`, `?seccao=...`, `?q=...`) alternando dinamicamente a visibilidade entre a vista principal (`view-home`) e a vista de conteúdos/pesquisa (`view-content`) sem recarregar a página do browser.
 5. **Motor de Pesquisa Textual Integrado (`executarPesquisa`):** 
-   Cruzamento inteligente entre o índice estático pré-compilado (`search-index.json`) e os metadados ricos do manifesto, permitindo filtragem por termos, títulos e tags de forma fluida e imediata[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).
+   Cruzamento inteligente entre o índice estático pré-compilado (`search-index.json`) e os metadados ricos do manifesto, permitindo filtragem por termos, títulos e tags de forma fluida e imediata.
 
 ---
 
@@ -82,16 +82,16 @@ Para assegurar a soberania digital e a total independência de dependências ext
 A arquitetura de dados do portal assenta em três ficheiros JSON gerados dinamicamente pelos scripts em Scheme:
 
 * **1. `manifest.json` (O Manifesto Leve de Entrada):**
-  * **O que é:** Um manifesto otimizado e de tamanho reduzido gerado pelo script `generate_manifest.ss`. Contém apenas um limite restrito de artigos recentes por cada secção temática (os 3 mais recentes por categoria)[span_6](start_span)[span_6](end_span).
-  * **Como funciona:** É o único manifesto descarregado pelo motor SPA (`app.js`) no carregamento inicial da página principal (`index.html`), eliminando o peso de payloads desnecessários e garantindo renderização instantânea[span_7](start_span)[span_7](end_span).
+  * **O que é:** Um manifesto otimizado e de tamanho reduzido gerado pelo script `generate_manifest.ss`. Contém apenas um limite restrito de artigos recentes por cada secção temática (os 3 mais recentes por categoria).
+  * **Como funciona:** É o único manifesto descarregado pelo motor SPA (`app.js`) no carregamento inicial da página principal (`index.html`), eliminando o peso de payloads desnecessários e garantindo renderização instantânea.
 
 * **2. `manifest-all.json` (O Arquivo Global):**
   * **O que é:** O mapeamento exaustivo e total de todo o espólio histórico de ensaios e registos presentes no repositório.
-  * **Como funciona:** Mantém-se estático no servidor e é requisitado pelo cliente de forma assíncrona apenas sob demanda — quando o utilizador navega para uma secção temática completa, abre um ensaio individual ou executa operações avançadas[span_8](start_span)[span_8](end_span).
+  * **Como funciona:** Mantém-se estático no servidor e é requisitado pelo cliente de forma assíncrona apenas sob demanda — quando o utilizador navega para uma secção temática completa, abre um ensaio individual ou executa operações avançadas.
 
 * **3. `search-index.json` (O Índice de Pesquisa Textual):**
-  * **O que é:** Um índice unificado gerado pelo script `generate_index.ss`, contendo os metadados estruturados (`title`, `category`, `summary`, `tags`, `url`) e um excerto limpo do corpo (`content`) de cada publicação[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span).
-  * **Como funciona:** É consultado em tempo real pelo motor de busca integrado da SPA sempre que o utilizador submete um termo de pesquisa, permitindo filtragem textual instantânea[span_11](start_span)[span_11](end_span).
+  * **O que é:** Um índice unificado gerado pelo script `generate_index.ss`, contendo os metadados estruturados (`title`, `category`, `summary`, `tags`, `url`) e um excerto limpo do corpo (`content`) de cada publicação.
+  * **Como funciona:** É consultado em tempo real pelo motor de busca integrado da SPA sempre que o utilizador submete um termo de pesquisa, permitindo filtragem textual instantânea.
 
 ---
 
