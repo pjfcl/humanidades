@@ -9,7 +9,7 @@ tags:
   - "indústria cultural"
   - "resistência"
   - "trabalho digital"
-categories: "Semente"
+category: "Semente"
 image: "redes1.jpg" 
 ---
 
@@ -27,7 +27,9 @@ Devido à dinâmica actual, a recepção dessas mensagens é feita sem muito tem
 
 O capitalismo tardio caracteriza-se pela dissolução das fronteiras entre o tempo de trabalho e o tempo de descanso. Ao extrair mais-valia da atenção do utilizador no seu tempo de ócio, o sistema transforma o cidadão num "trabalhador não remunerado". Enquanto as redes sociais e os produtos digitais operam uma *desencarnação* — abstraem o corpo, fragmentam a atenção e convertem a experiência humana num fluxo contínuo de dados consumidos de forma passiva —, a indústria cultural explora a vulnerabilidade do ego: a necessidade de validação externa, o medo da exclusão e a incapacidade de tolerar o vazio. O algoritmo alimenta-se da ansiedade e da exaustão.
 
-![](/assets/img/redes3.jpg)
+<div style="text-align: center; margin: 20px 0;">
+    <img src="/assets/img/redes3.jpg" alt="" style="max-width: 100%; height: auto; border-radius: 4px;">
+</div>
 
 A resposta perante este estado de coisas não passa por uma escolha simplista entre o **pessimismo paralisante** (aceitar que somos meros joguetes do algoritmo) ou o **voluntarismo ingénuo** (acreditar que basta "desligar o telemóvel" para ficar a salvo do sistema).
 
