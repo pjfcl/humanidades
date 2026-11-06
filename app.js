@@ -87,19 +87,22 @@ async function carregarArtigos(manifestoAlvo = 'manifest.json') {
                     const imagemFormatada = resolverImagemUrl(imagemRaw);
                     
                     const categoriaDetectada = parsed.meta.category || parsed.meta.type || item.category || item.section;
+                    const tagsDetectadas = parsed.meta.tags || parsed.meta.tag || '';
 
                     artigos.push({
                         path: item.path,
                         slug: item.slug,
                         section: (item.section || '').toLowerCase(),
                         category: (categoriaDetectada || '').toLowerCase(),
+                        tags: (tagsDetectadas || '').toLowerCase(),
                         meta: {
                             ...parsed.meta,
                             title: tituloFormatado,
                             date: dataRaw,
                             summary: sumarioRaw,
                             image: imagemFormatada,
-                            category: categoriaDetectada
+                            category: categoriaDetectada,
+                            tags: tagsDetectadas
                         },
                         content: parsed.content
                     });
@@ -130,7 +133,6 @@ async function renderizarCapa(artigos) {
         return;
     }
 
-    // Filtragem por categoria ou secção com base no manifesto leve (manifest.json)
     const sementes = artigos.filter(a => a.category.includes('semente'));
     const colheitas = artigos.filter(a => a.category.includes('colheita') || (a.section === 'corpus' && !a.category.includes('semente') && !a.category.includes('tintura')));
     const tinturas = artigos.filter(a => a.category.includes('tintura') || a.category.includes('ficcao'));
@@ -151,7 +153,6 @@ async function renderizarCapa(artigos) {
         }
     };
 
-    // Ordem de apresentação dos cartões na capa do portal
     adicionarMaisRecente(sementes);
     adicionarMaisRecente(colheitas);
     adicionarMaisRecente(tinturas);
@@ -207,7 +208,6 @@ async function executarPesquisa(termo) {
     `;
 
     try {
-        // Leitura dedicada do search-index.json para pesquisa
         const res = await fetch(resolverUrl('search-index.json'));
         if (!res.ok) throw new Error("Não foi possível carregar o índice de pesquisa.");
         
@@ -239,7 +239,6 @@ async function executarPesquisa(termo) {
             return;
         }
 
-        // Para hidratar os resultados da pesquisa, recorre ao manifesto completo (manifest-all.json)
         const todosArtigos = await carregarArtigos('manifest-all.json');
 
         let htmlOutput = '';
@@ -292,6 +291,9 @@ async function router() {
     const seccaoParam = urlParams.get('seccao');
     const artigoParam = urlParams.get('artigo');
     const qParam = urlParams.get('q');
+    const categoriaParam = urlParams.get('categoria');
+    const tagParam = urlParams.get('tag');
+    const anoParam = urlParams.get('ano');
 
     const viewHome = document.getElementById('view-home');
     const viewContent = document.getElementById('view-content');
@@ -303,9 +305,9 @@ async function router() {
         return;
     }
 
-    const isHome = !seccaoParam && !artigoParam;
+    const isHome = !seccaoParam && !artigoParam && !categoriaParam && !tagParam && !anoParam;
 
-    // Regra de selecção do manifesto: manifest.json na Home, manifest-all.json nas restantes situações
+    // Se estivermos em filtros avançados ou artigo/secção, usamos o manifesto integral
     const manifestoSelecionado = isHome ? 'manifest.json' : 'manifest-all.json';
     const artigos = await carregarArtigos(manifestoSelecionado);
 
@@ -356,55 +358,93 @@ async function router() {
         viewContent.style.display = 'block';
 
         const filtrados = artigos.filter(a => a.section.toLowerCase() === seccaoParam.toLowerCase());
-        
-        let htmlOutput = `
-            <div class="breadcrumb" style="margin-bottom: 20px;">
-                <a href="index.html">Início</a> / <span>${seccaoParam}</span>
-            </div>
-            <h2 class="font-sans" style="font-size: 1.25rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-color); margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
-                Secção: ${seccaoParam.toUpperCase()}
-            </h2>`;
+        renderizarListaFiltrada(filtrados, `Secção: ${seccaoParam.toUpperCase()}`, seccaoParam);
+        return;
+    }
 
-        if (filtrados.length > 0) {
-            filtrados.forEach(artigo => {
-                const linkUrl = `index.html?artigo=${artigo.slug}`;
-                const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
-                const dataArtigo = artigo.meta.date || '';
-                const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
-                
-                const thumbnailHtml = artigo.meta.image ? `
-                    <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
-                        <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
-                    </div>` : '';
+    if (categoriaParam) {
+        viewHome.style.display = 'none';
+        viewContent.style.display = 'block';
 
-                htmlOutput += `
-                    <a href="${linkUrl}" class="entry-card-link">
-                        <div class="entry-card">
-                            ${thumbnailHtml}
-                            <span class="entry-meta">${metaInfo}</span>
-                            <h3>${artigo.meta.title}</h3>
-                            <p>${artigo.meta.summary || ''}</p>
-                        </div>
-                    </a>
-                `;
-            });
-        } else {
-            htmlOutput += `<p class="font-mono" style="font-size: 0.85rem; color: var(--muted-color);">Nenhum registo encontrado nesta secção.</p>`;
-        }
+        const filtrados = artigos.filter(a => 
+            (a.category && a.category.toLowerCase() === categoriaParam.toLowerCase()) ||
+            (a.subfolder && a.subfolder.toLowerCase() === categoriaParam.toLowerCase())
+        );
+        renderizarListaFiltrada(filtrados, `Categoria: ${categoriaParam.toUpperCase()}`, categoriaParam);
+        return;
+    }
 
-        htmlOutput += `
-            <div style="margin-top: 45px; border-top: 1px solid var(--border-color); padding-top: 15px;">
-                <a href="index.html" class="font-mono" style="font-size: 0.82rem; color: var(--accent-color); text-decoration: none; font-weight: 600;">&larr; Voltar ao Início</a>
-            </div>
-        `;
+    if (tagParam) {
+        viewHome.style.display = 'none';
+        viewContent.style.display = 'block';
 
-        viewContent.innerHTML = htmlOutput;
+        const tagLower = tagParam.toLowerCase();
+        const filtrados = artigos.filter(a => a.tags && a.tags.toLowerCase().includes(tagLower));
+        renderizarListaFiltrada(filtrados, `Tag: #${tagParam}`, tagParam);
+        return;
+    }
+
+    if (anoParam) {
+        viewHome.style.display = 'none';
+        viewContent.style.display = 'block';
+
+        const filtrados = artigos.filter(a => a.meta.date && a.meta.date.startsWith(anoParam));
+        renderizarListaFiltrada(filtrados, `Ano: ${anoParam}`, anoParam);
         return;
     }
 
     viewHome.style.display = 'block';
     viewContent.style.display = 'none';
     await renderizarCapa(artigos);
+}
+
+// Função auxiliar reutilizável para desenhar listagens filtradas
+function renderizarListaFiltrada(artigos, tituloHeader, termoBusca) {
+    const viewContent = document.getElementById('view-content');
+    if (!viewContent) return;
+
+    let htmlOutput = `
+        <div class="breadcrumb" style="margin-bottom: 20px;">
+            <a href="index.html">Início</a> / <span>${tituloHeader}</span>
+        </div>
+        <h2 class="font-sans" style="font-size: 1.25rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-color); margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+            ${tituloHeader}
+        </h2>`;
+
+    if (artigos.length > 0) {
+        artigos.forEach(artigo => {
+            const linkUrl = `index.html?artigo=${artigo.slug}`;
+            const catLabel = (artigo.meta.category || artigo.section).toUpperCase();
+            const dataArtigo = artigo.meta.date || '';
+            const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
+            
+            const thumbnailHtml = artigo.meta.image ? `
+                <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
+                    <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+                </div>` : '';
+
+            htmlOutput += `
+                <a href="${linkUrl}" class="entry-card-link">
+                    <div class="entry-card">
+                        ${thumbnailHtml}
+                        <span class="entry-meta">${metaInfo}</span>
+                        <h3>${artigo.meta.title}</h3>
+                        <p>${artigo.meta.summary || ''}</p>
+                    </div>
+                </a>
+            `;
+        });
+    } else {
+        htmlOutput += `<p class="font-mono" style="font-size: 0.85rem; color: var(--muted-color);">Nenhum registo encontrado para "<strong>${termoBusca}</strong>".</p>`;
+    }
+
+    htmlOutput += `
+        <div style="margin-top: 45px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+            <a href="index.html" class="font-mono" style="font-size: 0.82rem; color: var(--accent-color); text-decoration: none; font-weight: 600;">&larr; Voltar ao Início</a>
+        </div>
+    `;
+
+    viewContent.innerHTML = htmlOutput;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
