@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PAULOLOPES.ORG / SCRIPTORIUM DIGITAL — Motor SPA Blindado com Pesquisa (app.js)
+   PAULOLOPES.ORG / SCRIPTORIUM DIGITAL — Motor SPA Otimizado com Manifesto Duplo (app.js)
    Soberania Digital, Humanidades & Arquitetura Estática
    Autor: Paulo Furtado Lopes (mail@paulolopes.org)
    ========================================================================== */
@@ -47,7 +47,6 @@ function resolverUrl(path) {
     return baseDir + clean;
 }
 
-// Função auxiliar para mapear o nome da imagem indicado no frontmatter para o caminho absoluto
 function resolverImagemUrl(imagemMeta) {
     if (!imagemMeta) return '';
     if (imagemMeta.startsWith('http') || imagemMeta.startsWith('/')) {
@@ -56,13 +55,20 @@ function resolverImagemUrl(imagemMeta) {
     return resolverUrl(`assets/img/${imagemMeta}`);
 }
 
-async function carregarTodosArtigos() {
+// Carrega os artigos com base no manifesto escolhido (leve para home, completo para arquivo/pesquisa/secções)
+async function carregarArtigos(completo = false) {
     let artigos = [];
+    const targetManifest = completo ? 'manifest-all.json' : 'manifest.json';
 
     try {
-        const manifestUrl = resolverUrl('manifest.json');
+        const manifestUrl = resolverUrl(targetManifest);
         const manifestRes = await fetch(manifestUrl);
-        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar manifest.json`);
+        
+        // Fallback defensivo caso o manifesto leve falhe e tente o all
+        if (!manifestRes.ok && !completo) {
+            return await carregarArtigos(true);
+        }
+        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar ${targetManifest}`);
         
         const manifestData = await manifestRes.json();
         const entradas = manifestData.artigos || [];
@@ -82,7 +88,6 @@ async function carregarTodosArtigos() {
                     const dataRaw = parsed.meta.date || parsed.meta.published || parsed.meta.created || '';
                     const sumarioRaw = parsed.meta.summary || parsed.meta.description || parsed.content.replace(/^#+\s+.*/gm, '').trim().substring(0, 140) + '...';
                     
-                    // Tratamento da imagem a partir dos metadados (image, cover ou thumbnail)
                     const imagemRaw = parsed.meta.image || parsed.meta.cover || parsed.meta.thumbnail || '';
                     const imagemFormatada = resolverImagemUrl(imagemRaw);
 
@@ -105,7 +110,7 @@ async function carregarTodosArtigos() {
             }
         }
     } catch (e) {
-        console.error("[Scriptorium] Erro crítico ao carregar manifesto:", e);
+        console.error(`[Scriptorium] Erro crítico ao carregar ${targetManifest}:`, e);
     }
 
     artigos.sort((a, b) => {
@@ -161,7 +166,6 @@ async function renderizarCapa(artigos) {
         const dataArtigo = artigo.meta.date || '';
         const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
         
-        // Renderização da miniatura no cartão se existir imagem definida
         const thumbnailHtml = artigo.meta.image ? `
             <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
                 <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
@@ -202,7 +206,6 @@ async function executarPesquisa(termo) {
     `;
 
     try {
-        // 1. Carrega o índice estático para filtragem rápida do termo
         const res = await fetch(resolverUrl('search-index.json'));
         if (!res.ok) throw new Error("Não foi possível carregar o índice de pesquisa.");
         
@@ -234,15 +237,12 @@ async function executarPesquisa(termo) {
             return;
         }
 
-        // 2. Carrega todos os artigos completos para obter metadados ricos (imagens, datas corretas, etc.)
-        const todosArtigos = await carregarTodosArtigos();
+        // Carrega o manifesto completo para garantir acesso a todos os artigos pesquisados
+        const todosArtigos = await carregarArtigos(true);
 
         let htmlOutput = '';
         filtradosIndex.forEach(item => {
-            // Extrai o slug a partir da URL do item indexado (ex: /corpus/20230614_...html -> 20230614_...)
             const slugItem = item.url.split('/').pop().replace('.html', '');
-            
-            // Procura o artigo correspondente na lista completa de artigos
             const artigoCompleto = todosArtigos.find(a => a.slug === slugItem);
 
             if (artigoCompleto) {
@@ -251,7 +251,6 @@ async function executarPesquisa(termo) {
                 const dataArtigo = artigoCompleto.meta.date || '';
                 const metaInfo = dataArtigo ? `${catLabel} • ${dataArtigo}` : catLabel;
 
-                // Miniatura idêntica à da página inicial
                 const thumbnailHtml = artigoCompleto.meta.image ? `
                     <div style="margin-bottom: 12px; overflow: hidden; border-radius: 2px;">
                         <img src="${artigoCompleto.meta.image}" alt="${artigoCompleto.meta.title}" style="width: 100%; height: 160px; object-fit: cover; display: block;">
@@ -264,23 +263,6 @@ async function executarPesquisa(termo) {
                             <span class="entry-meta">${metaInfo}</span>
                             <h3>${artigoCompleto.meta.title}</h3>
                             <p>${artigoCompleto.meta.summary || ''}</p>
-                        </div>
-                    </a>
-                `;
-            } else {
-                // Fallback robusto caso o artigo não seja encontrado no carregamento completo
-                const linkUrl = `index.html?artigo=${slugItem}`;
-                const catLabel = (item.category || '').toUpperCase();
-                const tituloLimpo = item.title.replace(/^[0-9]+_/, '').replace(/\.md$/, '').replace(/[-_]/g, ' ');
-                const tituloFormatado = String(tituloLimpo).charAt(0).toUpperCase() + String(tituloLimpo).slice(1);
-                const sumarioTexto = item.summary || item.content.substring(0, 140) + '...';
-
-                htmlOutput += `
-                    <a href="${linkUrl}" class="entry-card-link">
-                        <div class="entry-card">
-                            <span class="entry-meta">${catLabel}</span>
-                            <h3>${tituloFormatado}</h3>
-                            <p>${sumarioTexto}</p>
                         </div>
                     </a>
                 `;
@@ -319,7 +301,10 @@ async function router() {
         return;
     }
 
-    const artigos = await carregarTodosArtigos();
+    // Se estamos na Home, usamos o manifesto leve para máxima velocidade.
+    // Se estamos a abrir um artigo ou secção, carregamos o manifesto completo (true).
+    const isHome = !seccaoParam && !artigoParam;
+    const artigos = await carregarArtigos(!isHome);
 
     if (artigoParam) {
         viewHome.style.display = 'none';
@@ -329,7 +314,6 @@ async function router() {
         if (artigo) {
             const dataArtigo = artigo.meta.date || '';
             
-            // Renderização opcional da imagem de destaque no topo do artigo
             const imagemDestaqueHtml = artigo.meta.image ? `
                 <div style="margin: 25px 0; border-radius: 4px; overflow: hidden;">
                     <img src="${artigo.meta.image}" alt="${artigo.meta.title}" style="width: 100%; max-height: 450px; object-fit: cover; display: block;">
