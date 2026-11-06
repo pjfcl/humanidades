@@ -1,4 +1,4 @@
-;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Tags
+;; Script Chez Scheme Definitivo para Varredura Recursiva e Geração de Manifesto Duplo com Tags (Inline e Listas)
 ;; Scriptorium Digital - paulolopes.org
 (import (chezscheme))
 
@@ -47,14 +47,67 @@
                     (else val)))
                 (find-val (cdr lst))))))))
 
-;; Extractor simplificado e seguro de tags (suporta tags inline e primeiras linhas de listas)
+;; Extractor robusto de tags (suporta formato inline e listas multilinhas com hifens)
 (define (extract-tags content)
   (let* ((clean (strip-cr content))
-         (tag-val (extract-yaml-key clean "tags")))
-    (if tag-val
-        tag-val
-        (let ((single-tag (extract-yaml-key clean "tag")))
-          (if single-tag single-tag "")))))
+         (lines (let loop ((str clean) (line '()) (acc '()))
+                  (if (string=? str "")
+                      (reverse (cons (list->string (reverse line)) acc))
+                      (let ((c (string-ref str 0))
+                            (rest (substring str 1 (string-length str))))
+                        (if (char=? c #\newline)
+                            (loop rest '() (cons (list->string (reverse line)) acc))
+                            (loop rest (cons c line) acc)))))))
+    (let loop ((lst lines) (collecting? #f) (acc '()))
+      (if (null? lst)
+          (string-join (reverse acc) ", ")
+          (let* ((raw (car lst))
+                 (trimmed (string-trim-both raw)))
+            (cond
+              ;; Se detetarmos "tags:" ou "tag:" sozinhos na linha
+              ((or (string=? trimmed "tags:")
+                   (string=? trimmed "tag:"))
+               (loop (cdr lst) #t acc))
+              ;; Se detetarmos uma tag inline (ex: tags: aforismos)
+              ((and (not collecting?)
+                    (or (and (>= (string-length trimmed) 5) (string=? (substring trimmed 0 5) "tags:"))
+                        (and (>= (string-length trimmed) 4) (string=? (substring trimmed 0 4) "tag:"))))
+               (let* ((prefix-len (if (string=? (substring trimmed 0 5) "tags:") 5 4))
+                      (val (string-trim-both (substring trimmed prefix-len (string-length trimmed)))))
+                 (if (> (string-length val) 0)
+                     (loop (cdr lst) #f (cons val acc))
+                     (loop (cdr lst) #t acc))))
+              ;; Se estamos a recolher itens de lista com "-"
+              (collecting?
+               (cond
+                 ;; Se a linha começa com "-", extraímos o valor
+                 ((and (> (string-length trimmed) 0) (char=? (string-ref trimmed 0) #\-))
+                  (let* ((item (string-trim-both (substring trimmed 1 (string-length trimmed))))
+                         ;; limpar aspas se existirem
+                         (clean-item (let ((len (string-length item)))
+                                       (cond
+                                         ((and (> len 1)
+                                               (or (and (char=? (string-ref item 0) #\") (char=? (string-ref item (- len 1)) #\"))
+                                                   (and (char=? (string-ref item 0) #\') (char=? (string-ref item (- len 1)) #\'))))
+                                          (substring item 1 (- len 1)))
+                                         (else item)))))
+                    (loop (cdr lst) #t (cons clean-item acc))))
+                 ;; Se a linha está vazia, continuamos a recolher
+                 ((string=? trimmed "")
+                  (loop (cdr lst) #t acc))
+                 ;; Se encontramos outra chave, paramos a recolha e retornamos
+                 (else
+                  (string-join (reverse acc) ", "))))
+              (else
+               (loop (cdr lst) collecting? acc))))))))
+
+(define (string-join lst delimiter)
+  (if (null? lst)
+      ""
+      (let loop ((rest (cdr lst)) (acc (car lst)))
+        (if (null? rest)
+            acc
+            (loop (cdr rest) (string-append acc delimiter (car rest)))))))
 
 (define (string-trim-both s)
   (let* ((len (string-length s))
@@ -158,7 +211,7 @@
                   (loop (cdr lst) #f))))
           (fprintf p "\n  ]\n}\n"))
         'replace)
-      (printf "manifest-all.json gerado com sucesso!\n")
+      (printf "manifest-all.json gerado com sucesso com tags completas!\n")
 
       (let* ((categories (get-unique-categories sorted-entries))
              (light-entries
