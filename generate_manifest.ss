@@ -45,7 +45,7 @@
                               (and (char=? (string-ref val 0) #\') (char=? (string-ref val (- len 1)) #\'))))
                      (substring val 1 (- len 1)))
                     (else val)))
-                (find-val (cdr lst))))))))
+                (find-val (cdr lst)))))))))
 
 (define (extract-tags content)
   (let* ((clean-content (strip-cr content))
