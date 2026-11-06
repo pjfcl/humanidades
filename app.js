@@ -55,20 +55,15 @@ function resolverImagemUrl(imagemMeta) {
     return resolverUrl(`assets/img/${imagemMeta}`);
 }
 
-// Carrega os artigos com base no manifesto escolhido (leve para home, completo para arquivo/pesquisa/secções)
-async function carregarArtigos(completo = false) {
+// Carrega os artigos com base no manifesto escolhido estritamente conforme o contexto
+async function carregarArtigos(manifestoAlvo = 'manifest.json') {
     let artigos = [];
-    const targetManifest = completo ? 'manifest-all.json' : 'manifest.json';
 
     try {
-        const manifestUrl = resolverUrl(targetManifest);
+        const manifestUrl = resolverUrl(manifestoAlvo);
         const manifestRes = await fetch(manifestUrl);
         
-        // Fallback defensivo caso o manifesto leve falhe e tente o all
-        if (!manifestRes.ok && !completo) {
-            return await carregarArtigos(true);
-        }
-        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar ${targetManifest}`);
+        if (!manifestRes.ok) throw new Error(`HTTP ${manifestRes.status} ao carregar ${manifestoAlvo}`);
         
         const manifestData = await manifestRes.json();
         const entradas = manifestData.artigos || [];
@@ -90,17 +85,21 @@ async function carregarArtigos(completo = false) {
                     
                     const imagemRaw = parsed.meta.image || parsed.meta.cover || parsed.meta.thumbnail || '';
                     const imagemFormatada = resolverImagemUrl(imagemRaw);
+                    
+                    const categoriaDetectada = parsed.meta.category || parsed.meta.type || item.category || item.section;
 
                     artigos.push({
                         path: item.path,
                         slug: item.slug,
-                        section: item.section.toLowerCase(),
+                        section: (item.section || '').toLowerCase(),
+                        category: (categoriaDetectada || '').toLowerCase(),
                         meta: {
                             ...parsed.meta,
                             title: tituloFormatado,
                             date: dataRaw,
                             summary: sumarioRaw,
-                            image: imagemFormatada
+                            image: imagemFormatada,
+                            category: categoriaDetectada
                         },
                         content: parsed.content
                     });
@@ -110,7 +109,7 @@ async function carregarArtigos(completo = false) {
             }
         }
     } catch (e) {
-        console.error(`[Scriptorium] Erro crítico ao carregar ${targetManifest}:`, e);
+        console.error(`[Scriptorium] Erro crítico ao carregar ${manifestoAlvo}:`, e);
     }
 
     artigos.sort((a, b) => {
@@ -131,25 +130,13 @@ async function renderizarCapa(artigos) {
         return;
     }
 
-    // Filtragem robusta por Categoria e Secção (YAML frontmatter, tipo ou pasta)
-    const sementes = artigos.filter(a => {
-        const cat = (a.meta.category || a.meta.type || a.section || '').toLowerCase();
-        return cat.includes('semente');
-    });
-
-    const colheitas = artigos.filter(a => {
-        const cat = (a.meta.category || a.meta.type || a.section || '').toLowerCase();
-        return cat.includes('colheita') || (a.section === 'corpus' && !cat.includes('semente') && !cat.includes('tintura'));
-    });
-
-    const tinturas = artigos.filter(a => {
-        const cat = (a.meta.category || a.meta.type || a.section || '').toLowerCase();
-        return cat.includes('tintura') || cat.includes('ficcao');
-    });
-
-    const escola = artigos.filter(a => a.section === 'escola' || (a.meta.category || '').toLowerCase().includes('escola'));
-    const oficina = artigos.filter(a => a.section === 'oficina' || (a.meta.category || '').toLowerCase().includes('oficina'));
-    const sobre = artigos.filter(a => a.section === 'sobre' || (a.meta.category || '').toLowerCase().includes('sobre'));
+    // Filtragem por categoria ou secção com base no manifesto leve (manifest.json)
+    const sementes = artigos.filter(a => a.category.includes('semente'));
+    const colheitas = artigos.filter(a => a.category.includes('colheita') || (a.section === 'corpus' && !a.category.includes('semente') && !a.category.includes('tintura')));
+    const tinturas = artigos.filter(a => a.category.includes('tintura') || a.category.includes('ficcao'));
+    const escola = artigos.filter(a => a.section === 'escola' || a.category.includes('escola'));
+    const oficina = artigos.filter(a => a.section === 'oficina' || a.category.includes('oficina'));
+    const sobre = artigos.filter(a => a.section === 'sobre' || a.category.includes('sobre'));
 
     const escolhidos = [];
     const slugsUsados = new Set();
@@ -220,6 +207,7 @@ async function executarPesquisa(termo) {
     `;
 
     try {
+        // Leitura dedicada do search-index.json para pesquisa
         const res = await fetch(resolverUrl('search-index.json'));
         if (!res.ok) throw new Error("Não foi possível carregar o índice de pesquisa.");
         
@@ -251,7 +239,8 @@ async function executarPesquisa(termo) {
             return;
         }
 
-        const todosArtigos = await carregarArtigos(true);
+        // Para hidratar os resultados da pesquisa, recorre ao manifesto completo (manifest-all.json)
+        const todosArtigos = await carregarArtigos('manifest-all.json');
 
         let htmlOutput = '';
         filtradosIndex.forEach(item => {
@@ -315,7 +304,10 @@ async function router() {
     }
 
     const isHome = !seccaoParam && !artigoParam;
-    const artigos = await carregarArtigos(!isHome);
+
+    // Regra de selecção do manifesto: manifest.json na Home, manifest-all.json nas restantes situações
+    const manifestoSelecionado = isHome ? 'manifest.json' : 'manifest-all.json';
+    const artigos = await carregarArtigos(manifestoSelecionado);
 
     if (artigoParam) {
         viewHome.style.display = 'none';
