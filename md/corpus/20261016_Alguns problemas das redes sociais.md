@@ -19,13 +19,13 @@ As redes sociais são reflexo da sociedade actual. Hoje, o meio de produção cu
 
 As grandes corporações tecnológicas (*big tech* - Google, Apple, Microsoft, Amazon, Meta, etc.) mantêm o controlo dos meios de produção tanto através da implementação do modelo de organização laboral como pela logística com que difundem essas mensagens. Ou seja, elas seleccionam quais mensagens são transmitidas bem como, quando e para quem elas se destinam. Isto através do chamado algoritmo. Assim, se a produção se espalhou pelas ruas, o controlo dos meios de distribuição continua concentrado nas mãos da burguesia tecnológica — os donos dos servidores, das redes e das infraestruturas. Acima de tudo, dos algoritmos. As elites serializam, processam e cronometram o fluxo das mensagens. É o capital quem decide o que é transmitido, quando, como e para quem.
 
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/10/1791168290313.jpg?w=1024)
+![](assets/img/redes2.jpg
 
-Devido à dinâmica actual, a recepção dessas mensagens é feita sem muito tempo disponível para reflectir, o que resulta numa mensagem consumida sem processamento crítico. Um catálogo de estímulos é-nos apresentado de forma vertiginosa, usualmente durante o nosso período de ócio. Isso não dá tempo, por um lado, de nos afastarmos do período laboral nem, por outro lado, espaço para contemplar e reflectir. O sistema coloniza o momento em que deveríamos estar a recuperar as forças, a contemplar o mundo ou a silenciar a mente. A exaustão do trabalho produtivo estende-se, sem interrupção, ao tempo de descanso.
+Devido à dinâmica actual, a recepção dessas mensagens é feita sem muito tempo disponível para reflectir, o que resulta numa mensagem consumida sem processamento crítico. Um catálogo de estímulos é-nos apresentado de forma vertiginosa, usualmente durante o nosso período de ócio. Isso não dá tempo, por um lado, de n)os afastarmos do período laboral nem, por outro lado, espaço para contemplar e reflectir. O sistema coloniza o momento em que deveríamos estar a recuperar as forças, a contemplar o mundo ou a silenciar a mente. A exaustão do trabalho produtivo estende-se, sem interrupção, ao tempo de descanso.
 
 O capitalismo tardio caracteriza-se pela dissolução das fronteiras entre o tempo de trabalho e o tempo de descanso. Ao extrair mais-valia da atenção do utilizador no seu tempo de ócio, o sistema transforma o cidadão num "trabalhador não remunerado". Enquanto as redes sociais e os produtos digitais operam uma *desencarnação* — abstraem o corpo, fragmentam a atenção e convertem a experiência humana num fluxo contínuo de dados consumidos de forma passiva —, a indústria cultural explora a vulnerabilidade do ego: a necessidade de validação externa, o medo da exclusão e a incapacidade de tolerar o vazio. O algoritmo alimenta-se da ansiedade e da exaustão.
 
-![](https://scriptoriumdigitalorgdomainonly.wordpress.com/wp-content/uploads/2026/10/1791168048266.jpg?w=1024)
+![](assets/img/redes2.jpg)
 
 A resposta perante este estado de coisas não passa por uma escolha simplista entre o **pessimismo paralisante** (aceitar que somos meros joguetes do algoritmo) ou o **voluntarismo ingénuo** (acreditar que basta "desligar o telemóvel" para ficar a salvo do sistema).
 
