@@ -9,12 +9,12 @@
       "slug": "20261102_Memorias_da_Plantacao"
     },
     {
-      "path": "/md/sobre/20261029_new.md",
+      "path": "/md/sobre/20261029_intro.md",
       "section": "sobre",
       "subfolder": "",
       "category": "sobre",
       "tags": "",
-      "slug": "20261029_new"
+      "slug": "20261029_intro"
     },
     {
       "path": "/md/escola/20261026_A_semana_de_trabalho.md",
@@ -391,6 +391,22 @@
       "category": "colheita",
       "tags": "feminismo, humanidades, lieratura africana, poesia",
       "slug": "20230614_O Sangue Negro de Noémia de Sousa"
+    },
+    {
+      "path": "/md/escola/EstudosLiterarios/20190809_Modos de Discurso e Géneros Literários.md",
+      "section": "escola",
+      "subfolder": "EstudosLiterarios",
+      "category": "",
+      "tags": "estudos literários, humanidades",
+      "slug": "20190809_Modos de Discurso e Géneros Literários"
+    },
+    {
+      "path": "/md/escola/EstudosLiterarios/20190809_Geração Literária e Ideologia.md",
+      "section": "escola",
+      "subfolder": "EstudosLiterarios",
+      "category": "colheita",
+      "tags": "estudos literários, humanidades",
+      "slug": "20190809_Geração Literária e Ideologia"
     },
     {
       "path": "/md/corpus/colheita/20151227_FrankLloydWright.md",
