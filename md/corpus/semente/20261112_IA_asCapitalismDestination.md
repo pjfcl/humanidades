@@ -4,6 +4,7 @@ date: 12-11-2026
 author: "Paulo" 
 categhory: "semente" 
 tags: "citação" 
+summary: "Citação de Arundhati Roy na revista equator." 
 ---
 
 > "Artificial intelligence is capitalism’s final destination" - Arundhati Roy
